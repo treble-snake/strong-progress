@@ -1,10 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import csvToJson from 'convert-csv-to-json';
-import { ProgressStatus } from '../types';
+import {ProgressStatus} from '../types';
+import { addDays, parseISO, isAfter, format } from 'date-fns';
 
 // filter out Excercise groups with less than 3 sets
 const TOTAL_SETS_THRESHOLD = 3;
+// Define the active period threshold (14 days)
+const ACTIVE_DAYS_THRESHOLD = 14;
 
 // Define the type for raw workout data based on the CSV structure
 interface RawWorkoutData {
@@ -61,18 +64,41 @@ function performanceChangeToSymbol(change: PerformanceChange): string {
 }
 
 // Helper function to determine progress status from recent performance
-function determineProgressStatus(performanceHistory: PerformanceChange[]): ProgressStatus {
-  // Analyze the last 4 performance changes (or fewer if not enough data)
-  const recent = performanceHistory.slice(-4);
+function determineProgressStatus(
+  performanceHistory: PerformanceChange[],
+  recentCount: number = 5
+): ProgressStatus {
+  if (performanceHistory.length <= 0) {
+    return ProgressStatus.NeedsAttention;
+  }
+
+  const lastTwo = performanceHistory.slice(-2);
+  if (lastTwo.every(p => p === PerformanceChange.Increase)) {
+    return ProgressStatus.Progressing;
+  }
+  if (lastTwo.every(p => p === PerformanceChange.Decrease)) {
+    return ProgressStatus.Regressing;
+  }
+  const lastThree = performanceHistory.slice(-3);
+  if (lastThree.every(p => p === PerformanceChange.NoChange)) {
+    return ProgressStatus.Plateaued;
+  }
+
+  const last = performanceHistory[performanceHistory.length - 1];
+
+  // Analyze the last 5 performance changes (or fewer if not enough data)
+  const recent = performanceHistory.slice(-recentCount);
 
   const inc = recent.filter(p => p === PerformanceChange.Increase).length;
   const dec = recent.filter(p => p === PerformanceChange.Decrease).length;
   const no = recent.filter(p => p === PerformanceChange.NoChange).length;
 
-  if (recent.length === 0) return ProgressStatus.Progressing;
-
   // If most are increases, progressing well
-  if (inc >= 2 && inc > dec) return ProgressStatus.Progressing;
+  if (inc >= 2 && inc > dec) {
+    return last === PerformanceChange.Decrease ?
+      ProgressStatus.NeedsAttention :
+      ProgressStatus.Progressing;
+  }
 
   // If mostly no change, but not all, slightly stagnated
   if (no >= 2 && inc === 0 && dec <= 1) return ProgressStatus.NeedsAttention;
@@ -91,7 +117,10 @@ function determineProgressStatus(performanceHistory: PerformanceChange[]): Progr
 function comparePerformance(
   currentExercises: WorkoutData[],
   previousExercises: WorkoutData[]
-): { topSetPerformance: PerformanceChange; overallPerformance: PerformanceChange } {
+): {
+  topSetPerformance: PerformanceChange;
+  overallPerformance: PerformanceChange
+} {
   // For the first day or if missing data, return "No Change"
   if (!previousExercises || !currentExercises || previousExercises.length === 0 || currentExercises.length === 0) {
     return {
@@ -134,7 +163,7 @@ function comparePerformance(
       setIndex < sortedCurrentExercises.length &&
       setIndex < sortedPreviousExercises.length &&
       allSetsIdentical
-    ) {
+      ) {
       const currentSet = sortedCurrentExercises[setIndex];
       const previousSet = sortedPreviousExercises[setIndex];
 
@@ -149,7 +178,7 @@ function comparePerformance(
     }
   }
 
-  return { topSetPerformance, overallPerformance };
+  return {topSetPerformance, overallPerformance};
 }
 
 // Helper function to compare two exercise sets
@@ -166,9 +195,9 @@ function compareExerciseSets(currentSet: WorkoutData, previousSet: WorkoutData):
 
   // Handle zero or invalid values
   if (
-    currentWeight === undefined || 
-    previousWeight === undefined || 
-    currentReps === undefined || 
+    currentWeight === undefined ||
+    previousWeight === undefined ||
+    currentReps === undefined ||
     previousReps === undefined ||
     previousReps === 0
   ) {
@@ -211,6 +240,8 @@ interface GroupedWorkoutData {
   label: string; // Format: "{exerciseName} ({workoutName})"
   dateGroups: Record<string, DateGroupedWorkoutData>; // Grouped by date
   progressStatus?: ProgressStatus;
+  isActive: boolean; // Whether the exercise was performed in the last two weeks
+  lastPerformedDate: string; // Date the exercise was last performed
 }
 
 // Function to normalize workout names
@@ -294,6 +325,10 @@ function parseCSVToJSON(): GroupedWorkoutData[] {
       groupedData[exerciseWorkoutKey][isoDate].push(record);
     });
 
+    // Get the current date to determine active/inactive status
+    const currentDate = new Date();
+    const twoWeeksAgo = addDays(currentDate, -ACTIVE_DAYS_THRESHOLD);
+
     // Convert the grouped data to an array of GroupedWorkoutData
     const result: GroupedWorkoutData[] = Object.entries(groupedData).map(([key, dateGroups]) => {
       const [exerciseName, workoutName] = key.split('|');
@@ -345,10 +380,18 @@ function parseCSVToJSON(): GroupedWorkoutData[] {
       // Determine progress status for this group
       const progressStatus = determineProgressStatus(performanceHistory);
 
+      const lastPerformedDate = sortedDates.length > 0 ? sortedDates[sortedDates.length - 1] : "";
+
+      // Determine if this is an active exercise (performed within the last two weeks)
+      const isActive = sortedDates.length > 0 && 
+        isAfter(parseISO(lastPerformedDate), twoWeeksAgo);
+
       return {
         label: `${exerciseName} (${workoutName})`,
         dateGroups: formattedDateGroups,
-        progressStatus
+        progressStatus,
+        isActive,
+        lastPerformedDate
       };
     });
 
@@ -366,7 +409,39 @@ function parseCSVToJSON(): GroupedWorkoutData[] {
     console.log(`Filtered out ${filteredArray.length - filteredZeroArray.length} records with 0 reps, distance, and seconds`);
     console.log(`Grouped into ${result.length} exercise groups`);
     console.log(`Filtered out ${result.length - filteredResult.length} groups with <= ${TOTAL_SETS_THRESHOLD} entries`);
-    return filteredResult;
+
+    // Sort the workout data:
+    // 1. First by active status (active first)
+    // 2. Then by progress status priority for active lifts
+    // 3. Then by lastPerformedDate (descending) for history lifts
+    const sortedWorkoutData = [...filteredResult].sort((a, b) => {
+      // First sort by active status (active first)
+      if (a.isActive !== b.isActive) {
+        return a.isActive ? -1 : 1;
+      }
+      
+      // For active lifts, sort by progress status
+      if (a.isActive) {
+        return getProgressStatusPriority(a.progressStatus) - getProgressStatusPriority(b.progressStatus);
+      }
+      
+      // For history lifts, sort by last performed date (most recent first)
+      return new Date(b.lastPerformedDate).getTime() - new Date(a.lastPerformedDate).getTime();
+    });
+
+    // Save the sorted JSON data to a file in the tmp/ folder
+    const outputFilePath = path.join(__dirname, '../../tmp/parsed-workout-data.json');
+    fs.writeFileSync(outputFilePath, JSON.stringify(sortedWorkoutData, null, 2));
+    
+    // Count active and history exercises for logging
+    const activeCount = sortedWorkoutData.filter(item => item.isActive).length;
+    const historyCount = sortedWorkoutData.length - activeCount;
+    
+    console.log(`\nSaved workout data to ${outputFilePath}`);
+    console.log(`Active exercises: ${activeCount}`);
+    console.log(`History exercises: ${historyCount}`);
+    
+    return sortedWorkoutData;
   } catch (error) {
     console.error('Error parsing CSV file:', error);
     return [];
@@ -408,10 +483,29 @@ function displayPerformanceResults(groupedWorkoutData: GroupedWorkoutData[]): vo
   });
 }
 
+// Helper function to get priority of progress status for sorting
+function getProgressStatusPriority(status?: ProgressStatus): number {
+  switch (status) {
+    case ProgressStatus.Regressing:
+      return 1; // Show first
+    case ProgressStatus.Plateaued:
+      return 2;
+    case ProgressStatus.NeedsAttention:
+      return 3;
+    case ProgressStatus.Progressing:
+      return 4; // Show last
+    default:
+      return 5;
+  }
+}
+
 // Main function
 function main() {
   const groupedWorkoutData = parseCSVToJSON();
-
+  
+  // The sortedWorkoutData is already properly sorted in the parseCSVToJSON function,
+  // so we don't need to sort it again here.
+  
   if (groupedWorkoutData.length > 0) {
     // Display all top-level groups
     console.log('\nAll exercise groups:');
@@ -481,10 +575,10 @@ function main() {
     // Display performance results in the required format
     displayPerformanceResults(groupedWorkoutData);
 
-    // Save the filtered JSON data to a file in the tmp/ folder
+    // Save the sorted JSON data to a file in the tmp/ folder
     const outputFilePath = path.join(__dirname, '../../tmp/parsed-workout-data.json');
     fs.writeFileSync(outputFilePath, JSON.stringify(groupedWorkoutData, null, 2));
-    console.log(`\nSaved filtered workout data to ${outputFilePath}`);
+    console.log(`\nSaved sorted workout data to ${outputFilePath} (ordered by progress status)`);
   } else {
     console.log('No workout data found');
   }

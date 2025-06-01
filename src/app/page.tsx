@@ -1,17 +1,8 @@
 'use client';
 import React, {useEffect, useState} from 'react';
-import {Card, Flex, Spin, Tag, theme, Timeline, Typography} from 'antd';
-import {
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-  MinusCircleOutlined,
-  QuestionCircleOutlined,
-  ArrowUpOutlined,
-  ArrowDownOutlined,
-  PauseOutlined,
-  MinusOutlined, WarningOutlined, FlagOutlined
-} from '@ant-design/icons';
-import { ProgressStatus } from '../types';
+import {Divider, Flex, Spin, Typography} from 'antd';
+import { LiftCard } from '@/components/LiftCard';
+import {ProgressStatus} from '@/types';
 
 const {Title, Text} = Typography;
 
@@ -42,27 +33,13 @@ interface ExerciseData {
     [key: string]: DateGroup;
   };
   progressStatus?: ProgressStatus;
+  isActive: boolean;
+  lastPerformedDate: string;
 }
-
-const getProgressStatusIcon = (status?: ProgressStatus) => {
-  switch (status) {
-    case ProgressStatus.Progressing:
-      return <ArrowUpOutlined style={{color: 'green', marginRight: 8}} />;
-    case ProgressStatus.NeedsAttention:
-      return <FlagOutlined style={{color: 'orange', marginRight: 8}} />;
-    case ProgressStatus.Plateaued:
-      return <WarningOutlined style={{color: 'gold', marginRight: 8}} />;
-    case ProgressStatus.Regressing:
-      return <ArrowDownOutlined style={{color: 'red', marginRight: 8}} />;
-    default:
-      return <Tag>{status}</Tag>;
-  }
-};
 
 export default function Home() {
   const [workoutData, setWorkoutData] = useState<ExerciseData[]>([]);
   const [loading, setLoading] = useState(true);
-  const {token} = theme.useToken();
 
   useEffect(() => {
     async function fetchData() {
@@ -80,31 +57,9 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const getPerformanceColor = (performance: string) => {
-    switch (performance) {
-      case 'Increase':
-        return 'green';
-      case 'Decrease':
-        return 'red';
-      case 'No Change':
-        return 'orange';
-      default:
-        return 'gray';
-    }
-  };
-
-  const getPerformanceIcon = (performance: string) => {
-    switch (performance) {
-      case 'Increase':
-        return <CheckCircleOutlined style={{color: 'green'}}/>;
-      case 'Decrease':
-        return <CloseCircleOutlined style={{color: 'red'}}/>;
-      case 'No Change':
-        return <MinusCircleOutlined style={{color: 'orange'}}/>;
-      default:
-        return <QuestionCircleOutlined style={{color: 'gray'}}/>;
-    }
-  };
+  // Separate active and history lifts
+  const activeLifts = workoutData.filter(exercise => exercise.isActive);
+  const historyLifts = workoutData.filter(exercise => !exercise.isActive);
 
   return (
     <>
@@ -113,51 +68,32 @@ export default function Home() {
       {loading ? (
         <Spin size="large" fullscreen={true}/>
       ) : (
-        <Flex style={{width: '100%'}} wrap="wrap" justify="start">
-          {workoutData.map((exercise, index) => (
-            <Card
-              key={index}
-              title={
-                <span>
-                  {getProgressStatusIcon(exercise.progressStatus)}
-                  {exercise.label}
-                </span>
-              }
-              style={{marginRight: 8, marginBottom: 8, flex: '1 1 300px'}}
-            >
-              <Timeline
-                mode="left"
-                items={Object.values(exercise.dateGroups)
-                  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-                  .map((dateGroup) => ({
-                    color: getPerformanceColor(dateGroup.overallPerformance),
-                    label: dateGroup.date,
-                    children: (
-                      <div>
-                        <Text strong style={{
-                          color: getPerformanceColor(dateGroup.overallPerformance),
-                          marginBottom: '4px',
-                          display: 'block'
-                        }}>
-                          {dateGroup.overallPerformance}
-                        </Text>
-                        <div style={{
-                          marginTop: '4px',
-                          color: token.colorBgContainer === '#ffffff'
-                            ? 'rgba(0, 0, 0, 0.65)'
-                            : 'rgba(255, 255, 255, 0.65)'
-                        }}>
-                          <Text>Top Set: {dateGroup.exercises[0].weight}kg
-                            × {dateGroup.exercises[0].reps} reps</Text>
-                        </div>
-                      </div>
-                    ),
-                    dot: getPerformanceIcon(dateGroup.overallPerformance)
-                  }))}
-              />
-            </Card>
-          ))}
-        </Flex>
+        <>
+          {/* Active Lifts Section */}
+          <Title level={3}>Active Lifts ({activeLifts.length})</Title>
+          <Flex style={{width: '100%'}} wrap="wrap" justify="start">
+            {activeLifts.map((exercise, index) => (
+              <LiftCard key={`active-${index}`} exercise={exercise} />
+            ))}
+          </Flex>
+
+          {historyLifts.length > 0 && (
+            <>
+              <Divider style={{ margin: '32px 0 16px' }} />
+              
+              {/* History Lifts Section */}
+              <Title level={3}>History ({historyLifts.length})</Title>
+              <Text type="secondary" style={{ marginBottom: 16, display: 'block' }}>
+                Exercises not performed in the last 14 days
+              </Text>
+              <Flex style={{width: '100%'}} wrap="wrap" justify="start">
+                {historyLifts.map((exercise, index) => (
+                  <LiftCard key={`history-${index}`} exercise={exercise} />
+                ))}
+              </Flex>
+            </>
+          )}
+        </>
       )}
     </>
   );
