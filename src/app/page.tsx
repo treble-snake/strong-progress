@@ -1,6 +1,6 @@
 'use client';
 import React, {useEffect, useState} from 'react';
-import {Divider, Flex, Spin, Typography} from 'antd';
+import {Divider, Flex, Select, Spin, Typography} from 'antd';
 import { LiftCard } from '@/components/LiftCard';
 import {ProgressStatus} from '@/types';
 
@@ -40,6 +40,7 @@ interface ExerciseData {
 export default function Home() {
   const [workoutData, setWorkoutData] = useState<ExerciseData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedLifts, setSelectedLifts] = useState<string[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -57,13 +58,42 @@ export default function Home() {
     fetchData();
   }, []);
 
-  // Separate active and history lifts
-  const activeLifts = workoutData.filter(exercise => exercise.isActive);
-  const historyLifts = workoutData.filter(exercise => !exercise.isActive);
+  // Get all unique lift names for the select options
+  const liftOptions = workoutData
+    .map(exercise => ({
+      label: exercise.label,
+      value: exercise.label
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
+
+  // Filter workout data based on selected lifts
+  const filterWorkoutData = (data: ExerciseData[]) => {
+    if (selectedLifts.length === 0) {
+      return data; // Show all if nothing selected
+    }
+    return data.filter(exercise => selectedLifts.includes(exercise.label));
+  };
+
+  // Separate active and history lifts after filtering
+  const filteredWorkoutData = filterWorkoutData(workoutData);
+  const activeLifts = filteredWorkoutData.filter(exercise => exercise.isActive);
+  const historyLifts = filteredWorkoutData.filter(exercise => !exercise.isActive);
 
   return (
     <>
       <Title level={2}>Progress Analysis</Title>
+      
+      {/* Lift filter select */}
+      <Select
+        mode="multiple"
+        allowClear
+        style={{ width: '100%', marginBottom: 16 }}
+        placeholder="Filter by lift (show all if none selected)"
+        value={selectedLifts}
+        onChange={setSelectedLifts}
+        options={liftOptions}
+        maxTagCount={5}
+      />
 
       {loading ? (
         <Spin size="large" fullscreen={true}/>

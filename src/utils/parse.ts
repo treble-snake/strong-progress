@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import csvToJson from 'convert-csv-to-json';
 import {ProgressStatus} from '../types';
-import { addDays, parseISO, isAfter, format } from 'date-fns';
+import {addDays, isAfter, parseISO} from 'date-fns';
 
 // filter out Excercise groups with less than 3 sets
 const TOTAL_SETS_THRESHOLD = 3;
@@ -84,32 +84,16 @@ function determineProgressStatus(
     return ProgressStatus.Plateaued;
   }
 
-  const last = performanceHistory[performanceHistory.length - 1];
-
-  // Analyze the last 5 performance changes (or fewer if not enough data)
   const recent = performanceHistory.slice(-recentCount);
-
   const inc = recent.filter(p => p === PerformanceChange.Increase).length;
   const dec = recent.filter(p => p === PerformanceChange.Decrease).length;
-  const no = recent.filter(p => p === PerformanceChange.NoChange).length;
 
-  // If most are increases, progressing well
-  if (inc >= 2 && inc > dec) {
-    return last === PerformanceChange.Decrease ?
-      ProgressStatus.NeedsAttention :
-      ProgressStatus.Progressing;
+  if (inc === 0) {
+    return dec > 0 ?
+      ProgressStatus.Regressing :
+      ProgressStatus.Plateaued;
   }
 
-  // If mostly no change, but not all, slightly stagnated
-  if (no >= 2 && inc === 0 && dec <= 1) return ProgressStatus.NeedsAttention;
-
-  // If all or almost all are no change, plateaued
-  if (no >= 3 && inc === 0 && dec === 0) return ProgressStatus.Plateaued;
-
-  // If more decreases than increases, regressing
-  if (dec >= 2 && dec > inc) return ProgressStatus.Regressing;
-
-  // Default: slightly stagnated
   return ProgressStatus.NeedsAttention;
 }
 
@@ -383,7 +367,7 @@ function parseCSVToJSON(): GroupedWorkoutData[] {
       const lastPerformedDate = sortedDates.length > 0 ? sortedDates[sortedDates.length - 1] : "";
 
       // Determine if this is an active exercise (performed within the last two weeks)
-      const isActive = sortedDates.length > 0 && 
+      const isActive = sortedDates.length > 0 &&
         isAfter(parseISO(lastPerformedDate), twoWeeksAgo);
 
       return {
@@ -419,12 +403,12 @@ function parseCSVToJSON(): GroupedWorkoutData[] {
       if (a.isActive !== b.isActive) {
         return a.isActive ? -1 : 1;
       }
-      
+
       // For active lifts, sort by progress status
       if (a.isActive) {
         return getProgressStatusPriority(a.progressStatus) - getProgressStatusPriority(b.progressStatus);
       }
-      
+
       // For history lifts, sort by last performed date (most recent first)
       return new Date(b.lastPerformedDate).getTime() - new Date(a.lastPerformedDate).getTime();
     });
@@ -432,15 +416,15 @@ function parseCSVToJSON(): GroupedWorkoutData[] {
     // Save the sorted JSON data to a file in the tmp/ folder
     const outputFilePath = path.join(__dirname, '../../tmp/parsed-workout-data.json');
     fs.writeFileSync(outputFilePath, JSON.stringify(sortedWorkoutData, null, 2));
-    
+
     // Count active and history exercises for logging
     const activeCount = sortedWorkoutData.filter(item => item.isActive).length;
     const historyCount = sortedWorkoutData.length - activeCount;
-    
+
     console.log(`\nSaved workout data to ${outputFilePath}`);
     console.log(`Active exercises: ${activeCount}`);
     console.log(`History exercises: ${historyCount}`);
-    
+
     return sortedWorkoutData;
   } catch (error) {
     console.error('Error parsing CSV file:', error);
@@ -502,10 +486,10 @@ function getProgressStatusPriority(status?: ProgressStatus): number {
 // Main function
 function main() {
   const groupedWorkoutData = parseCSVToJSON();
-  
+
   // The sortedWorkoutData is already properly sorted in the parseCSVToJSON function,
   // so we don't need to sort it again here.
-  
+
   if (groupedWorkoutData.length > 0) {
     // Display all top-level groups
     console.log('\nAll exercise groups:');

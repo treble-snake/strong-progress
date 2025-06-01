@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {Button, Card, Tag, Timeline, Typography} from 'antd';
+import {Button, Card, Popover, Tag, Timeline, Typography} from 'antd';
 import {
   ArrowDownOutlined,
   ArrowUpOutlined,
   CheckCircleOutlined,
   CloseCircleOutlined,
   EyeOutlined,
+  InfoCircleOutlined,
   MinusCircleOutlined,
   QuestionCircleOutlined,
   WarningOutlined
@@ -13,7 +14,7 @@ import {
 import {ProgressStatus} from '@/types';
 import {format, parseISO} from 'date-fns';
 
-const {Text} = Typography;
+const {Text, Paragraph} = Typography;
 
 interface Exercise {
   date: string;
@@ -114,6 +115,48 @@ export const LiftCard: React.FC<LiftCardProps> = ({exercise}) => {
   const visibleEntries = isExpanded ? dateEntries : dateEntries.slice(0, 5);
   const hasMoreEntries = dateEntries.length > 5;
 
+  // Helper to render popover content
+  const renderNotesPopover = (dateGroup: DateGroup) => {
+    // Collect all unique notes and workout notes
+    const uniqueNotes = new Set<string>();
+    const uniqueWorkoutNotes = new Set<string>();
+    
+    dateGroup.exercises.forEach(exercise => {
+      if (exercise.notes && exercise.notes.trim()) uniqueNotes.add(exercise.notes.trim());
+      if (exercise.workoutNotes && exercise.workoutNotes.trim()) uniqueWorkoutNotes.add(exercise.workoutNotes.trim());
+    });
+    
+    if (uniqueNotes.size === 0 && uniqueWorkoutNotes.size === 0) {
+      return null; // No notes to show
+    }
+    
+    return (
+      <div style={{ maxWidth: 300 }}>
+        {uniqueNotes.size > 0 && (
+          <>
+            <Text strong>Exercise Notes:</Text>
+            {[...uniqueNotes].map((note, index) => (
+              <Paragraph key={index} style={{ margin: '4px 0' }}>
+                {note}
+              </Paragraph>
+            ))}
+          </>
+        )}
+        
+        {uniqueWorkoutNotes.size > 0 && (
+          <>
+            <Text strong>Workout Notes:</Text>
+            {[...uniqueWorkoutNotes].map((note, index) => (
+              <Paragraph key={index} style={{ margin: '4px 0' }}>
+                {note}
+              </Paragraph>
+            ))}
+          </>
+        )}
+      </div>
+    );
+  };
+
   return (
     <Card
       title={
@@ -127,31 +170,48 @@ export const LiftCard: React.FC<LiftCardProps> = ({exercise}) => {
       <Timeline
         mode="left"
         items={visibleEntries
-          .map((dateGroup) => ({
-            color: getPerformanceColor(dateGroup.overallPerformance),
-            label: <Tag>{formatDate(dateGroup.date)}</Tag>,
-            children: (
-              <div>
-                <Text strong style={{
-                  color: getPerformanceColor(dateGroup.overallPerformance),
-                  marginBottom: '4px',
-                  display: 'block'
-                }}>
-                  {dateGroup.overallPerformance}
-                </Text>
+          .map((dateGroup) => {
+            // Check if there are any notes to show
+            const notesContent = renderNotesPopover(dateGroup);
+            const hasNotes = notesContent !== null;
+            
+            return {
+              color: getPerformanceColor(dateGroup.overallPerformance),
+              label: <Tag>{formatDate(dateGroup.date)}</Tag>,
+              children: (
                 <div>
-                  {dateGroup.exercises.map((exercise, i) => (
-                    <div key={i}
-                         style={{marginBottom: i < dateGroup.exercises.length - 1 ? 2 : 0}}>
-                      <Text>{exercise.setOrder}: {exercise.weight}kg
-                        × {exercise.reps}</Text>
-                    </div>
-                  ))}
+                  <Text strong style={{
+                    color: getPerformanceColor(dateGroup.overallPerformance),
+                    marginBottom: '4px',
+                    display: 'block'
+                  }}>
+                    {dateGroup.overallPerformance}
+                    {hasNotes && (
+                      <Popover 
+                        content={notesContent} 
+                        title="Notes" 
+                        placement="right"
+                        trigger="hover"
+                      >
+                        <InfoCircleOutlined style={{ marginLeft: 8, color: 'rgba(0,0,0,0.45)' }} />
+                      </Popover>
+                    )}
+                  </Text>
+                  <div>
+                    {dateGroup.exercises.map((exercise, i) => (
+                      <div key={i}
+                           style={{marginBottom: i < dateGroup.exercises.length - 1 ? 2 : 0}}>
+                        <Text>
+                          {exercise.setOrder}: {exercise.weight}kg × {exercise.reps}
+                        </Text>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ),
-            dot: getPerformanceIcon(dateGroup.overallPerformance)
-          }))}
+              ),
+              dot: getPerformanceIcon(dateGroup.overallPerformance)
+            };
+          })}
       />
 
       {hasMoreEntries && (
