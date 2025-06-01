@@ -1,12 +1,17 @@
 'use client';
 import React, {useEffect, useState} from 'react';
-import {Card, Flex, Spin, theme, Timeline, Typography} from 'antd';
+import {Card, Flex, Spin, Tag, theme, Timeline, Typography} from 'antd';
 import {
   CheckCircleOutlined,
   CloseCircleOutlined,
   MinusCircleOutlined,
-  QuestionCircleOutlined
+  QuestionCircleOutlined,
+  ArrowUpOutlined,
+  ArrowDownOutlined,
+  PauseOutlined,
+  MinusOutlined, WarningOutlined, FlagOutlined
 } from '@ant-design/icons';
+import { ProgressStatus } from '../types';
 
 const {Title, Text} = Typography;
 
@@ -36,7 +41,23 @@ interface ExerciseData {
   dateGroups: {
     [key: string]: DateGroup;
   };
+  progressStatus?: ProgressStatus;
 }
+
+const getProgressStatusIcon = (status?: ProgressStatus) => {
+  switch (status) {
+    case ProgressStatus.Progressing:
+      return <ArrowUpOutlined style={{color: 'green', marginRight: 8}} />;
+    case ProgressStatus.NeedsAttention:
+      return <FlagOutlined style={{color: 'orange', marginRight: 8}} />;
+    case ProgressStatus.Plateaued:
+      return <WarningOutlined style={{color: 'gold', marginRight: 8}} />;
+    case ProgressStatus.Regressing:
+      return <ArrowDownOutlined style={{color: 'red', marginRight: 8}} />;
+    default:
+      return <Tag>{status}</Tag>;
+  }
+};
 
 export default function Home() {
   const [workoutData, setWorkoutData] = useState<ExerciseData[]>([]);
@@ -96,7 +117,12 @@ export default function Home() {
           {workoutData.map((exercise, index) => (
             <Card
               key={index}
-              title={exercise.label}
+              title={
+                <span>
+                  {getProgressStatusIcon(exercise.progressStatus)}
+                  {exercise.label}
+                </span>
+              }
               style={{marginRight: 8, marginBottom: 8, flex: '1 1 300px'}}
             >
               <Timeline

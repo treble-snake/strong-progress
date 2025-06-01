@@ -880,7 +880,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Kneeling Pullover (Cable, V bar) (Upper)",
@@ -1315,7 +1315,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Triceps Dip (Upper)",
@@ -1750,7 +1750,7 @@
         "overallPerformance": "Decrease"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Upright Row (Barbell) (Upper)",
@@ -2828,7 +2828,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Regressing"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Dragon Flag (Upper)",
@@ -3263,7 +3263,7 @@
         "overallPerformance": "Decrease"
       }
     },
-    "progressStatus": "Regressing"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Reverse Peck Deck (Upper)",
@@ -3873,7 +3873,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "1-arm Katana Cable Extensions (Upper)",
@@ -4308,7 +4308,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Dumbbell Row (Lat Focused) (Lower)",
@@ -4912,7 +4912,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Regressing"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Hack Squat (Lower)",
@@ -5314,7 +5314,7 @@
         "overallPerformance": "No Change"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Standing Hyperextension (Lower)",
@@ -5642,7 +5642,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Lat Pulldown (Cable) (Lower)",
@@ -6791,7 +6791,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Preacher Hammer Curl (Dumbbell) (Lower)",
@@ -7198,7 +7198,7 @@
         "overallPerformance": "Decrease"
       }
     },
-    "progressStatus": "Regressing"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Standing Calf Raise (Machine) (Lower)",
@@ -7879,7 +7879,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Snatch Grip Shrugs (Barbell) (Cardio)",
@@ -8541,7 +8541,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "1-arm Standing Reverse Fly (Cable) (Cardio)",
@@ -9120,7 +9120,7 @@
         "overallPerformance": "Decrease"
       }
     },
-    "progressStatus": "Regressing"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Side Bend (Dumbbell) (Cardio)",
@@ -9509,7 +9509,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Calf Press on Seated Leg Press (Cardio)",
@@ -9654,7 +9654,7 @@
         "overallPerformance": "Decrease"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Chest Press Plate-Loaded (Push)",
@@ -10056,7 +10056,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Pullover (Dumbbell) (Push)",
@@ -10458,7 +10458,7 @@
         "overallPerformance": "No Change"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Woodchopper (Cable) (Push)",
@@ -10860,7 +10860,7 @@
         "overallPerformance": "Not Sure"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "30deg Incline Bench Press (DB) (Push)",
@@ -11262,7 +11262,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Regressing"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Lateral Raise (Cable) (Push)",
@@ -12417,7 +12417,7 @@
         "overallPerformance": "Not Sure"
       }
     },
-    "progressStatus": "NeedsAttention"
+    "progressStatus": "Regressing"
   },
   {
     "label": "Incline Chest Fly (Machine) (Push)",
@@ -12910,7 +12910,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Face Pull (Cable) (Push)",
@@ -13100,7 +13100,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Deadlift (Barbell) (Pull)",
@@ -13350,7 +13350,7 @@
         "overallPerformance": "Not Sure"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Romanian Deadlift (Barbell) (Pull)",
@@ -13778,7 +13778,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Pull Up (Pull)",
@@ -14336,7 +14336,7 @@
         "overallPerformance": "No Change"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Bulgarian Split Squat (Smith Machine) (Pull)",
@@ -14738,7 +14738,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Incline Curl (Dumbbell) (Pull)",
@@ -15296,7 +15296,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Cable Crunch (Pull)",
@@ -15670,7 +15670,7 @@
         "overallPerformance": "Decrease"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Seated Row Machine (Lats) (Plate loaded) (Pull)",
@@ -16228,7 +16228,7 @@
         "overallPerformance": "Decrease"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Lying Leg Curl (Machine) (Pull)",
@@ -16602,7 +16602,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Hip Adductor (Machine) (Pull)",
@@ -16872,7 +16872,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Calf Press on Seated Leg Press (Pull)",
@@ -17056,7 +17056,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Wall Curl (EZ Bar) (Lower)",
@@ -17312,7 +17312,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "NeedsAttention"
   },
   {
     "label": "Calf Press On Lying Leg Press (Pull)",
@@ -17424,7 +17424,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Lu Raises (Cardio)",
@@ -17798,7 +17798,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Seated Face Pull (Cable) (Push)",
@@ -18185,7 +18185,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "NeedsAttention"
+    "progressStatus": "Regressing"
   },
   {
     "label": "Standing Calf Raise (Machine) (Pull)",
@@ -18290,7 +18290,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Lateral Raise (Machine) (Upper)",
@@ -18703,7 +18703,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "1-Arm Incline Lateral Raises (Push)",
@@ -19432,7 +19432,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Calf Press on Seated Leg Press (Lower)",
@@ -19497,7 +19497,7 @@
         "overallPerformance": "No Change"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Pinwheel Curls (Push)",
@@ -19687,7 +19687,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Ab Wheel (Pull)",
@@ -19877,7 +19877,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Preacher Hammer Curl (Dumbbell) (Upper)",
@@ -20015,7 +20015,7 @@
         "overallPerformance": "Not Sure"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Hip Adductor (Machine) (Lower)",
@@ -20153,7 +20153,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Flexion Row (Cable) (Lower)",
@@ -20291,7 +20291,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "JM Press In Smith (Lower)",
@@ -20481,7 +20481,7 @@
         "overallPerformance": "Increase"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   },
   {
     "label": "Seated OHP (Smith) (Cardio)",
@@ -20671,6 +20671,6 @@
         "overallPerformance": "No Change"
       }
     },
-    "progressStatus": "Progressing Well"
+    "progressStatus": "Progressing"
   }
 ]

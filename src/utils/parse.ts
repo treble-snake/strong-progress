@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import csvToJson from 'convert-csv-to-json';
+import { ProgressStatus } from '../types';
 
 // filter out Excercise groups with less than 3 sets
 const TOTAL_SETS_THRESHOLD = 3;
@@ -43,14 +44,6 @@ enum PerformanceChange {
   NotSure = 'Not Sure'
 }
 
-// Add a new enum for progress status
-enum ProgressStatus {
-  Progressing = 'Progressing Well',
-  NeedsAttention = 'NeedsAttention',
-  Plateaued = 'Plateaued',
-  Regressing = 'Regressing'
-}
-
 // Helper function to convert performance change to symbol
 function performanceChangeToSymbol(change: PerformanceChange): string {
   switch (change) {
@@ -70,7 +63,7 @@ function performanceChangeToSymbol(change: PerformanceChange): string {
 // Helper function to determine progress status from recent performance
 function determineProgressStatus(performanceHistory: PerformanceChange[]): ProgressStatus {
   // Analyze the last 4 performance changes (or fewer if not enough data)
-  const recent = performanceHistory.slice(-5);
+  const recent = performanceHistory.slice(-4);
 
   const inc = recent.filter(p => p === PerformanceChange.Increase).length;
   const dec = recent.filter(p => p === PerformanceChange.Decrease).length;
