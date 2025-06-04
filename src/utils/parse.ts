@@ -1,51 +1,15 @@
+// TODO: decompose this file into smaller modules and remove it
+
 import fs from 'fs';
 import path from 'path';
-import csvToJson from 'convert-csv-to-json';
-import {ProgressStatus} from '../types';
+import {PerformanceChange, ProgressStatus, RawSetData} from '../types';
 import {addDays, isAfter, parseISO} from 'date-fns';
+import {parseStrongAppData} from "@/app/engine/parsing";
 
 // filter out Excercise groups with less than 3 sets
 const TOTAL_SETS_THRESHOLD = 3;
 // Define the active period threshold (14 days)
 const ACTIVE_DAYS_THRESHOLD = 14;
-
-// Define the type for raw workout data based on the CSV structure
-interface RawWorkoutData {
-  Date: string;
-  'Workout Name': string;
-  Duration: string;
-  'Exercise Name': string;
-  'Set Order': string;
-  Weight: string;
-  Reps: string;
-  Distance: string;
-  Seconds: string;
-  Notes: string;
-  'Workout Notes': string;
-  RPE: string;
-}
-
-// Define the type for workout data with lowerCamelCase field names
-interface WorkoutData {
-  date: string;
-  workoutName: string;
-  exerciseName: string;
-  setOrder: string;
-  weight: number; // float
-  reps: number; // integer
-  distance: number; // float
-  seconds: number; // float
-  notes: string;
-  workoutNotes: string;
-  rpe: number | null;
-}
-
-enum PerformanceChange {
-  Increase = 'Increase',
-  Decrease = 'Decrease',
-  NoChange = 'No Change',
-  NotSure = 'Not Sure'
-}
 
 // Helper function to convert performance change to symbol
 function performanceChangeToSymbol(change: PerformanceChange): string {
@@ -99,8 +63,8 @@ function determineProgressStatus(
 
 // Function to compare performance between two date groups
 function comparePerformance(
-  currentExercises: WorkoutData[],
-  previousExercises: WorkoutData[]
+  currentExercises: RawSetData[],
+  previousExercises: RawSetData[]
 ): {
   topSetPerformance: PerformanceChange;
   overallPerformance: PerformanceChange
@@ -116,15 +80,15 @@ function comparePerformance(
   // Sort exercises by setOrder to ensure we're comparing the right sets
   const sortedCurrentExercises = [...currentExercises].sort((a, b) => {
     // Handle special case where setOrder might be "F" (first) or other non-numeric values
-    if (a.setOrder === "F") return -1;
-    if (b.setOrder === "F") return 1;
-    return parseInt(a.setOrder, 10) - parseInt(b.setOrder, 10);
+    if (a.setMark === "F") return -1;
+    if (b.setMark === "F") return 1;
+    return parseInt(a.setMark, 10) - parseInt(b.setMark, 10);
   });
 
   const sortedPreviousExercises = [...previousExercises].sort((a, b) => {
-    if (a.setOrder === "F") return -1;
-    if (b.setOrder === "F") return 1;
-    return parseInt(a.setOrder, 10) - parseInt(b.setOrder, 10);
+    if (a.setMark === "F") return -1;
+    if (b.setMark === "F") return 1;
+    return parseInt(a.setMark, 10) - parseInt(b.setMark, 10);
   });
 
   // Get the first (top) set from each day
@@ -166,7 +130,7 @@ function comparePerformance(
 }
 
 // Helper function to compare two exercise sets
-function compareExerciseSets(currentSet: WorkoutData, previousSet: WorkoutData): PerformanceChange {
+function compareExerciseSets(currentSet: RawSetData, previousSet: RawSetData): PerformanceChange {
   // Handle null or undefined sets
   if (!currentSet || !previousSet) {
     return PerformanceChange.NotSure;
@@ -214,7 +178,7 @@ function compareExerciseSets(currentSet: WorkoutData, previousSet: WorkoutData):
 // Define the type for date-grouped workout data
 interface DateGroupedWorkoutData {
   date: string; // ISO format YYYY-MM-DD
-  exercises: WorkoutData[];
+  exercises: RawSetData[];
   topSetPerformance?: PerformanceChange;
   overallPerformance?: PerformanceChange;
 }
@@ -228,68 +192,18 @@ interface GroupedWorkoutData {
   lastPerformedDate: string; // Date the exercise was last performed
 }
 
-// Function to normalize workout names
-function normalizeWorkoutName(workoutName: string): string {
-  // TODO: not needed
-  workoutName = workoutName.replaceAll('"', '').trim();
-  // TODO: Clean up this special case in the future
-  if (workoutName === "Pull Copy") {
-    return "Pull";
-  }
-  return workoutName;
-}
-
-// TODO: not needed
-function normalizeExerciseName(exerciseName: string): string {
-  // Remove extra quotes and trim whitespace
-  return exerciseName.replaceAll('"', '').trim();
-}
-
 // Path to the CSV file
 const csvFilePath = path.join(__dirname, '../../tmp/strong_spring_2025.csv');
 
 // Parse CSV to JSON
 function parseCSVToJSON(): GroupedWorkoutData[] {
   try {
-    // Check if file exists
-    if (!fs.existsSync(csvFilePath)) {
-      console.error(`File not found: ${csvFilePath}`);
-      return [];
-    }
-
-    // Convert CSV to JSON
-    const jsonArray = csvToJson
-      .fieldDelimiter(',')
-      .supportQuotedField(true)
-      .getJsonFromCsv(csvFilePath) as RawWorkoutData[];
-
-    // Map from RawWorkoutData to WorkoutData with lowerCamelCase field names
-    const mappedArray = jsonArray.map(record => {
-      return {
-        date: record.Date,
-        workoutName: normalizeWorkoutName(record['Workout Name']),
-        exerciseName: normalizeExerciseName(record['Exercise Name']),
-        setOrder: record['Set Order'],
-        weight: parseFloat(record.Weight) || 0, // Convert to float
-        reps: parseInt(record.Reps, 10) || 0, // Convert to integer
-        distance: parseFloat(record.Distance) || 0, // Convert to float
-        seconds: parseFloat(record.Seconds) || 0, // Convert to float
-        notes: record.Notes,
-        workoutNotes: record['Workout Notes'],
-        rpe: record.RPE === '' ? null : parseFloat(record.RPE) || null // Convert to number or null if empty or invalid
-      };
-    });
-
-    // Filter out records where setOrder === "Rest Timer"
-    const filteredArray = mappedArray.filter(record => record.setOrder !== "Rest Timer");
-
-    // Filter out records where reps, distance, and seconds are all 0
-    const filteredZeroArray = filteredArray.filter(record => !(record.reps === 0 && record.distance === 0 && record.seconds === 0));
+    const mappedData = parseStrongAppData(csvFilePath);
 
     // Group the filtered data by exerciseName + workoutName, then by date
-    const groupedData: Record<string, Record<string, WorkoutData[]>> = {};
+    const groupedData: Record<string, Record<string, RawSetData[]>> = {};
 
-    filteredZeroArray.forEach(record => {
+    mappedData.forEach(record => {
       // Format the date to ISO format YYYY-MM-DD (extract just the date part)
       const isoDate = record.date.split(' ')[0]; // Extract YYYY-MM-DD from "YYYY-MM-DD HH:MM:SS"
 
@@ -325,7 +239,7 @@ function parseCSVToJSON(): GroupedWorkoutData[] {
       const sortedDates = Object.keys(dateGroups).sort();
 
       // Track the previous date's exercises for comparison
-      let previousDateExercises: WorkoutData[] | null = null;
+      let previousDateExercises: RawSetData[] | null = null;
 
       // Collect performance history for progress status
       const performanceHistory: PerformanceChange[] = [];
@@ -388,9 +302,6 @@ function parseCSVToJSON(): GroupedWorkoutData[] {
       return totalExercises > TOTAL_SETS_THRESHOLD;
     });
 
-    console.log(`Successfully parsed ${mappedArray.length} workout records`);
-    console.log(`Filtered out ${mappedArray.length - filteredArray.length} "Rest Timer" records`);
-    console.log(`Filtered out ${filteredArray.length - filteredZeroArray.length} records with 0 reps, distance, and seconds`);
     console.log(`Grouped into ${result.length} exercise groups`);
     console.log(`Filtered out ${result.length - filteredResult.length} groups with <= ${TOTAL_SETS_THRESHOLD} entries`);
 
@@ -552,7 +463,7 @@ function main() {
 
       // Display exercise details
       dateGroup.exercises.forEach(exercise => {
-        console.log(`    Set: ${exercise.setOrder}, Weight: ${exercise.weight}, Reps: ${exercise.reps}`);
+        console.log(`    Set: ${exercise.setMark}, Weight: ${exercise.weight}, Reps: ${exercise.reps}`);
       });
     });
 

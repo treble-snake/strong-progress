@@ -182,8 +182,6 @@ export const LiftCard: React.FC<LiftCardProps> = ({exercise}) => {
                 <div>
                   <Text strong style={{
                     color: getPerformanceColor(dateGroup.overallPerformance),
-                    marginBottom: '4px',
-                    display: 'block'
                   }}>
                     {dateGroup.overallPerformance}
                     {hasNotes && (

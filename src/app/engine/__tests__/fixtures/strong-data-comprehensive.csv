@@ -1,0 +1,13 @@
+Date,Workout Name,Duration,Exercise Name,Set Order,Weight,Reps,Distance,Seconds,Notes,Workout Notes,RPE
+2022-04-24 23:04:00,"Arms",16m,"JM Press - Close Grip DB Bench",1,25.0,6.0,0,0.0,"","",8
+2022-04-24 23:04:00,"Arms",16m,"JM Press - Close Grip DB Bench",2,25.0,6.0,0,0.0,,,9
+2022-04-24 23:04:00,"Arms",16m,"JM Press - Close Grip DB Bench",3,22.5,8.0,0,0.0,,,10
+2022-04-24 23:04:00,"Arms",16m,"JM Press - Close Grip DB Bench",F,20.0,10.0,0,0.0,,,10
+2022-05-01 10:30:00,"Legs",45m,"Squat",1,100.0,5.0,0,0.0,"Good form","Heavy day",
+2022-05-01 10:30:00,"Legs",45m,"Squat",2,110.0,5.0,0,0.0,"Depth OK",,
+2022-05-01 10:30:00,"Legs",45m,"Squat",Rest Timer,0.0,0.0,0,60.0,,,
+2022-05-01 10:30:00,"Legs",45m,"Squat",3,120.0,3.0,0,0.0,"Struggled",,7
+2022-05-01 10:30:00,"Legs",45m,"Squat",F,100.0,8.0,0,0.0,"Burnout",,9
+2022-05-15 15:45:00,"Cardio",30m,"Running",1,0.0,0.0,5000,0.0,"Easy pace","Recovery day",
+2022-05-15 15:45:00,"Cardio",30m,"Rowing",1,0.0,0.0,0,300.0,"Medium intensity",,
+2022-05-15 15:45:00,"Cardio",30m,"Stretching",1,0.0,0.0,0,0.0,"Cool down",,
