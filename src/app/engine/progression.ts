@@ -1,12 +1,14 @@
 import {
-  LiftData,
+  LiftActivityStatus,
   LiftDayData,
+  LiftHistory,
+  LiftProgressStatus,
   LiftSetData,
-  LiftStatus,
   PerformanceChange,
   RawSetData
 } from "@/types";
 import {addDays, isBefore, parseISO} from "date-fns";
+import {groupByLift} from "@/app/engine/parsing";
 
 // If a lift was performed less than this many days, we won't assess progression
 const TOTAL_DAYS_THRESHOLD = 4;
@@ -14,30 +16,7 @@ const TOTAL_DAYS_THRESHOLD = 4;
 // Define the active period threshold (14 days)
 const ACTIVE_DAYS_THRESHOLD = 15;
 
-const makeLiftName = (set: RawSetData) => `${set.exerciseName} | ${set.workoutName}`;
-
-const ensureLiftEntry = (liftsByName: Record<string, LiftData>, set: RawSetData): LiftData => {
-  const key = makeLiftName(set);
-  if (!liftsByName[key]) {
-    liftsByName[key] = {
-      name: key,
-      workouts: {}
-    };
-  }
-
-  return liftsByName[key];
-}
-
-const ensureDayEntry = (lift: LiftData, set: RawSetData): LiftDayData => {
-  if (!lift.workouts[set.date]) {
-    lift.workouts[set.date] = {
-      date: set.date,
-      note: set.workoutNotes,
-      exercises: []
-    };
-  }
-  return lift.workouts[set.date];
-}
+const WEIRD_REP_DIFF_COEFFICIENT = 0.55; // 50% difference in reps is considered too much
 
 export const compareSetPerformance = (previous: LiftSetData, current: LiftSetData): PerformanceChange => {
   const previousPerf = previous.reps
@@ -45,7 +24,7 @@ export const compareSetPerformance = (previous: LiftSetData, current: LiftSetDat
 
   // TODO: this might be too strict, or different for duration- or distance-based lifts
   const diff = Math.abs(previousPerf - currentPerf);
-  if (diff > previousPerf * 0.5) {
+  if (diff > previousPerf * WEIRD_REP_DIFF_COEFFICIENT) {
     return PerformanceChange.NotSure;
   }
 
@@ -67,14 +46,14 @@ export const compareSetPerformance = (previous: LiftSetData, current: LiftSetDat
 }
 
 export const computePerformanceChange = (previous: LiftDayData, current: LiftDayData): PerformanceChange => {
-  if (previous.exercises.length === 0 || current.exercises.length === 0) {
+  if (previous.sets.length === 0 || current.sets.length === 0) {
     return PerformanceChange.NotSure;
   }
 
-  const length = Math.max(previous.exercises.length, current.exercises.length);
+  const length = Math.max(previous.sets.length, current.sets.length);
   for (let i = 0; i < length; i++) {
-    const previousSet = previous.exercises[i];
-    const currentSet = current.exercises[i];
+    const previousSet = previous.sets[i];
+    const currentSet = current.sets[i];
 
     // If we don't have a previous set - means we did an extra set today, it's an increase
     if (!previousSet) {
@@ -93,46 +72,80 @@ export const computePerformanceChange = (previous: LiftDayData, current: LiftDay
   return PerformanceChange.NoChange
 }
 
-export const analyzeProgressiveOverload = (sets: RawSetData[]): LiftData[] => {
-  const liftsByName: Record<string, LiftData> = {};
-
-  sets.forEach((set) => {
-    const liftEntry = ensureLiftEntry(liftsByName, set);
-    const dayEntry = ensureDayEntry(liftEntry, set);
-    dayEntry.exercises.push({
-      setMark: set.setMark,
-      weight: set.weight,
-      reps: set.reps,
-      notes: set.notes,
-      rpe: set.rpe
-    } as LiftSetData);
-  })
-
-  const liftsByStatus: Record<LiftStatus, LiftData[]> = {
-    [LiftStatus.Active]: [],
-    [LiftStatus.History]: [],
-    [LiftStatus.New]: []
+const computeProgressStatus = (
+  lift: LiftHistory, recentCount: number = 5
+): LiftProgressStatus => {
+  if (lift.activityStatus === LiftActivityStatus.New) {
+    return LiftProgressStatus.NotSure
   }
-  Object.values(liftsByName).forEach((lift) => {
 
+  const performanceHistory = lift.workouts;
 
-    // check if it's History
-    const activityThreshold = addDays(new Date(), -ACTIVE_DAYS_THRESHOLD);
-    const sortedDates = Object.keys(lift.workouts).sort()
-    const lastPerformedDate = sortedDates.length > 0 ? sortedDates[sortedDates.length - 1] : null;
-    if (lastPerformedDate && isBefore(parseISO(lastPerformedDate), activityThreshold)) {
-      liftsByStatus[LiftStatus.History].push(lift);
-      return;
+  const lastTwo = performanceHistory.slice(-2);
+  if (lastTwo.every(it => it.performanceChange === PerformanceChange.Increase)) {
+    return LiftProgressStatus.Progressing;
+  }
+  if (lastTwo.every(it => it.performanceChange === PerformanceChange.Decrease)) {
+    return LiftProgressStatus.Regressing;
+  }
+  const lastThree = performanceHistory.slice(-3);
+  if (lastThree.every(it => it.performanceChange === PerformanceChange.NoChange)) {
+    return LiftProgressStatus.Plateaued;
+  }
+
+  const recent = performanceHistory.slice(-recentCount);
+  const inc = recent.filter(it => it.performanceChange === PerformanceChange.Increase).length;
+  const dec = recent.filter(it => it.performanceChange === PerformanceChange.Decrease).length;
+
+  if (inc === 0) {
+    return dec > 0 ?
+      LiftProgressStatus.Regressing :
+      LiftProgressStatus.Plateaued;
+  }
+
+  return LiftProgressStatus.NeedsAttention;
+}
+
+const getActivityStatus = (lift: LiftHistory): LiftActivityStatus => {
+  const activityThreshold = addDays(new Date(), -ACTIVE_DAYS_THRESHOLD);
+  const lastPerformedDate = lift.workouts?.[lift.workouts.length - 1]?.date
+  if (lastPerformedDate && isBefore(parseISO(lastPerformedDate), activityThreshold)) {
+    return LiftActivityStatus.History;
+  }
+
+  if (Object.values(lift.workouts).length < TOTAL_DAYS_THRESHOLD) {
+    return LiftActivityStatus.New;
+  }
+
+  return LiftActivityStatus.Active;
+}
+
+const PROGRESSION_STATUS_ORDER = {
+  [LiftProgressStatus.Regressing]: 1,
+  [LiftProgressStatus.Plateaued]: 2,
+  [LiftProgressStatus.NeedsAttention]: 3,
+  [LiftProgressStatus.Progressing]: 4,
+  [LiftProgressStatus.NotSure]: 5,
+};
+
+const compareProgressionStatus = (a: LiftHistory, b: LiftHistory): number => {
+  const statusA = a.progressStatus ? PROGRESSION_STATUS_ORDER[a.progressStatus] : 0;
+  const statusB = b.progressStatus ? PROGRESSION_STATUS_ORDER[b.progressStatus] : 0;
+  return statusA - statusB;
+}
+
+export const analyzeProgressiveOverload = (sets: RawSetData[]): LiftHistory[] => {
+  return groupByLift(sets).map((lift) => {
+    // Compute performance change for each day (days are already in ascending order)
+    lift.workouts[0].performanceChange = PerformanceChange.NoChange;
+    for (let i = 1; i < Object.keys(lift.workouts).length; i++) {
+      const previousDay = Object.values(lift.workouts)[i - 1];
+      const currentDay = Object.values(lift.workouts)[i];
+      currentDay.performanceChange = computePerformanceChange(previousDay, currentDay);
     }
+    lift.progressStatus = computeProgressStatus(lift);
+    lift.activityStatus = getActivityStatus(lift);
 
-    // check if it's New
-    if (Object.values(lift.workouts).length < TOTAL_DAYS_THRESHOLD) {
-      liftsByStatus[LiftStatus.New].push(lift);
-      return;
-    }
-
-    liftsByStatus[LiftStatus.Active].push(lift);
-  })
-
-  return Object.values(liftsByName);
+    return lift
+  }).sort(compareProgressionStatus)
 }

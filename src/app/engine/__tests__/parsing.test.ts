@@ -92,6 +92,6 @@ describe('parseStrongAppData', () => {
     expect(result).toHaveLength(1);
 
     // Check that the non-numeric RPE value is converted to null
-    expect(result[0].rpe).toBeNull();
+    expect(result[0].rpe).toBeUndefined();
   });
 });

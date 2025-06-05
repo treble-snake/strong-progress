@@ -5,10 +5,10 @@ import {
 } from "@/app/engine/progression";
 
 const liftSet = (weight: number, reps: number): LiftSetData =>
-  ({setMark: "", weight, reps, rpe: null, notes: ""});
+  ({setMark: "", weight, reps, notes: ""});
 
 const liftDay = (exercises: LiftSetData[]): LiftDayData =>
-  ({date: '2023-01-01', note: '', exercises});
+  ({date: '2023-01-01', note: '', sets: exercises});
 
 
 describe('compareSetPerformance', () => {

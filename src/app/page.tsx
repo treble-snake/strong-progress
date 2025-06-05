@@ -1,44 +1,13 @@
 'use client';
 import React, {useEffect, useState} from 'react';
 import {Divider, Flex, Select, Spin, Typography} from 'antd';
-import { LiftCard } from '@/components/LiftCard';
-import {ProgressStatus} from '@/types';
+import {LiftActivityStatus, LiftHistory} from "@/types";
+import {LiftCard} from "@/app/components/LiftCard";
 
 const {Title, Text} = Typography;
 
-interface Exercise {
-  date: string;
-  workoutName: string;
-  exerciseName: string;
-  setOrder: string;
-  weight: number;
-  reps: number;
-  distance: number;
-  seconds: number;
-  notes: string;
-  workoutNotes: string;
-  rpe: number | null;
-}
-
-interface DateGroup {
-  date: string;
-  exercises: Exercise[];
-  topSetPerformance: string;
-  overallPerformance: string;
-}
-
-interface ExerciseData {
-  label: string;
-  dateGroups: {
-    [key: string]: DateGroup;
-  };
-  progressStatus?: ProgressStatus;
-  isActive: boolean;
-  lastPerformedDate: string;
-}
-
 export default function Home() {
-  const [workoutData, setWorkoutData] = useState<ExerciseData[]>([]);
+  const [workoutData, setWorkoutData] = useState<LiftHistory[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedLifts, setSelectedLifts] = useState<string[]>([]);
 
@@ -61,28 +30,29 @@ export default function Home() {
   // Get all unique lift names for the select options
   const liftOptions = workoutData
     .map(exercise => ({
-      label: exercise.label,
-      value: exercise.label
+      label: exercise.name,
+      value: exercise.name
     }))
     .sort((a, b) => a.label.localeCompare(b.label));
 
   // Filter workout data based on selected lifts
-  const filterWorkoutData = (data: ExerciseData[]) => {
+  const filterWorkoutData = (data: LiftHistory[]) => {
     if (selectedLifts.length === 0) {
       return data; // Show all if nothing selected
     }
-    return data.filter(exercise => selectedLifts.includes(exercise.label));
+    return data.filter(exercise => selectedLifts.includes(exercise.name));
   };
 
   // Separate active and history lifts after filtering
   const filteredWorkoutData = filterWorkoutData(workoutData);
-  const activeLifts = filteredWorkoutData.filter(exercise => exercise.isActive);
-  const historyLifts = filteredWorkoutData.filter(exercise => !exercise.isActive);
+  const activeLifts = filteredWorkoutData.filter(exercise => exercise.activityStatus === LiftActivityStatus.Active);
+  const historyLifts = filteredWorkoutData.filter(exercise => exercise.activityStatus === LiftActivityStatus.History);
+  const newLifts = filteredWorkoutData.filter(exercise => exercise.activityStatus === LiftActivityStatus.New);
 
   return (
     <>
       <Title level={2}>Progress Analysis</Title>
-      
+
       {/* Lift filter select */}
       <Select
         mode="multiple"
@@ -103,14 +73,30 @@ export default function Home() {
           <Title level={3}>Active Lifts ({activeLifts.length})</Title>
           <Flex style={{width: '100%'}} wrap="wrap" justify="start">
             {activeLifts.map((exercise, index) => (
-              <LiftCard key={`active-${index}`} exercise={exercise} />
+              <LiftCard key={`active-${index}`} lift={exercise} />
             ))}
           </Flex>
+
+          {newLifts.length > 0 && (
+            <>
+              <Divider style={{ margin: '32px 0 16px' }} />
+
+              <Title level={3}>New ({newLifts.length})</Title>
+              <Text type="secondary" style={{ marginBottom: 16, display: 'block' }}>
+                Exercises not performed enough times to be assessed
+              </Text>
+              <Flex style={{width: '100%'}} wrap="wrap" justify="start">
+                {newLifts.map((exercise, index) => (
+                  <LiftCard key={`new-${index}`} lift={exercise} />
+                ))}
+              </Flex>
+            </>
+          )}
 
           {historyLifts.length > 0 && (
             <>
               <Divider style={{ margin: '32px 0 16px' }} />
-              
+
               {/* History Lifts Section */}
               <Title level={3}>History ({historyLifts.length})</Title>
               <Text type="secondary" style={{ marginBottom: 16, display: 'block' }}>
@@ -118,7 +104,7 @@ export default function Home() {
               </Text>
               <Flex style={{width: '100%'}} wrap="wrap" justify="start">
                 {historyLifts.map((exercise, index) => (
-                  <LiftCard key={`history-${index}`} exercise={exercise} />
+                  <LiftCard key={`history-${index}`} lift={exercise} />
                 ))}
               </Flex>
             </>

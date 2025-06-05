@@ -11,42 +11,13 @@ import {
   QuestionCircleOutlined,
   WarningOutlined
 } from '@ant-design/icons';
-import {ProgressStatus} from '@/types';
+import {LiftHistory, LiftProgressStatus, PerformanceChange} from '@/types';
 import {format, parseISO} from 'date-fns';
 
 const {Text, Paragraph} = Typography;
 
-interface Exercise {
-  date: string;
-  workoutName: string;
-  exerciseName: string;
-  setOrder: string;
-  weight: number;
-  reps: number;
-  distance: number;
-  seconds: number;
-  notes: string;
-  workoutNotes: string;
-  rpe: number | null;
-}
-
-interface DateGroup {
-  date: string;
-  exercises: Exercise[];
-  topSetPerformance: string;
-  overallPerformance: string;
-}
-
-interface ExerciseData {
-  label: string;
-  dateGroups: {
-    [key: string]: DateGroup;
-  };
-  progressStatus?: ProgressStatus;
-}
-
 interface LiftCardProps {
-  exercise: ExerciseData;
+  lift: LiftHistory;
 }
 
 const formatDate = (dateString: string) => {
@@ -59,95 +30,99 @@ const formatDate = (dateString: string) => {
   }
 };
 
-const getProgressStatusIcon = (status?: ProgressStatus) => {
+const getProgressStatusIcon = (status?: LiftProgressStatus) => {
   switch (status) {
-    case ProgressStatus.Progressing:
+    case LiftProgressStatus.Progressing:
       return <ArrowUpOutlined style={{color: 'green', marginRight: 8}}/>;
-    case ProgressStatus.NeedsAttention:
+    case LiftProgressStatus.NeedsAttention:
       return <EyeOutlined style={{color: 'orange', marginRight: 8}}/>;
-    case ProgressStatus.Plateaued:
+    case LiftProgressStatus.Plateaued:
       return <WarningOutlined style={{color: 'gold', marginRight: 8}}/>;
-    case ProgressStatus.Regressing:
+    case LiftProgressStatus.Regressing:
       return <ArrowDownOutlined style={{color: 'red', marginRight: 8}}/>;
     default:
       return <Tag>{status}</Tag>;
   }
 };
 
-const getPerformanceColor = (performance: string) => {
+const getPerformanceColor = (performance?: PerformanceChange) => {
   switch (performance) {
-    case 'Increase':
+    case PerformanceChange.Increase:
       return 'green';
-    case 'Decrease':
+    case PerformanceChange.Decrease:
       return 'red';
-    case 'No Change':
+    case PerformanceChange.NoChange:
       return 'orange';
     default:
       return 'gray';
   }
 };
 
-const getPerformanceIcon = (performance: string) => {
+const getPerformanceIcon = (performance?: PerformanceChange) => {
   switch (performance) {
-    case 'Increase':
+    case PerformanceChange.Increase:
       return <CheckCircleOutlined style={{color: 'green'}}/>;
-    case 'Decrease':
+    case PerformanceChange.Decrease:
       return <CloseCircleOutlined style={{color: 'red'}}/>;
-    case 'No Change':
+    case PerformanceChange.NoChange:
       return <MinusCircleOutlined style={{color: 'orange'}}/>;
     default:
       return <QuestionCircleOutlined style={{color: 'gray'}}/>;
   }
 };
 
-export const LiftCard: React.FC<LiftCardProps> = ({exercise}) => {
+export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleTimelineExpansion = () => {
     setIsExpanded(!isExpanded);
   };
 
-  // Get date entries sorted from newest to oldest
-  const dateEntries = Object.values(exercise.dateGroups)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const workouts = lift.workouts
 
   // Limit to 5 most recent entries if not expanded
-  const visibleEntries = isExpanded ? dateEntries : dateEntries.slice(0, 5);
-  const hasMoreEntries = dateEntries.length > 5;
+  const visibleEntries = isExpanded ? workouts : workouts.slice(-5);
+  const hasMoreEntries = workouts.length > 5;
 
   // Helper to render popover content
-  const renderNotesPopover = (dateGroup: DateGroup) => {
+  const renderNotesPopover = (currentLift: LiftHistory) => {
     // Collect all unique notes and workout notes
     const uniqueNotes = new Set<string>();
     const uniqueWorkoutNotes = new Set<string>();
-    
-    dateGroup.exercises.forEach(exercise => {
-      if (exercise.notes && exercise.notes.trim()) uniqueNotes.add(exercise.notes.trim());
-      if (exercise.workoutNotes && exercise.workoutNotes.trim()) uniqueWorkoutNotes.add(exercise.workoutNotes.trim());
+
+    currentLift.workouts.forEach(workout => {
+      if (workout.note) {
+        uniqueNotes.add(workout.note.trim());
+      }
+      workout.sets.forEach((it) => {
+        if (it.notes) {
+          uniqueNotes.add(it.notes.trim());
+        }
+      })
     });
-    
+
     if (uniqueNotes.size === 0 && uniqueWorkoutNotes.size === 0) {
       return null; // No notes to show
     }
-    
+
     return (
-      <div style={{ maxWidth: 300 }}>
+      <div style={{maxWidth: 300}}>
         {uniqueNotes.size > 0 && (
           <>
-            <Text strong>Exercise Notes:</Text>
+            <Text strong>Notes:</Text>
             {[...uniqueNotes].map((note, index) => (
-              <Paragraph key={index} style={{ margin: '4px 0' }}>
+              <Paragraph key={index} style={{margin: '4px 0'}}>
                 {note}
               </Paragraph>
             ))}
           </>
         )}
-        
+
         {uniqueWorkoutNotes.size > 0 && (
           <>
             <Text strong>Workout Notes:</Text>
             {[...uniqueWorkoutNotes].map((note, index) => (
-              <Paragraph key={index} style={{ margin: '4px 0' }}>
+              <Paragraph key={index} style={{margin: '4px 0'}}>
                 {note}
               </Paragraph>
             ))}
@@ -161,53 +136,56 @@ export const LiftCard: React.FC<LiftCardProps> = ({exercise}) => {
     <Card
       title={
         <span>
-          {getProgressStatusIcon(exercise.progressStatus)}
-          {exercise.label}
+          {getProgressStatusIcon(lift.progressStatus)}
+          {lift.name}
         </span>
       }
       style={{marginRight: 8, marginBottom: 8, flex: '1 1 300px'}}
     >
       <Timeline
         mode="left"
+        reverse
         items={visibleEntries
-          .map((dateGroup) => {
+          .map((liftingDay) => {
             // Check if there are any notes to show
-            const notesContent = renderNotesPopover(dateGroup);
+            const notesContent = renderNotesPopover(lift);
             const hasNotes = notesContent !== null;
-            
+
             return {
-              color: getPerformanceColor(dateGroup.overallPerformance),
-              label: <Tag>{formatDate(dateGroup.date)}</Tag>,
+              color: getPerformanceColor(liftingDay.performanceChange),
+              label: <Tag>{formatDate(liftingDay.date)}</Tag>,
               children: (
                 <div>
                   <Text strong style={{
-                    color: getPerformanceColor(dateGroup.overallPerformance),
+                    color: getPerformanceColor(liftingDay.performanceChange),
                   }}>
-                    {dateGroup.overallPerformance}
+                    {liftingDay.performanceChange}
                     {hasNotes && (
-                      <Popover 
-                        content={notesContent} 
-                        title="Notes" 
+                      <Popover
+                        content={notesContent}
+                        title="Notes"
                         placement="right"
                         trigger="hover"
                       >
-                        <InfoCircleOutlined style={{ marginLeft: 8, color: 'rgba(0,0,0,0.45)' }} />
+                        <InfoCircleOutlined
+                          style={{marginLeft: 8, color: 'rgba(0,0,0,0.45)'}}/>
                       </Popover>
                     )}
                   </Text>
                   <div>
-                    {dateGroup.exercises.map((exercise, i) => (
+                    {liftingDay.sets.map((exercise, i) => (
                       <div key={i}
-                           style={{marginBottom: i < dateGroup.exercises.length - 1 ? 2 : 0}}>
+                           style={{marginBottom: i < liftingDay.sets.length - 1 ? 2 : 0}}>
                         <Text>
-                          {exercise.setOrder}: {exercise.weight}kg × {exercise.reps}
+                          {exercise.setMark}: {exercise.weight}kg
+                          × {exercise.reps}
                         </Text>
                       </div>
                     ))}
                   </div>
                 </div>
               ),
-              dot: getPerformanceIcon(dateGroup.overallPerformance)
+              dot: getPerformanceIcon(liftingDay.performanceChange)
             };
           })}
       />

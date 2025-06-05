@@ -1,25 +1,29 @@
-export enum ProgressStatus {
-  Progressing = 'Progressing',
-  NeedsAttention = 'NeedsAttention',
-  Plateaued = 'Plateaued',
-  Regressing = 'Regressing'
-}
-
-export enum LiftStatus {
+export enum LiftActivityStatus {
   Active = 'Active',
   History = 'History',
   New = 'New',
 }
 
-export interface LiftData {
+export enum LiftProgressStatus {
+  Progressing = 'Progressing',
+  NeedsAttention = 'Needs Attention',
+  Plateaued = 'Plateaued',
+  Regressing = 'Regressing',
+  NotSure = 'Not Sure',
+}
+
+export interface LiftHistory {
   name: string;
-  workouts: Record<string, LiftDayData>
+  activityStatus?: LiftActivityStatus;
+  progressStatus?: LiftProgressStatus;
+  workouts: LiftDayData[];
 }
 
 export interface LiftDayData {
   date: string;
-  note: string
-  exercises: LiftSetData[];
+  note?: string;
+  performanceChange?: PerformanceChange;
+  sets: LiftSetData[];
 }
 
 // Define the type for workout data with lowerCamelCase field names
@@ -27,8 +31,8 @@ export interface LiftSetData {
   setMark: string;
   weight: number; // float
   reps: number; // integer
-  notes: string;
-  rpe: number | null;
+  notes?: string;
+  rpe?: number;
   // distance: number; // float
   // seconds: number; // float
 }
