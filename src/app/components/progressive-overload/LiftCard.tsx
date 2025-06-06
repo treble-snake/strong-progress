@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Card, Popover, Tag, Timeline, Typography} from 'antd';
+import {Button, Card, Popover, Tag, Timeline, Tooltip, Typography} from 'antd';
 import {
   ArrowDownOutlined,
   ArrowUpOutlined,
@@ -33,13 +33,16 @@ const formatDate = (dateString: string) => {
 const getProgressStatusIcon = (status?: LiftProgressStatus) => {
   switch (status) {
     case LiftProgressStatus.Progressing:
-      return <ArrowUpOutlined style={{color: 'green', marginRight: 8}}/>;
+      return <Tooltip title={LiftProgressStatus.Progressing}><ArrowUpOutlined
+        style={{color: 'green', marginRight: 8}}/></Tooltip>;
     case LiftProgressStatus.NeedsAttention:
       return <EyeOutlined style={{color: 'orange', marginRight: 8}}/>;
     case LiftProgressStatus.Plateaued:
-      return <WarningOutlined style={{color: 'gold', marginRight: 8}}/>;
+      return <WarningOutlined style={{color: 'orange', marginRight: 8}}/>;
     case LiftProgressStatus.Regressing:
       return <ArrowDownOutlined style={{color: 'red', marginRight: 8}}/>;
+    case LiftProgressStatus.NotSure:
+      return <QuestionCircleOutlined style={{color: 'gray', marginRight: 8}}/>;
     default:
       return <Tag>{status}</Tag>;
   }

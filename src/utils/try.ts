@@ -5,7 +5,7 @@ import {analyzeProgressiveOverload} from "../app/engine/progression";
 
 
 // Path to the CSV file
-const csvFilePath = path.join(__dirname, '../../tmp/strong_spring_2025.csv');
+const csvFilePath = path.join(__dirname, '../../tmp/strong_06_06_2025.csv');
 
 const outputFiles = [
   path.join(__dirname, '../../tmp/parsed-workout-data.json'),

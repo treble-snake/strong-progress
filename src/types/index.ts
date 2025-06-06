@@ -14,6 +14,8 @@ export enum LiftProgressStatus {
 
 export interface LiftHistory {
   name: string;
+  /** Names of the sessions this lift was a part of */
+  sessions: string[];
   activityStatus?: LiftActivityStatus;
   progressStatus?: LiftProgressStatus;
   workouts: LiftDayData[];

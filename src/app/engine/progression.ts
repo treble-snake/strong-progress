@@ -75,7 +75,7 @@ export const computePerformanceChange = (previous: LiftDayData, current: LiftDay
 const computeProgressStatus = (
   lift: LiftHistory, recentCount: number = 5
 ): LiftProgressStatus => {
-  if (lift.activityStatus === LiftActivityStatus.New) {
+  if (lift.workouts.length < 4) {
     return LiftProgressStatus.NotSure
   }
 
