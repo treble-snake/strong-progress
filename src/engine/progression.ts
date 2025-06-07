@@ -81,21 +81,24 @@ const computeProgressStatus = (
 
   const performanceHistory = lift.workouts;
 
+  const is = (change: PerformanceChange) =>
+    (it: LiftDayData) => it.performanceChange === change;
+
   const lastTwo = performanceHistory.slice(-2);
-  if (lastTwo.every(it => it.performanceChange === PerformanceChange.Increase)) {
+  if (lastTwo.every(is(PerformanceChange.Increase))) {
     return LiftProgressStatus.Progressing;
   }
-  if (lastTwo.every(it => it.performanceChange === PerformanceChange.Decrease)) {
+  if (lastTwo.every(is(PerformanceChange.Decrease))) {
     return LiftProgressStatus.Regressing;
   }
   const lastThree = performanceHistory.slice(-3);
-  if (lastThree.every(it => it.performanceChange === PerformanceChange.NoChange)) {
+  if (lastThree.every(is(PerformanceChange.NoChange))) {
     return LiftProgressStatus.Plateaued;
   }
 
   const recent = performanceHistory.slice(-recentCount);
-  const inc = recent.filter(it => it.performanceChange === PerformanceChange.Increase).length;
-  const dec = recent.filter(it => it.performanceChange === PerformanceChange.Decrease).length;
+  const inc = recent.filter(is(PerformanceChange.Increase)).length;
+  const dec = recent.filter(is(PerformanceChange.Decrease)).length;
 
   if (inc === 0) {
     return dec > 0 ?
@@ -103,7 +106,11 @@ const computeProgressStatus = (
       LiftProgressStatus.Plateaued;
   }
 
-  return LiftProgressStatus.NeedsAttention;
+  if (dec === 0 || inc > dec || !lastTwo.some(is(PerformanceChange.Decrease))) {
+    return LiftProgressStatus.Struggling
+  }
+
+  return LiftProgressStatus.AtRisk;
 }
 
 const getActivityStatus = (lift: LiftHistory): LiftActivityStatus => {
@@ -123,9 +130,10 @@ const getActivityStatus = (lift: LiftHistory): LiftActivityStatus => {
 const PROGRESSION_STATUS_ORDER = {
   [LiftProgressStatus.Regressing]: 1,
   [LiftProgressStatus.Plateaued]: 2,
-  [LiftProgressStatus.NeedsAttention]: 3,
-  [LiftProgressStatus.Progressing]: 4,
-  [LiftProgressStatus.NotSure]: 5,
+  [LiftProgressStatus.AtRisk]: 3,
+  [LiftProgressStatus.Struggling]: 4,
+  [LiftProgressStatus.Progressing]: 5,
+  [LiftProgressStatus.NotSure]: 6,
 };
 
 const compareProgressionStatus = (a: LiftHistory, b: LiftHistory): number => {

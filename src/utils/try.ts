@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import {parseStrongAppData} from "../app/engine/parsing";
-import {analyzeProgressiveOverload} from "../app/engine/progression";
+import {parseStrongAppData} from "../engine/parsing";
+import {analyzeProgressiveOverload} from "../engine/progression";
 
 
 // Path to the CSV file

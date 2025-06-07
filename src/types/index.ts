@@ -6,7 +6,8 @@ export enum LiftActivityStatus {
 
 export enum LiftProgressStatus {
   Progressing = 'Progressing',
-  NeedsAttention = 'Needs Attention',
+  Struggling = 'Struggling',
+  AtRisk = 'At Risk',
   Plateaued = 'Plateaued',
   Regressing = 'Regressing',
   NotSure = 'Not Sure',

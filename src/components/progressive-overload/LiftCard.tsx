@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
 import {Button, Card, Tag, Timeline, Typography} from 'antd';
 import {
-  ArrowDownOutlined,
-  ArrowUpOutlined,
+  AlertOutlined,
   CheckCircleOutlined,
   CloseCircleOutlined,
-  EyeOutlined,
+  FallOutlined,
   MinusCircleOutlined,
   QuestionCircleOutlined,
+  RiseOutlined,
+  SearchOutlined,
   WarningOutlined
 } from '@ant-design/icons';
+import {red, volcano, orange, grey, green} from '@ant-design/colors';
 import {LiftHistory, LiftProgressStatus, PerformanceChange} from '@/types';
 import {format, parseISO} from 'date-fns';
-import {NotesPopover} from './NotesPopover'; // Import the extracted component
+import {NotesPopover} from './NotesPopover';
 
 const {Text} = Typography;
 
@@ -33,15 +35,17 @@ const formatDate = (dateString: string) => {
 const getProgressStatusIcon = (status?: LiftProgressStatus) => {
   switch (status) {
     case LiftProgressStatus.Progressing:
-      return <ArrowUpOutlined style={{color: 'green', marginRight: 8}}/>;
-    case LiftProgressStatus.NeedsAttention:
-      return <EyeOutlined style={{color: 'orange', marginRight: 8}}/>;
+      return <RiseOutlined style={{color: green[6], marginRight: 8}}/>;
+    case LiftProgressStatus.Struggling:
+      return <SearchOutlined style={{color: orange.primary, marginRight: 8}}/>;
+    case LiftProgressStatus.AtRisk:
+       return <WarningOutlined style={{color: orange.primary, marginRight: 8}}/>;
     case LiftProgressStatus.Plateaued:
-      return <WarningOutlined style={{color: 'orange', marginRight: 8}}/>;
+      return <AlertOutlined style={{color: volcano.primary, marginRight: 8}}/>;
     case LiftProgressStatus.Regressing:
-      return <ArrowDownOutlined style={{color: 'red', marginRight: 8}}/>;
+      return <FallOutlined style={{color: red.primary, marginRight: 8}}/>;
     case LiftProgressStatus.NotSure:
-      return <QuestionCircleOutlined style={{color: 'gray', marginRight: 8}}/>;
+      return <QuestionCircleOutlined style={{color: grey.primary, marginRight: 8}}/>;
     default:
       return <Tag>{status}</Tag>;
   }
@@ -50,26 +54,26 @@ const getProgressStatusIcon = (status?: LiftProgressStatus) => {
 const getPerformanceColor = (performance?: PerformanceChange) => {
   switch (performance) {
     case PerformanceChange.Increase:
-      return 'green';
+      return green[6];
     case PerformanceChange.Decrease:
-      return 'red';
+      return red.primary;
     case PerformanceChange.NoChange:
-      return 'orange';
+      return orange.primary;
     default:
-      return 'gray';
+      return grey.primary;
   }
 };
 
 const getPerformanceIcon = (performance?: PerformanceChange) => {
   switch (performance) {
     case PerformanceChange.Increase:
-      return <CheckCircleOutlined style={{color: 'green'}}/>;
+      return <CheckCircleOutlined />;
     case PerformanceChange.Decrease:
-      return <CloseCircleOutlined style={{color: 'red'}}/>;
+      return <CloseCircleOutlined />;
     case PerformanceChange.NoChange:
-      return <MinusCircleOutlined style={{color: 'orange'}}/>;
+      return <MinusCircleOutlined />;
     default:
-      return <QuestionCircleOutlined style={{color: 'gray'}}/>;
+      return <QuestionCircleOutlined />;
   }
 };
 
