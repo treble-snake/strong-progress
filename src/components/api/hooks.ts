@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import {ApiError, simpleFetcher} from "@/app/components/api/fetcher";
+import {ApiError, simpleFetcher} from "@/components/api/fetcher";
 import {LiftActivityStatus, LiftHistory} from "@/types";
 import {isBefore, subMonths} from "date-fns";
 

@@ -8,7 +8,7 @@ import {
   RawSetData
 } from "@/types";
 import {addDays, isBefore, parseISO} from "date-fns";
-import {groupByLift} from "@/app/engine/parsing";
+import {groupByLift} from "@/engine/parsing";
 
 // If a lift was performed less than this many days, we won't assess progression
 const TOTAL_DAYS_THRESHOLD = 4;

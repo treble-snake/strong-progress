@@ -3,12 +3,12 @@ import {Tabs, Typography} from "antd";
 import React from "react";
 import {
   ActiveLiftsList
-} from "@/app/components/progressive-overload/ActiveLiftsList";
+} from "@/components/progressive-overload/ActiveLiftsList";
 import {
   InactiveLiftsList
-} from "@/app/components/progressive-overload/InactiveLiftsList";
-import {useProgressiveOverloadCounts} from "@/app/components/api/hooks";
-import {NoDataLoaded} from "@/app/components/common/Loading";
+} from "@/components/progressive-overload/InactiveLiftsList";
+import {useProgressiveOverloadCounts} from "@/components/api/hooks";
+import {NoDataLoaded} from "@/components/common/Loading";
 
 const {Title} = Typography;
 

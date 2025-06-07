@@ -2,7 +2,7 @@
 import React from 'react';
 import {
   MainProgressiveOverloadPage
-} from "@/app/components/progressive-overload/MainProgressiveOverloadPage";
+} from "@/components/progressive-overload/MainProgressiveOverloadPage";
 
 export default function Home() {
   return (

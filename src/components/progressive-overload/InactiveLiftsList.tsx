@@ -1,9 +1,9 @@
-import {useProgressByActivity} from "@/app/components/api/hooks";
+import {useProgressByActivity} from "@/components/api/hooks";
 import {LiftActivityStatus} from "@/types";
 import {Alert, Flex} from "antd";
-import {LiftCard} from "@/app/components/progressive-overload/LiftCard";
+import {LiftCard} from "@/components/progressive-overload/LiftCard";
 import React from "react";
-import {NoDataLoaded} from "@/app/components/common/Loading";
+import {NoDataLoaded} from "@/components/common/Loading";
 
 type InactiveLiftsListProps = {
   activityStatus: LiftActivityStatus;
