@@ -1,20 +1,18 @@
 import React, {useState} from 'react';
-import {Button, Card, Tag, Timeline, Typography} from 'antd';
+import {Button, Card, Space, Tag, Timeline, Typography} from 'antd';
 import {
-  AlertOutlined,
   CheckCircleOutlined,
   CloseCircleOutlined,
-  FallOutlined,
   MinusCircleOutlined,
-  QuestionCircleOutlined,
-  RiseOutlined,
-  SearchOutlined,
-  WarningOutlined
+  QuestionCircleOutlined
 } from '@ant-design/icons';
-import {red, volcano, orange, grey, green} from '@ant-design/colors';
-import {LiftHistory, LiftProgressStatus, PerformanceChange} from '@/types';
+import {green, grey, orange, red} from '@ant-design/colors';
+import {LiftHistory, PerformanceChange} from '@/types';
 import {format, parseISO} from 'date-fns';
 import {NotesPopover} from './NotesPopover';
+import {
+  ProgressStatusIcon
+} from "@/components/progressive-overload/ProgressStatusIcon";
 
 const {Text} = Typography;
 
@@ -29,25 +27,6 @@ const formatDate = (dateString: string) => {
   } catch (error) {
     console.error('Error formatting date:', error);
     return dateString; // Return original string if there's an error
-  }
-};
-
-const getProgressStatusIcon = (status?: LiftProgressStatus) => {
-  switch (status) {
-    case LiftProgressStatus.Progressing:
-      return <RiseOutlined style={{color: green[6], marginRight: 8}}/>;
-    case LiftProgressStatus.Struggling:
-      return <SearchOutlined style={{color: orange.primary, marginRight: 8}}/>;
-    case LiftProgressStatus.AtRisk:
-       return <WarningOutlined style={{color: orange.primary, marginRight: 8}}/>;
-    case LiftProgressStatus.Plateaued:
-      return <AlertOutlined style={{color: volcano.primary, marginRight: 8}}/>;
-    case LiftProgressStatus.Regressing:
-      return <FallOutlined style={{color: red.primary, marginRight: 8}}/>;
-    case LiftProgressStatus.NotSure:
-      return <QuestionCircleOutlined style={{color: grey.primary, marginRight: 8}}/>;
-    default:
-      return <Tag>{status}</Tag>;
   }
 };
 
@@ -92,10 +71,10 @@ export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
   return (
     <Card
       title={
-        <span>
-          {getProgressStatusIcon(lift.progressStatus)}
+        <Space>
+          <ProgressStatusIcon status={lift.progressStatus} />
           {lift.name}
-        </span>
+        </Space>
       }
       style={{marginRight: 8, marginBottom: 8, flex: '1 1 300px'}}
     >
@@ -141,3 +120,5 @@ export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
     </Card>
   );
 };
+
+export const MemoizedLiftCard = React.memo(LiftCard);

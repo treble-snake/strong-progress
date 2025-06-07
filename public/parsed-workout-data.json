@@ -29995,225 +29995,6 @@
     "activityStatus": "History"
   },
   {
-    "name": "Squat (Barbell) | Day 5 - Lower",
-    "workouts": [
-      {
-        "date": "2022-06-30",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 75,
-            "reps": 10,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 75,
-            "reps": 10,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2022-07-07",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 77.5,
-            "reps": 11,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 77.5,
-            "reps": 9,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-07-14",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 80,
-            "reps": 11,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 80,
-            "reps": 9,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-07-28",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 75,
-            "reps": 9,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 75,
-            "reps": 9,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2022-08-04",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 80,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 82.5,
-            "reps": 10,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-08-11",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 82.5,
-            "reps": 9,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 82.5,
-            "reps": 9,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-08-18",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 82.5,
-            "reps": 10,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 82.5,
-            "reps": 9,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-08-25",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 85,
-            "reps": 10,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 85,
-            "reps": 8,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-09-01",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 85,
-            "reps": 10,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 85,
-            "reps": 9,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-09-08",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 70,
-            "reps": 10,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 70,
-            "reps": 9,
-            "rpe": 8
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2022-09-15",
-        "liftNotes": "2 x 8-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 85,
-            "reps": 10,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 80,
-            "reps": 8,
-            "rpe": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      }
-    ],
-    "sessionNames": [
-      "Day 5 - Lower"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "History"
-  },
-  {
     "name": "Bulgarian Split Squat | Day 5 - Lower",
     "workouts": [
       {
@@ -31648,240 +31429,6 @@
     "activityStatus": "History"
   },
   {
-    "name": "Lat Pulldown (Cable) | MI - Pull B",
-    "workouts": [
-      {
-        "date": "2022-10-28",
-        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 50,
-            "reps": 14,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 55,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 55,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2022-11-05",
-        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 55,
-            "reps": 11,
-            "rpe": 9
-          },
-          {
-            "setMark": "F",
-            "weight": 55,
-            "reps": 10,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 50,
-            "reps": 12,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-11-13",
-        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 55,
-            "reps": 13,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 55,
-            "reps": 11,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 50,
-            "reps": 12,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-11-22",
-        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 60,
-            "reps": 10,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 55,
-            "reps": 13,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 55,
-            "reps": 12,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-11-30",
-        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 60,
-            "reps": 12,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 60,
-            "reps": 9,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 55,
-            "reps": 13,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-12-08",
-        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 65,
-            "reps": 10,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 60,
-            "reps": 12,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 60,
-            "reps": 10,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-12-18",
-        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 65,
-            "reps": 11,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 65,
-            "reps": 10,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 60,
-            "reps": 11,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-12-27",
-        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 65,
-            "reps": 11,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 65,
-            "reps": 8,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 60,
-            "reps": 11,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-01-06",
-        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 65,
-            "reps": 11,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 65,
-            "reps": 9,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 60,
-            "reps": 10,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      }
-    ],
-    "sessionNames": [
-      "MI - Pull B"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "History"
-  },
-  {
     "name": "Pendulum Squat  | MI - Legs B",
     "workouts": [
       {
@@ -32624,268 +32171,6 @@
     "activityStatus": "History"
   },
   {
-    "name": "Standing Calf Raise (Machine) | MI - Legs B",
-    "workouts": [
-      {
-        "date": "2022-10-30",
-        "liftNotes": "2 x 12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 18
-          },
-          {
-            "setMark": "2",
-            "weight": 35,
-            "reps": 12,
-            "rpe": 10
-          },
-          {
-            "setMark": "3",
-            "weight": 30,
-            "reps": 11
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2022-11-06",
-        "liftNotes": "2 x 12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 30,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-11-14",
-        "liftNotes": "2 x 12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 13
-          },
-          {
-            "setMark": "2",
-            "weight": 35,
-            "reps": 10,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 30,
-            "reps": 8
-          },
-          {
-            "setMark": "4",
-            "weight": 20,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-11-24",
-        "liftNotes": "2 x 12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 14
-          },
-          {
-            "setMark": "2",
-            "weight": 35,
-            "reps": 11,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 30,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-12-02",
-        "liftNotes": "2 x 12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 20
-          },
-          {
-            "setMark": "2",
-            "weight": 15,
-            "reps": 16,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 10,
-            "reps": 20
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2022-12-12",
-        "liftNotes": "2 x 12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 16
-          },
-          {
-            "setMark": "2",
-            "weight": 15,
-            "reps": 18,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 10,
-            "reps": 16
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2022-12-20",
-        "liftNotes": "2 x 12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 20
-          },
-          {
-            "setMark": "2",
-            "weight": 20,
-            "reps": 16,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 15,
-            "reps": 15
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-12-29",
-        "liftNotes": "2 x 12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 21
-          },
-          {
-            "setMark": "2",
-            "weight": 20,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 15,
-            "reps": 14
-          },
-          {
-            "setMark": "4",
-            "weight": 15,
-            "reps": 15
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-01-09",
-        "liftNotes": "2 x 12",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 16
-          },
-          {
-            "setMark": "2",
-            "weight": 20,
-            "reps": 17,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 20,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-01-28",
-        "liftNotes": "2-5 x 15-10",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-02-06",
-        "liftNotes": "2-5 x 15-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 15
-          },
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 14,
-            "rpe": 9
-          },
-          {
-            "setMark": "F",
-            "weight": 20,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      }
-    ],
-    "sessionNames": [
-      "MI - Legs B"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "History"
-  },
-  {
     "name": "Pec Deck (Machine) | MI - Push A",
     "workouts": [
       {
@@ -33158,217 +32443,6 @@
           }
         ],
         "performanceChange": "Decrease"
-      }
-    ],
-    "sessionNames": [
-      "MI - Push A"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "History"
-  },
-  {
-    "name": "Push Up | MI - Push A",
-    "workouts": [
-      {
-        "date": "2022-10-31",
-        "liftNotes": "AMRAP",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 6
-          },
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 4
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2022-11-07",
-        "liftNotes": "AMRAP",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 9
-          },
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 5
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-11-16",
-        "liftNotes": "AMRAP",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 11
-          },
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 7
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-11-25",
-        "liftNotes": "AMRAP",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 9
-          },
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 6
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2022-12-05",
-        "liftNotes": "AMRAP",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 6
-          },
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 4
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2022-12-15",
-        "liftNotes": "AMRAP",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 8
-          },
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 3
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2022-12-23",
-        "liftNotes": "AMRAP",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 6
-          },
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 4
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-01-04",
-        "liftNotes": "AMRAP",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 6
-          },
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 5
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-01-12",
-        "liftNotes": "AMRAP",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 6
-          },
-          {
-            "setMark": "F",
-            "weight": 0,
-            "reps": 6
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-01-20",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 0,
-            "reps": 7
-          },
-          {
-            "setMark": "2",
-            "weight": 0,
-            "reps": 5
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-02-08",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 0,
-            "reps": 5
-          },
-          {
-            "setMark": "2",
-            "weight": 0,
-            "reps": 6
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-02-17",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 0,
-            "reps": 6
-          },
-          {
-            "setMark": "2",
-            "weight": 0,
-            "reps": 5
-          }
-        ],
-        "performanceChange": "Increase"
       }
     ],
     "sessionNames": [
@@ -39865,470 +38939,6 @@
     "activityStatus": "History"
   },
   {
-    "name": "Hack Squat | Legs",
-    "workouts": [
-      {
-        "date": "2023-03-22",
-        "liftNotes": "Alt. 2-3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 45,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 45,
-            "reps": 15
-          },
-          {
-            "setMark": "3",
-            "weight": 45,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2023-04-05",
-        "liftNotes": "Alt. 2-3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 50,
-            "reps": 15,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 50,
-            "reps": 14,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 50,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-05-04",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 40,
-            "reps": 14
-          },
-          {
-            "setMark": "2",
-            "weight": 40,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-05-18",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 40,
-            "reps": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 40,
-            "reps": 10
-          },
-          {
-            "setMark": "3",
-            "weight": 40,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-06-03",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 45,
-            "reps": 15,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 47.5,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 50,
-            "reps": 13,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-06-17",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 12,
-            "rpe": 6
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 12,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-07-03",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 50,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 50,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 50,
-            "reps": 16,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-08-05",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 52.5,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 50,
-            "reps": 12,
-            "rpe": 7
-          },
-          {
-            "setMark": "3",
-            "weight": 50,
-            "reps": 12,
-            "rpe": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-08-22",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 52.5,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 52.5,
-            "reps": 12,
-            "rpe": 7
-          },
-          {
-            "setMark": "3",
-            "weight": 50,
-            "reps": 12,
-            "rpe": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-09-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 52.5,
-            "reps": 11,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 45,
-            "reps": 12,
-            "rpe": 7
-          },
-          {
-            "setMark": "3",
-            "weight": 30,
-            "reps": 8,
-            "rpe": 8
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-09-30",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 45,
-            "reps": 12,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 40,
-            "reps": 10,
-            "rpe": 8
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-10-09",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 15,
-            "rpe": 6
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-10-27",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 11,
-            "rpe": 7
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 12,
-            "rpe": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-11-23",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 12,
-            "rpe": 7
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 11,
-            "rpe": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-12-07",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 15,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 15,
-            "rpe": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-12-26",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 15,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 32.5,
-            "reps": 15,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-01-25",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 35,
-            "reps": 12,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-02-14",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 15,
-            "rpe": 7
-          },
-          {
-            "setMark": "2",
-            "weight": 35,
-            "reps": 14,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-03-06",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 37.5,
-            "reps": 16,
-            "rpe": 7
-          },
-          {
-            "setMark": "2",
-            "weight": 40,
-            "reps": 15,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-03-18",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 40,
-            "reps": 12,
-            "rpe": 7
-          },
-          {
-            "setMark": "2",
-            "weight": 40,
-            "reps": 10,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-03-27",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 42.5,
-            "reps": 11,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 40,
-            "reps": 11,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-04-06",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 40,
-            "reps": 13,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 40,
-            "reps": 10,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2024-04-14",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 40,
-            "reps": 15,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 40,
-            "reps": 12,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      }
-    ],
-    "sessionNames": [
-      "Legs"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "History"
-  },
-  {
     "name": "Romanian Deadlift (Barbell) | Legs",
     "workouts": [
       {
@@ -43185,841 +41795,6 @@
     "activityStatus": "History"
   },
   {
-    "name": "Upright Row (Barbell) | Posterior",
-    "workouts": [
-      {
-        "date": "2023-03-24",
-        "liftNotes": "3 x 12-20",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 21
-          },
-          {
-            "setMark": "2",
-            "weight": 20,
-            "reps": 18
-          },
-          {
-            "setMark": "3",
-            "weight": 20,
-            "reps": 16
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2023-04-01",
-        "liftNotes": "3 x 12-20",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 11
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 18
-          },
-          {
-            "setMark": "3",
-            "weight": 20,
-            "reps": 17
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-04-08",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 15
-          },
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 14
-          },
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-04-15",
-        "liftNotes": "3 x 12-20",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 14
-          },
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 14
-          },
-          {
-            "setMark": "F",
-            "weight": 22.5,
-            "reps": 15
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-05-08",
-        "liftNotes": "3 x 12-20",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 22.5,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 15
-          },
-          {
-            "setMark": "F",
-            "weight": 22.5,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-05-14",
-        "liftNotes": "3 x 12-20",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 22.5,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 17
-          },
-          {
-            "setMark": "F",
-            "weight": 22.5,
-            "reps": 15
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-05-23",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 14
-          },
-          {
-            "setMark": "3",
-            "weight": 22.5,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-05-30",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 14
-          },
-          {
-            "setMark": "3",
-            "weight": 25,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-06-06",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 27.5,
-            "reps": 14
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 12
-          },
-          {
-            "setMark": "3",
-            "weight": 25,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-06-13",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 20,
-            "reps": 14
-          },
-          {
-            "setMark": "3",
-            "weight": 20,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-06-20",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 27.5,
-            "reps": 13
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 14
-          },
-          {
-            "setMark": "3",
-            "weight": 27.5,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-06-27",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 27.5,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 15
-          },
-          {
-            "setMark": "3",
-            "weight": 27.5,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-07-06",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 14,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 13
-          },
-          {
-            "setMark": "3",
-            "weight": 27.5,
-            "reps": 15
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-07-14",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 13
-          },
-          {
-            "setMark": "3",
-            "weight": 30,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-07-24",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 17.5,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 17.5,
-            "reps": 15
-          },
-          {
-            "setMark": "3",
-            "weight": 17.5,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-07-31",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 27.5,
-            "reps": 15,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 12,
-            "rpe": 8
-          },
-          {
-            "setMark": "3",
-            "weight": 27.5,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-08-08",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 15,
-            "rpe": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 27.5,
-            "reps": 15
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-08-17",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 30,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-08-26",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 13,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 32.5,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 30,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-09-07",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 12,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-09-16",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 12,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-09-25",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 11,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 14,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 30,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-10-03",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 15,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-10-13",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "3",
-            "weight": 27.5,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-10-30",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 12,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 15,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-11-07",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 13,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 13,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-11-26",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 12,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-12-21",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 13,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 14,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-12-29",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 15,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 13,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-01-08",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 12,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 30,
-            "reps": 14,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-01-29",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 13,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 15,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-02-07",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 14,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 32.5,
-            "reps": 12,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-02-19",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 32.5,
-            "reps": 14,
-            "rpe": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 32.5,
-            "reps": 12,
-            "rpe": 10
-          },
-          {
-            "setMark": "D",
-            "weight": 22.5,
-            "reps": 9,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-02-29",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 15,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 32.5,
-            "reps": 12,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-03-09",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 12,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 32.5,
-            "reps": 12,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-03-21",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 12,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 32.5,
-            "reps": 13,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-03-30",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 12,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 32.5,
-            "reps": 14,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-04-09",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 12,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 32.5,
-            "reps": 12,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2024-04-17",
-        "liftNotes": "3 x 12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 13,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 32.5,
-            "reps": 15,
-            "rpe": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      }
-    ],
-    "sessionNames": [
-      "Posterior"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "History"
-  },
-  {
     "name": "Seated Leg Curl (Machine) | Posterior",
     "workouts": [
       {
@@ -45833,501 +43608,6 @@
           }
         ],
         "performanceChange": "Decrease"
-      }
-    ],
-    "sessionNames": [
-      "Posterior"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "History"
-  },
-  {
-    "name": "Russian Twist Weighted  | Posterior",
-    "workouts": [
-      {
-        "date": "2023-07-14",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 0,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 2.5,
-            "reps": 15
-          },
-          {
-            "setMark": "3",
-            "weight": 2.5,
-            "reps": 11
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2023-07-24",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 0,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-07-31",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 0,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 0,
-            "reps": 11
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-08-08",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 2.5,
-            "reps": 13
-          },
-          {
-            "setMark": "2",
-            "weight": 1.25,
-            "reps": 12
-          },
-          {
-            "setMark": "3",
-            "weight": 0,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-08-17",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 2.5,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 2.5,
-            "reps": 12
-          },
-          {
-            "setMark": "3",
-            "weight": 1.25,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-08-26",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 5,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 2.5,
-            "reps": 12
-          },
-          {
-            "setMark": "3",
-            "weight": 1.25,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-09-07",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 5,
-            "reps": 16
-          },
-          {
-            "setMark": "2",
-            "weight": 5,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-09-25",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 5,
-            "reps": 17
-          },
-          {
-            "setMark": "2",
-            "weight": 5,
-            "reps": 12
-          },
-          {
-            "setMark": "3",
-            "weight": 2.5,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-10-03",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 2.5,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 2.5,
-            "reps": 11
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-10-13",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 5,
-            "reps": 20
-          },
-          {
-            "setMark": "2",
-            "weight": 5,
-            "reps": 16
-          },
-          {
-            "setMark": "3",
-            "weight": 2.5,
-            "reps": 17
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-10-30",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 5,
-            "reps": 20
-          },
-          {
-            "setMark": "2",
-            "weight": 5,
-            "reps": 15
-          },
-          {
-            "setMark": "3",
-            "weight": 5,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2023-11-07",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 6,
-            "reps": 24
-          },
-          {
-            "setMark": "2",
-            "weight": 6,
-            "reps": 20
-          },
-          {
-            "setMark": "3",
-            "weight": 6,
-            "reps": 19
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-11-26",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 7,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 5,
-            "reps": 20
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-12-21",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 7,
-            "reps": 20
-          },
-          {
-            "setMark": "2",
-            "weight": 8,
-            "reps": 12
-          },
-          {
-            "setMark": "3",
-            "weight": 8,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2023-12-29",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 8,
-            "reps": 18
-          },
-          {
-            "setMark": "2",
-            "weight": 8,
-            "reps": 12
-          },
-          {
-            "setMark": "3",
-            "weight": 7,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-01-08",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 8,
-            "reps": 21
-          },
-          {
-            "setMark": "2",
-            "weight": 8,
-            "reps": 16
-          },
-          {
-            "setMark": "3",
-            "weight": 8,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-01-29",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 8,
-            "reps": 22
-          },
-          {
-            "setMark": "2",
-            "weight": 8,
-            "reps": 20
-          },
-          {
-            "setMark": "3",
-            "weight": 8,
-            "reps": 17
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-02-07",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 9,
-            "reps": 21
-          },
-          {
-            "setMark": "2",
-            "weight": 9,
-            "reps": 15
-          },
-          {
-            "setMark": "3",
-            "weight": 8,
-            "reps": 15
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-02-19",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 10,
-            "reps": 21
-          },
-          {
-            "setMark": "2",
-            "weight": 10,
-            "reps": 16
-          },
-          {
-            "setMark": "3",
-            "weight": 10,
-            "reps": 17
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-02-29",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 12.5,
-            "reps": 21
-          },
-          {
-            "setMark": "2",
-            "weight": 12.5,
-            "reps": 16
-          },
-          {
-            "setMark": "3",
-            "weight": 12.5,
-            "reps": 15
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-03-09",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 15,
-            "reps": 22
-          },
-          {
-            "setMark": "2",
-            "weight": 15,
-            "reps": 17
-          },
-          {
-            "setMark": "3",
-            "weight": 15,
-            "reps": 16
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-03-21",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 17.5,
-            "reps": 13
-          },
-          {
-            "setMark": "2",
-            "weight": 15,
-            "reps": 12
-          },
-          {
-            "setMark": "3",
-            "weight": 15,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-03-30",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 17.5,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 17.5,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-04-09",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 17.5,
-            "reps": 14
-          },
-          {
-            "setMark": "2",
-            "weight": 15,
-            "reps": 15
-          },
-          {
-            "setMark": "3",
-            "weight": 15,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2024-04-17",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 17.5,
-            "reps": 16
-          },
-          {
-            "setMark": "2",
-            "weight": 17.5,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
       }
     ],
     "sessionNames": [
@@ -48403,218 +45683,6 @@
     "activityStatus": "History"
   },
   {
-    "name": "Bulgarian Split Squat (Smith Machine) | Posterior A: Deads ❤️",
-    "workouts": [
-      {
-        "date": "2024-04-19",
-        "liftNotes": "2x8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 0,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 10,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2024-04-28",
-        "liftNotes": "2x8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 13
-          },
-          {
-            "setMark": "2",
-            "weight": 20,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-05-06",
-        "liftNotes": "2x8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 22.5,
-            "reps": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-05-23",
-        "liftNotes": "2x8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 7
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2024-05-30",
-        "liftNotes": "8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 22.5,
-            "reps": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-06-07",
-        "liftNotes": "8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 22.5,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-06-16",
-        "liftNotes": "8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-06-23",
-        "liftNotes": "8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 27.5,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-07-02",
-        "liftNotes": "8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 30,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-07-11",
-        "liftNotes": "8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 32.5,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 30,
-            "reps": 8,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-07-20",
-        "liftNotes": "8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 0,
-            "reps": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 0,
-            "reps": 12,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2024-07-29",
-        "liftNotes": "8-12",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 35,
-            "reps": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 35,
-            "reps": 8,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      }
-    ],
-    "sessionNames": [
-      "Posterior A: Deads ❤️"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "History"
-  },
-  {
     "name": "Seated Leg Curl (Machine) | Posterior A: Deads ❤️",
     "workouts": [
       {
@@ -50543,235 +47611,6 @@
             "setMark": "2",
             "weight": 30,
             "reps": 11,
-            "rpe": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      }
-    ],
-    "sessionNames": [
-      "Bro Day 💪"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "History"
-  },
-  {
-    "name": "Preacher Curl (Barbell) | Bro Day 💪",
-    "workouts": [
-      {
-        "date": "2024-04-22",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 22.5,
-            "reps": 14
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2024-05-01",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 22.5,
-            "reps": 13
-          },
-          {
-            "setMark": "2",
-            "weight": 20,
-            "reps": 16
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2024-05-16",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 22.5,
-            "reps": 16
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-05-26",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 12
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-06-03",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 14
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-06-11",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 13
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 13
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2024-06-19",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 14
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-06-27",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 15
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-07-07",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 27.5,
-            "reps": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 14
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-07-15",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 27.5,
-            "reps": 14
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 15
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-07-23",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 27.5,
-            "reps": 15,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2024-08-02",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 15,
-            "reps": 15,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 15,
-            "reps": 12
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2024-08-28",
-        "liftNotes": "12-15",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 12,
             "rpe": 10
           }
         ],
@@ -57755,290 +54594,6 @@
     "activityStatus": "Active"
   },
   {
-    "name": "Triceps Dip | Upper",
-    "workouts": [
-      {
-        "date": "2025-02-16",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 0,
-            "reps": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 0,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2025-02-23",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 15,
-            "reps": 11
-          },
-          {
-            "setMark": "2",
-            "weight": 15,
-            "reps": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-03-02",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 20,
-            "reps": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-03-10",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 20,
-            "reps": 11
-          },
-          {
-            "setMark": "2",
-            "weight": 20,
-            "reps": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-03-19",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 22.5,
-            "reps": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 22.5,
-            "reps": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-03-26",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 22.5,
-            "reps": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 22.5,
-            "reps": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-04-02",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 9
-          },
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 7
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-04-09",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 25,
-            "reps": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-04-16",
-        "liftNotes": "2x6-10\\nAlmost 10x25",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 9
-          },
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 7
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2025-04-23",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 25,
-            "reps": 10
-          },
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 7
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-05-01",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 24,
-            "reps": 8
-          },
-          {
-            "setMark": "F",
-            "weight": 24,
-            "reps": 8
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2025-05-07",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 27.5,
-            "reps": 7
-          },
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-05-14",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 27.5,
-            "reps": 8
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 8
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-05-21",
-        "liftNotes": "2x6-10\\n9th rep was ugly",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 27.5,
-            "reps": 9,
-            "rpe": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 7,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-05-28",
-        "liftNotes": "2x6-10\\n9th rep was ugly",
-        "sets": [
-          {
-            "setMark": "F",
-            "weight": 27.5,
-            "reps": 7
-          },
-          {
-            "setMark": "F",
-            "weight": 25,
-            "reps": 6
-          }
-        ],
-        "performanceChange": "Decrease"
-      },
-      {
-        "date": "2025-06-04",
-        "liftNotes": "2x6-10\\n9th rep was ugly",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 27.5,
-            "reps": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 27.5,
-            "reps": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      }
-    ],
-    "sessionNames": [
-      "Upper"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "Active"
-  },
-  {
     "name": "Upright Row (Barbell) | Upper",
     "workouts": [
       {
@@ -58682,290 +55237,6 @@
     ],
     "sessionNames": [
       "Upper"
-    ],
-    "progressStatus": "Struggling",
-    "activityStatus": "Active"
-  },
-  {
-    "name": "Hack Squat | Lower",
-    "workouts": [
-      {
-        "date": "2025-02-17",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 75,
-            "reps": 6
-          },
-          {
-            "setMark": "2",
-            "weight": 60,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2025-02-24",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 75,
-            "reps": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 65,
-            "reps": 11
-          }
-        ],
-        "performanceChange": "Not Sure"
-      },
-      {
-        "date": "2025-03-03",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 77.5,
-            "reps": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 70,
-            "reps": 10
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-03-11",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 77.5,
-            "reps": 10
-          },
-          {
-            "setMark": "2",
-            "weight": 75,
-            "reps": 9,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-03-20",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 80,
-            "reps": 8,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 80,
-            "reps": 6,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-03-27",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 80,
-            "reps": 10,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 80,
-            "reps": 7,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-04-03",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 82.5,
-            "reps": 10,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 82.5,
-            "reps": 7,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-04-10",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 85,
-            "reps": 10,
-            "rpe": 9
-          },
-          {
-            "setMark": "F",
-            "weight": 85,
-            "reps": 6,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-04-17",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 87.5,
-            "reps": 6,
-            "rpe": 9
-          },
-          {
-            "setMark": "F",
-            "weight": 85,
-            "reps": 8,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-04-24",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 87.5,
-            "reps": 8,
-            "rpe": 9
-          },
-          {
-            "setMark": "F",
-            "weight": 87.5,
-            "reps": 6,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-05-08",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 87.5,
-            "reps": 9,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 87.5,
-            "reps": 7,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-05-16",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 87.5,
-            "reps": 10,
-            "rpe": 9
-          },
-          {
-            "setMark": "F",
-            "weight": 87.5,
-            "reps": 7,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-05-23",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 90,
-            "reps": 7,
-            "rpe": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 87.5,
-            "reps": 7,
-            "rpe": 9
-          }
-        ],
-        "performanceChange": "Increase"
-      },
-      {
-        "date": "2025-05-30",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 90,
-            "reps": 7
-          },
-          {
-            "setMark": "2",
-            "weight": 87.5,
-            "reps": 7
-          }
-        ],
-        "performanceChange": "No Change"
-      },
-      {
-        "date": "2025-06-05",
-        "liftNotes": "2x6-10",
-        "sets": [
-          {
-            "setMark": "1",
-            "weight": 90,
-            "reps": 9
-          },
-          {
-            "setMark": "2",
-            "weight": 9,
-            "reps": 6
-          }
-        ],
-        "performanceChange": "Increase"
-      }
-    ],
-    "sessionNames": [
-      "Lower"
     ],
     "progressStatus": "Struggling",
     "activityStatus": "Active"
@@ -69062,6 +65333,225 @@
     "activityStatus": "History"
   },
   {
+    "name": "Squat (Barbell) | Day 5 - Lower",
+    "workouts": [
+      {
+        "date": "2022-06-30",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 75,
+            "reps": 10,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 75,
+            "reps": 10,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2022-07-07",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 77.5,
+            "reps": 11,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 77.5,
+            "reps": 9,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-07-14",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 80,
+            "reps": 11,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 80,
+            "reps": 9,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-07-28",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 75,
+            "reps": 9,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 75,
+            "reps": 9,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2022-08-04",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 80,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 82.5,
+            "reps": 10,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-08-11",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 82.5,
+            "reps": 9,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 82.5,
+            "reps": 9,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-08-18",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 82.5,
+            "reps": 10,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 82.5,
+            "reps": 9,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-08-25",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 85,
+            "reps": 10,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 85,
+            "reps": 8,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-09-01",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 85,
+            "reps": 10,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 85,
+            "reps": 9,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-09-08",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 70,
+            "reps": 10,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 70,
+            "reps": 9,
+            "rpe": 8
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2022-09-15",
+        "liftNotes": "2 x 8-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 85,
+            "reps": 10,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 80,
+            "reps": 8,
+            "rpe": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "Day 5 - Lower"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "History"
+  },
+  {
     "name": "Arnold Press (Dumbbell) | Evening Workout",
     "workouts": [
       {
@@ -72987,6 +69477,240 @@
     "activityStatus": "History"
   },
   {
+    "name": "Lat Pulldown (Cable) | MI - Pull B",
+    "workouts": [
+      {
+        "date": "2022-10-28",
+        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 50,
+            "reps": 14,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 55,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 55,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2022-11-05",
+        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 55,
+            "reps": 11,
+            "rpe": 9
+          },
+          {
+            "setMark": "F",
+            "weight": 55,
+            "reps": 10,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 50,
+            "reps": 12,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-11-13",
+        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 55,
+            "reps": 13,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 55,
+            "reps": 11,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 50,
+            "reps": 12,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-11-22",
+        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 60,
+            "reps": 10,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 55,
+            "reps": 13,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 55,
+            "reps": 12,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-11-30",
+        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 60,
+            "reps": 12,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 60,
+            "reps": 9,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 55,
+            "reps": 13,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-12-08",
+        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 65,
+            "reps": 10,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 60,
+            "reps": 12,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 60,
+            "reps": 10,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-12-18",
+        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 65,
+            "reps": 11,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 65,
+            "reps": 10,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 60,
+            "reps": 11,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-12-27",
+        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 65,
+            "reps": 11,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 65,
+            "reps": 8,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 60,
+            "reps": 11,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-01-06",
+        "liftNotes": "Normal grip, 3 x 10-12 or Bulldozer ",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 65,
+            "reps": 11,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 65,
+            "reps": 9,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 60,
+            "reps": 10,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "MI - Pull B"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "History"
+  },
+  {
     "name": "Seated Row (Machine) | MI - Pull B",
     "workouts": [
       {
@@ -74041,6 +70765,479 @@
     ],
     "sessionNames": [
       "MI - Pull B"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "History"
+  },
+  {
+    "name": "Standing Calf Raise (Machine) | MI - Legs B",
+    "workouts": [
+      {
+        "date": "2022-10-30",
+        "liftNotes": "2 x 12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 18
+          },
+          {
+            "setMark": "2",
+            "weight": 35,
+            "reps": 12,
+            "rpe": 10
+          },
+          {
+            "setMark": "3",
+            "weight": 30,
+            "reps": 11
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2022-11-06",
+        "liftNotes": "2 x 12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 30,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-11-14",
+        "liftNotes": "2 x 12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 13
+          },
+          {
+            "setMark": "2",
+            "weight": 35,
+            "reps": 10,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 30,
+            "reps": 8
+          },
+          {
+            "setMark": "4",
+            "weight": 20,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-11-24",
+        "liftNotes": "2 x 12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 14
+          },
+          {
+            "setMark": "2",
+            "weight": 35,
+            "reps": 11,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 30,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-12-02",
+        "liftNotes": "2 x 12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 20
+          },
+          {
+            "setMark": "2",
+            "weight": 15,
+            "reps": 16,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 10,
+            "reps": 20
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2022-12-12",
+        "liftNotes": "2 x 12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 16
+          },
+          {
+            "setMark": "2",
+            "weight": 15,
+            "reps": 18,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 10,
+            "reps": 16
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2022-12-20",
+        "liftNotes": "2 x 12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 20
+          },
+          {
+            "setMark": "2",
+            "weight": 20,
+            "reps": 16,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 15,
+            "reps": 15
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-12-29",
+        "liftNotes": "2 x 12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 21
+          },
+          {
+            "setMark": "2",
+            "weight": 20,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 15,
+            "reps": 14
+          },
+          {
+            "setMark": "4",
+            "weight": 15,
+            "reps": 15
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-01-09",
+        "liftNotes": "2 x 12",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 16
+          },
+          {
+            "setMark": "2",
+            "weight": 20,
+            "reps": 17,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 20,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-01-28",
+        "liftNotes": "2-5 x 15-10",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-02-06",
+        "liftNotes": "2-5 x 15-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 15
+          },
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 14,
+            "rpe": 9
+          },
+          {
+            "setMark": "F",
+            "weight": 20,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "MI - Legs B"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "History"
+  },
+  {
+    "name": "Push Up | MI - Push A",
+    "workouts": [
+      {
+        "date": "2022-10-31",
+        "liftNotes": "AMRAP",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 6
+          },
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 4
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2022-11-07",
+        "liftNotes": "AMRAP",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 9
+          },
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 5
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-11-16",
+        "liftNotes": "AMRAP",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 11
+          },
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 7
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-11-25",
+        "liftNotes": "AMRAP",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 9
+          },
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 6
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2022-12-05",
+        "liftNotes": "AMRAP",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 6
+          },
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 4
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2022-12-15",
+        "liftNotes": "AMRAP",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 8
+          },
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 3
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2022-12-23",
+        "liftNotes": "AMRAP",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 6
+          },
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 4
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-01-04",
+        "liftNotes": "AMRAP",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 6
+          },
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 5
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-01-12",
+        "liftNotes": "AMRAP",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 6
+          },
+          {
+            "setMark": "F",
+            "weight": 0,
+            "reps": 6
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-01-20",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 0,
+            "reps": 7
+          },
+          {
+            "setMark": "2",
+            "weight": 0,
+            "reps": 5
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-02-08",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 0,
+            "reps": 5
+          },
+          {
+            "setMark": "2",
+            "weight": 0,
+            "reps": 6
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-02-17",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 0,
+            "reps": 6
+          },
+          {
+            "setMark": "2",
+            "weight": 0,
+            "reps": 5
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "MI - Push A"
     ],
     "progressStatus": "Progressing",
     "activityStatus": "History"
@@ -79958,6 +77155,470 @@
     "activityStatus": "History"
   },
   {
+    "name": "Hack Squat | Legs",
+    "workouts": [
+      {
+        "date": "2023-03-22",
+        "liftNotes": "Alt. 2-3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 45,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 45,
+            "reps": 15
+          },
+          {
+            "setMark": "3",
+            "weight": 45,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2023-04-05",
+        "liftNotes": "Alt. 2-3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 50,
+            "reps": 15,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 50,
+            "reps": 14,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 50,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-05-04",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 40,
+            "reps": 14
+          },
+          {
+            "setMark": "2",
+            "weight": 40,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-05-18",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 40,
+            "reps": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 40,
+            "reps": 10
+          },
+          {
+            "setMark": "3",
+            "weight": 40,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-06-03",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 45,
+            "reps": 15,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 47.5,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 50,
+            "reps": 13,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-06-17",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 12,
+            "rpe": 6
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 12,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-07-03",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 50,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 50,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 50,
+            "reps": 16,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-08-05",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 52.5,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 50,
+            "reps": 12,
+            "rpe": 7
+          },
+          {
+            "setMark": "3",
+            "weight": 50,
+            "reps": 12,
+            "rpe": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-08-22",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 52.5,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 52.5,
+            "reps": 12,
+            "rpe": 7
+          },
+          {
+            "setMark": "3",
+            "weight": 50,
+            "reps": 12,
+            "rpe": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-09-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 52.5,
+            "reps": 11,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 45,
+            "reps": 12,
+            "rpe": 7
+          },
+          {
+            "setMark": "3",
+            "weight": 30,
+            "reps": 8,
+            "rpe": 8
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-09-30",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 45,
+            "reps": 12,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 40,
+            "reps": 10,
+            "rpe": 8
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-10-09",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 15,
+            "rpe": 6
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-10-27",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 11,
+            "rpe": 7
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 12,
+            "rpe": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-11-23",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 12,
+            "rpe": 7
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 11,
+            "rpe": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-12-07",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 15,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 15,
+            "rpe": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-12-26",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 15,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 32.5,
+            "reps": 15,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-01-25",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 35,
+            "reps": 12,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-02-14",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 15,
+            "rpe": 7
+          },
+          {
+            "setMark": "2",
+            "weight": 35,
+            "reps": 14,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-03-06",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 37.5,
+            "reps": 16,
+            "rpe": 7
+          },
+          {
+            "setMark": "2",
+            "weight": 40,
+            "reps": 15,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-03-18",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 40,
+            "reps": 12,
+            "rpe": 7
+          },
+          {
+            "setMark": "2",
+            "weight": 40,
+            "reps": 10,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-03-27",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 42.5,
+            "reps": 11,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 40,
+            "reps": 11,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-04-06",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 40,
+            "reps": 13,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 40,
+            "reps": 10,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2024-04-14",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 40,
+            "reps": 15,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 40,
+            "reps": 12,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "Legs"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "History"
+  },
+  {
     "name": "Standing Calf Raise (Machine) | Legs",
     "workouts": [
       {
@@ -83781,6 +81442,841 @@
     "activityStatus": "Active"
   },
   {
+    "name": "Upright Row (Barbell) | Posterior",
+    "workouts": [
+      {
+        "date": "2023-03-24",
+        "liftNotes": "3 x 12-20",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 21
+          },
+          {
+            "setMark": "2",
+            "weight": 20,
+            "reps": 18
+          },
+          {
+            "setMark": "3",
+            "weight": 20,
+            "reps": 16
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2023-04-01",
+        "liftNotes": "3 x 12-20",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 11
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 18
+          },
+          {
+            "setMark": "3",
+            "weight": 20,
+            "reps": 17
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-04-08",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 15
+          },
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 14
+          },
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-04-15",
+        "liftNotes": "3 x 12-20",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 14
+          },
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 14
+          },
+          {
+            "setMark": "F",
+            "weight": 22.5,
+            "reps": 15
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-05-08",
+        "liftNotes": "3 x 12-20",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 22.5,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 15
+          },
+          {
+            "setMark": "F",
+            "weight": 22.5,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-05-14",
+        "liftNotes": "3 x 12-20",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 22.5,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 17
+          },
+          {
+            "setMark": "F",
+            "weight": 22.5,
+            "reps": 15
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-05-23",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 14
+          },
+          {
+            "setMark": "3",
+            "weight": 22.5,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-05-30",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 14
+          },
+          {
+            "setMark": "3",
+            "weight": 25,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-06-06",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 27.5,
+            "reps": 14
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 12
+          },
+          {
+            "setMark": "3",
+            "weight": 25,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-06-13",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 20,
+            "reps": 14
+          },
+          {
+            "setMark": "3",
+            "weight": 20,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-06-20",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 27.5,
+            "reps": 13
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 14
+          },
+          {
+            "setMark": "3",
+            "weight": 27.5,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-06-27",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 27.5,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 15
+          },
+          {
+            "setMark": "3",
+            "weight": 27.5,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-07-06",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 14,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 13
+          },
+          {
+            "setMark": "3",
+            "weight": 27.5,
+            "reps": 15
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-07-14",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 13
+          },
+          {
+            "setMark": "3",
+            "weight": 30,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-07-24",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 17.5,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 17.5,
+            "reps": 15
+          },
+          {
+            "setMark": "3",
+            "weight": 17.5,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-07-31",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 27.5,
+            "reps": 15,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 12,
+            "rpe": 8
+          },
+          {
+            "setMark": "3",
+            "weight": 27.5,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-08-08",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 15,
+            "rpe": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 27.5,
+            "reps": 15
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-08-17",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 30,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-08-26",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 13,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 32.5,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 30,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-09-07",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 12,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-09-16",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 12,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-09-25",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 11,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 14,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 30,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-10-03",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 15,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-10-13",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "3",
+            "weight": 27.5,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-10-30",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 12,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 15,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-11-07",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 13,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 13,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-11-26",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 12,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-12-21",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 13,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 14,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-12-29",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 15,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 13,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-01-08",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 12,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 30,
+            "reps": 14,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-01-29",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 13,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 15,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-02-07",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 14,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 32.5,
+            "reps": 12,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-02-19",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 32.5,
+            "reps": 14,
+            "rpe": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 32.5,
+            "reps": 12,
+            "rpe": 10
+          },
+          {
+            "setMark": "D",
+            "weight": 22.5,
+            "reps": 9,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-02-29",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 15,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 32.5,
+            "reps": 12,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-03-09",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 12,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 32.5,
+            "reps": 12,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-03-21",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 12,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 32.5,
+            "reps": 13,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-03-30",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 12,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 32.5,
+            "reps": 14,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-04-09",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 12,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 32.5,
+            "reps": 12,
+            "rpe": 10
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2024-04-17",
+        "liftNotes": "3 x 12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 13,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 32.5,
+            "reps": 15,
+            "rpe": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "Posterior"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "History"
+  },
+  {
     "name": "Power Shrug (Barbell) | Posterior",
     "workouts": [
       {
@@ -85577,6 +84073,501 @@
     ],
     "sessionNames": [
       "Upper"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "History"
+  },
+  {
+    "name": "Russian Twist Weighted  | Posterior",
+    "workouts": [
+      {
+        "date": "2023-07-14",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 0,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 2.5,
+            "reps": 15
+          },
+          {
+            "setMark": "3",
+            "weight": 2.5,
+            "reps": 11
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2023-07-24",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 0,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-07-31",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 0,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 0,
+            "reps": 11
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-08-08",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 2.5,
+            "reps": 13
+          },
+          {
+            "setMark": "2",
+            "weight": 1.25,
+            "reps": 12
+          },
+          {
+            "setMark": "3",
+            "weight": 0,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-08-17",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 2.5,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 2.5,
+            "reps": 12
+          },
+          {
+            "setMark": "3",
+            "weight": 1.25,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-08-26",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 5,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 2.5,
+            "reps": 12
+          },
+          {
+            "setMark": "3",
+            "weight": 1.25,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-09-07",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 5,
+            "reps": 16
+          },
+          {
+            "setMark": "2",
+            "weight": 5,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-09-25",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 5,
+            "reps": 17
+          },
+          {
+            "setMark": "2",
+            "weight": 5,
+            "reps": 12
+          },
+          {
+            "setMark": "3",
+            "weight": 2.5,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-10-03",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 2.5,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 2.5,
+            "reps": 11
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-10-13",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 5,
+            "reps": 20
+          },
+          {
+            "setMark": "2",
+            "weight": 5,
+            "reps": 16
+          },
+          {
+            "setMark": "3",
+            "weight": 2.5,
+            "reps": 17
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-10-30",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 5,
+            "reps": 20
+          },
+          {
+            "setMark": "2",
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "setMark": "3",
+            "weight": 5,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2023-11-07",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 6,
+            "reps": 24
+          },
+          {
+            "setMark": "2",
+            "weight": 6,
+            "reps": 20
+          },
+          {
+            "setMark": "3",
+            "weight": 6,
+            "reps": 19
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-11-26",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 7,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 5,
+            "reps": 20
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-12-21",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 7,
+            "reps": 20
+          },
+          {
+            "setMark": "2",
+            "weight": 8,
+            "reps": 12
+          },
+          {
+            "setMark": "3",
+            "weight": 8,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2023-12-29",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 8,
+            "reps": 18
+          },
+          {
+            "setMark": "2",
+            "weight": 8,
+            "reps": 12
+          },
+          {
+            "setMark": "3",
+            "weight": 7,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-01-08",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 8,
+            "reps": 21
+          },
+          {
+            "setMark": "2",
+            "weight": 8,
+            "reps": 16
+          },
+          {
+            "setMark": "3",
+            "weight": 8,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-01-29",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 8,
+            "reps": 22
+          },
+          {
+            "setMark": "2",
+            "weight": 8,
+            "reps": 20
+          },
+          {
+            "setMark": "3",
+            "weight": 8,
+            "reps": 17
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-02-07",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 9,
+            "reps": 21
+          },
+          {
+            "setMark": "2",
+            "weight": 9,
+            "reps": 15
+          },
+          {
+            "setMark": "3",
+            "weight": 8,
+            "reps": 15
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-02-19",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 10,
+            "reps": 21
+          },
+          {
+            "setMark": "2",
+            "weight": 10,
+            "reps": 16
+          },
+          {
+            "setMark": "3",
+            "weight": 10,
+            "reps": 17
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-02-29",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 12.5,
+            "reps": 21
+          },
+          {
+            "setMark": "2",
+            "weight": 12.5,
+            "reps": 16
+          },
+          {
+            "setMark": "3",
+            "weight": 12.5,
+            "reps": 15
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-03-09",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 15,
+            "reps": 22
+          },
+          {
+            "setMark": "2",
+            "weight": 15,
+            "reps": 17
+          },
+          {
+            "setMark": "3",
+            "weight": 15,
+            "reps": 16
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-03-21",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 17.5,
+            "reps": 13
+          },
+          {
+            "setMark": "2",
+            "weight": 15,
+            "reps": 12
+          },
+          {
+            "setMark": "3",
+            "weight": 15,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-03-30",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 17.5,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 17.5,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-04-09",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 17.5,
+            "reps": 14
+          },
+          {
+            "setMark": "2",
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "setMark": "3",
+            "weight": 15,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2024-04-17",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 17.5,
+            "reps": 16
+          },
+          {
+            "setMark": "2",
+            "weight": 17.5,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "Posterior"
     ],
     "progressStatus": "Progressing",
     "activityStatus": "History"
@@ -87757,6 +86748,218 @@
     ],
     "sessionNames": [
       "Pull"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "History"
+  },
+  {
+    "name": "Bulgarian Split Squat (Smith Machine) | Posterior A: Deads ❤️",
+    "workouts": [
+      {
+        "date": "2024-04-19",
+        "liftNotes": "2x8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 0,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 10,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2024-04-28",
+        "liftNotes": "2x8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 13
+          },
+          {
+            "setMark": "2",
+            "weight": 20,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-05-06",
+        "liftNotes": "2x8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 22.5,
+            "reps": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-05-23",
+        "liftNotes": "2x8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 7
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2024-05-30",
+        "liftNotes": "8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 22.5,
+            "reps": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-06-07",
+        "liftNotes": "8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 22.5,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-06-16",
+        "liftNotes": "8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-06-23",
+        "liftNotes": "8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 27.5,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-07-02",
+        "liftNotes": "8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 30,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-07-11",
+        "liftNotes": "8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 32.5,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 30,
+            "reps": 8,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-07-20",
+        "liftNotes": "8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 0,
+            "reps": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 0,
+            "reps": 12,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2024-07-29",
+        "liftNotes": "8-12",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 35,
+            "reps": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 35,
+            "reps": 8,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "Posterior A: Deads ❤️"
     ],
     "progressStatus": "Progressing",
     "activityStatus": "History"
@@ -93696,6 +92899,235 @@
             "setMark": "D",
             "weight": 7,
             "reps": 7
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "Bro Day 💪"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "History"
+  },
+  {
+    "name": "Preacher Curl (Barbell) | Bro Day 💪",
+    "workouts": [
+      {
+        "date": "2024-04-22",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 22.5,
+            "reps": 14
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2024-05-01",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 22.5,
+            "reps": 13
+          },
+          {
+            "setMark": "2",
+            "weight": 20,
+            "reps": 16
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2024-05-16",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 22.5,
+            "reps": 16
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-05-26",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 12
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-06-03",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 14
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-06-11",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 13
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 13
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2024-06-19",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 14
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-06-27",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 15
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-07-07",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 27.5,
+            "reps": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 14
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-07-15",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 27.5,
+            "reps": 14
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 15
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-07-23",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 27.5,
+            "reps": 15,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2024-08-02",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 15,
+            "reps": 15,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 15,
+            "reps": 12
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2024-08-28",
+        "liftNotes": "12-15",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 12,
+            "rpe": 10
           }
         ],
         "performanceChange": "Increase"
@@ -107057,6 +106489,290 @@
     "activityStatus": "History"
   },
   {
+    "name": "Triceps Dip | Upper",
+    "workouts": [
+      {
+        "date": "2025-02-16",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 0,
+            "reps": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 0,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2025-02-23",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 15,
+            "reps": 11
+          },
+          {
+            "setMark": "2",
+            "weight": 15,
+            "reps": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-03-02",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 20,
+            "reps": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-03-10",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 20,
+            "reps": 11
+          },
+          {
+            "setMark": "2",
+            "weight": 20,
+            "reps": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-03-19",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 22.5,
+            "reps": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 22.5,
+            "reps": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-03-26",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 22.5,
+            "reps": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 22.5,
+            "reps": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-04-02",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 9
+          },
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 7
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-04-09",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 25,
+            "reps": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-04-16",
+        "liftNotes": "2x6-10\\nAlmost 10x25",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 9
+          },
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 7
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2025-04-23",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 25,
+            "reps": 10
+          },
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 7
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-05-01",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 24,
+            "reps": 8
+          },
+          {
+            "setMark": "F",
+            "weight": 24,
+            "reps": 8
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2025-05-07",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 27.5,
+            "reps": 7
+          },
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-05-14",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 27.5,
+            "reps": 8
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 8
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-05-21",
+        "liftNotes": "2x6-10\\n9th rep was ugly",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 27.5,
+            "reps": 9,
+            "rpe": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 7,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-05-28",
+        "liftNotes": "2x6-10\\n9th rep was ugly",
+        "sets": [
+          {
+            "setMark": "F",
+            "weight": 27.5,
+            "reps": 7
+          },
+          {
+            "setMark": "F",
+            "weight": 25,
+            "reps": 6
+          }
+        ],
+        "performanceChange": "Decrease"
+      },
+      {
+        "date": "2025-06-04",
+        "liftNotes": "2x6-10\\n9th rep was ugly",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 27.5,
+            "reps": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 27.5,
+            "reps": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "Upper"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "Active"
+  },
+  {
     "name": "Reverse Peck Deck | Upper",
     "workouts": [
       {
@@ -108075,6 +107791,290 @@
             "setMark": "3",
             "weight": 55,
             "reps": 12
+          }
+        ],
+        "performanceChange": "Increase"
+      }
+    ],
+    "sessionNames": [
+      "Lower"
+    ],
+    "progressStatus": "Progressing",
+    "activityStatus": "Active"
+  },
+  {
+    "name": "Hack Squat | Lower",
+    "workouts": [
+      {
+        "date": "2025-02-17",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 75,
+            "reps": 6
+          },
+          {
+            "setMark": "2",
+            "weight": 60,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2025-02-24",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 75,
+            "reps": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 65,
+            "reps": 11
+          }
+        ],
+        "performanceChange": "Not Sure"
+      },
+      {
+        "date": "2025-03-03",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 77.5,
+            "reps": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 70,
+            "reps": 10
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-03-11",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 77.5,
+            "reps": 10
+          },
+          {
+            "setMark": "2",
+            "weight": 75,
+            "reps": 9,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-03-20",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 80,
+            "reps": 8,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 80,
+            "reps": 6,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-03-27",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 80,
+            "reps": 10,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 80,
+            "reps": 7,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-04-03",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 82.5,
+            "reps": 10,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 82.5,
+            "reps": 7,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-04-10",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 85,
+            "reps": 10,
+            "rpe": 9
+          },
+          {
+            "setMark": "F",
+            "weight": 85,
+            "reps": 6,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-04-17",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 87.5,
+            "reps": 6,
+            "rpe": 9
+          },
+          {
+            "setMark": "F",
+            "weight": 85,
+            "reps": 8,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-04-24",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 87.5,
+            "reps": 8,
+            "rpe": 9
+          },
+          {
+            "setMark": "F",
+            "weight": 87.5,
+            "reps": 6,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-05-08",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 87.5,
+            "reps": 9,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 87.5,
+            "reps": 7,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-05-16",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 87.5,
+            "reps": 10,
+            "rpe": 9
+          },
+          {
+            "setMark": "F",
+            "weight": 87.5,
+            "reps": 7,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-05-23",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 90,
+            "reps": 7,
+            "rpe": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 87.5,
+            "reps": 7,
+            "rpe": 9
+          }
+        ],
+        "performanceChange": "Increase"
+      },
+      {
+        "date": "2025-05-30",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 90,
+            "reps": 7
+          },
+          {
+            "setMark": "2",
+            "weight": 87.5,
+            "reps": 7
+          }
+        ],
+        "performanceChange": "No Change"
+      },
+      {
+        "date": "2025-06-05",
+        "liftNotes": "2x6-10",
+        "sets": [
+          {
+            "setMark": "1",
+            "weight": 90,
+            "reps": 9
+          },
+          {
+            "setMark": "2",
+            "weight": 9,
+            "reps": 6
           }
         ],
         "performanceChange": "Increase"

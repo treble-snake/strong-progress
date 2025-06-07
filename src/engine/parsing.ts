@@ -1,6 +1,12 @@
 import fs from 'fs';
 import csvToJson from 'convert-csv-to-json';
-import {LiftDayData, LiftHistory, LiftSetData, RawSetData} from "@/types";
+import {
+  LiftDayData,
+  LiftHistory,
+  LiftProgressStatus,
+  LiftSetData,
+  RawSetData
+} from "@/types";
 
 // Define the type for raw workout data based on the CSV structure
 interface StrongAppRawDataPoint {
@@ -32,6 +38,7 @@ const ensureLiftEntry = (liftsByName: Record<string, ParsingLiftHistory>, set: R
       name: key,
       workouts: {},
       sessionNames: new Set<string>(),
+      progressStatus: LiftProgressStatus.NotSure,
     };
   }
 

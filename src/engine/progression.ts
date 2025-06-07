@@ -106,6 +106,12 @@ const computeProgressStatus = (
       LiftProgressStatus.Plateaued;
   }
 
+  // factor out random decreases/matched performance
+  // if the last session was an increase, and 75% of sessions is the incread we consider it progressing
+  if (inc >= recentCount * 0.75 && is(PerformanceChange.Increase)(recent[recentCount - 1])) {
+    return LiftProgressStatus.Progressing;
+  }
+
   if (dec === 0 || inc > dec || !lastTwo.some(is(PerformanceChange.Decrease))) {
     return LiftProgressStatus.Struggling
   }

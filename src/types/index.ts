@@ -18,7 +18,7 @@ export interface LiftHistory {
   /** Names of the sessions this lift was a part of */
   sessionNames: string[];
   activityStatus?: LiftActivityStatus;
-  progressStatus?: LiftProgressStatus;
+  progressStatus: LiftProgressStatus;
   workouts: LiftDayData[];
 }
 
