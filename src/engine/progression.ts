@@ -18,6 +18,8 @@ const ACTIVE_DAYS_THRESHOLD = 15;
 
 const WEIRD_REP_DIFF_COEFFICIENT = 0.55; // 50% difference in reps is considered too much
 
+const WEIRD_WEIGHT_CHANGE_COEFFICIENT = 0.4; // this % of weight changed - probably a deload or something?
+
 export const compareSetPerformance = (previous: LiftSetData, current: LiftSetData): PerformanceChange => {
   const previousPerf = previous.reps
   const currentPerf = current.reps;
@@ -25,6 +27,14 @@ export const compareSetPerformance = (previous: LiftSetData, current: LiftSetDat
   // TODO: this might be too strict, or different for duration- or distance-based lifts
   const diff = Math.abs(previousPerf - currentPerf);
   if (diff > previousPerf * WEIRD_REP_DIFF_COEFFICIENT) {
+    return PerformanceChange.NotSure;
+  }
+
+  // If the weight is too different, we consider it a deload or something
+  // unless it's super small numbers (like cable stack)
+  // TODO: 5 is prob ok for both kg and lbs, but we can adjust it later
+  const weightDiff = Math.abs(previous.weight - current.weight);
+  if (weightDiff > 5 && weightDiff > previous.weight * WEIRD_WEIGHT_CHANGE_COEFFICIENT) {
     return PerformanceChange.NotSure;
   }
 
