@@ -18,9 +18,9 @@ interface StrongAppRawDataPoint {
   RPE: string;
 }
 
-type ParsingLiftHistory = Omit<LiftHistory, 'workouts' | 'sessions'> & {
+type ParsingLiftHistory = Omit<LiftHistory, 'workouts' | 'sessionNames'> & {
   workouts: Record<string, LiftDayData>;
-  sessions: Set<string>
+  sessionNames: Set<string>
 }
 
 const makeLiftName = (set: RawSetData) => `${set.exerciseName} | ${set.workoutName}`;
@@ -31,7 +31,7 @@ const ensureLiftEntry = (liftsByName: Record<string, ParsingLiftHistory>, set: R
     liftsByName[key] = {
       name: key,
       workouts: {},
-      sessions: new Set<string>(),
+      sessionNames: new Set<string>(),
     };
   }
 
@@ -42,7 +42,8 @@ const ensureDayEntry = (lift: ParsingLiftHistory, set: RawSetData): LiftDayData 
   if (!lift.workouts[set.date]) {
     lift.workouts[set.date] = {
       date: set.date,
-      note: set.workoutNotes || undefined,
+      sessionNotes: set.workoutNotes || undefined,
+      liftNotes: set.notes || undefined,
       sets: []
     };
   }
@@ -83,12 +84,11 @@ export const groupByLift = (sets: RawSetData[]): LiftHistory[] => {
   sets.forEach((set) => {
     const liftEntry = ensureLiftEntry(liftsByName, set);
     const dayEntry = ensureDayEntry(liftEntry, set);
-    liftEntry.sessions.add(set.workoutName);
+    liftEntry.sessionNames.add(set.workoutName);
     dayEntry.sets.push({
       setMark: set.setMark,
       weight: set.weight,
       reps: set.reps,
-      notes: set.notes || undefined,
       rpe: set.rpe
     } as LiftSetData);
   });
@@ -99,7 +99,7 @@ export const groupByLift = (sets: RawSetData[]): LiftHistory[] => {
     return {
       ...it,
       workouts: Object.values(it.workouts),
-      sessions: Array.from(it.sessions),
+      sessionNames: Array.from(it.sessionNames),
     }
   });
 }

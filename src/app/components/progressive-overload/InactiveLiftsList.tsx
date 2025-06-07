@@ -1,4 +1,4 @@
-import {useProgressiveOverloadHistory} from "@/app/components/api/hooks";
+import {useProgressByActivity} from "@/app/components/api/hooks";
 import {LiftActivityStatus} from "@/types";
 import {Alert, Flex} from "antd";
 import {LiftCard} from "@/app/components/progressive-overload/LiftCard";
@@ -17,7 +17,7 @@ export function InactiveLiftsList(
     data,
     error,
     isLoading
-  } = useProgressiveOverloadHistory({activityStatus});
+  } = useProgressByActivity({activityStatus});
   if (isLoading || error || !data) {
     return <NoDataLoaded error={error} isLoading={isLoading}/>
   }

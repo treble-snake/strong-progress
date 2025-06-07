@@ -1,60 +1,64 @@
 import useSWR from "swr";
-import {simpleFetcher} from "@/app/components/api/fetcher";
+import {ApiError, simpleFetcher} from "@/app/components/api/fetcher";
 import {LiftActivityStatus, LiftHistory} from "@/types";
+import {isBefore, subMonths} from "date-fns";
 
-const useLiftingHistory = () => {
-  return useSWR<LiftHistory[]>(`/parsed-workout-data.json`, simpleFetcher)
+type DataResponse<Data> = {
+  data: Data | undefined;
+  error: ApiError | undefined;
+  isLoading: boolean;
 }
 
-type ProgressiveOverloadCounts = {
-  activeCount: number;
-  historyCount: number;
-  newCount: number;
+const mapDataWhenAvailable = <I, O>(
+  input: DataResponse<I>,
+  mapper: (data: I) => O | undefined
+): DataResponse<O> => {
+  return {...input, data: input.data ? mapper(input.data) : undefined}
+}
+
+
+const useLiftingHistory = () => {
+  return useSWR<LiftHistory[], ApiError>(`/parsed-workout-data.json`, simpleFetcher)
+}
+
+const useProgressiveOverloadHistory = (
+  monthsToConsider: number = 6
+) => {
+  return mapDataWhenAvailable(
+    useLiftingHistory(),
+    (data) => {
+      const cutoffDate = subMonths(new Date(), monthsToConsider);
+      return data.filter(flit =>
+        // sessions are in ascending order, so if there's one session before the cutoff, we can disregard the lift
+        flit.workouts.findLastIndex(({date}) => isBefore(date, cutoffDate)) === -1
+      )
+    }
+  )
 }
 
 export const useProgressiveOverloadCounts = () => {
-  const {data, isLoading, error} = useLiftingHistory();
-  let newData: ProgressiveOverloadCounts | null = null
-  if (data) {
-    const activeCount = data.filter(lift => lift.activityStatus === 'Active').length;
-    const historyCount = data.filter(lift => lift.activityStatus === 'History').length;
-    const newCount = data.filter(lift => lift.activityStatus === 'New').length;
-
-    newData = {
-      activeCount,
-      historyCount,
-      newCount
+  return mapDataWhenAvailable(
+    useProgressiveOverloadHistory(),
+    (data) => {
+      const activeCount = data.filter(lift => lift.activityStatus === 'Active').length;
+      const historyCount = data.filter(lift => lift.activityStatus === 'History').length;
+      const newCount = data.filter(lift => lift.activityStatus === 'New').length;
+      return {activeCount, historyCount, newCount}
     }
-  }
-
-  return {data: newData, isLoading, error}
+  )
 }
 
 type LiftHistoryProps = {
-  activityStatus?: LiftActivityStatus
+  activityStatus: LiftActivityStatus
 }
 
-export const useProgressiveOverloadHistory = (
-  props: LiftHistoryProps = {},
+export const useProgressByActivity = (
+  props: LiftHistoryProps,
 ) => {
-  // const params = new URLSearchParams(search)
-  // const branchPreview = params.get('previewBranch')
-  // const resetCache = params.has('resetCache')
-  //
-  // const queryParams = new URLSearchParams()
-  // if (branchPreview) {
-  //     queryParams.set('previewBranch', branchPreview)
-  // }
-  // if (resetCache) {
-  //     queryParams.set('resetCache', 'true')
-  // }
-  const {data, isLoading, error} = useLiftingHistory();
-  let newData = data;
-  if (data) {
-    if (props.activityStatus) {
-      newData = data.filter(lift => lift.activityStatus === props.activityStatus);
+  return mapDataWhenAvailable(
+    useProgressiveOverloadHistory(),
+    (data) => {
+      return data.filter(lift => lift.activityStatus === props.activityStatus);
     }
-  }
-
-  return {data: newData, isLoading, error}
+  )
 }

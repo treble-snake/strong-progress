@@ -13,6 +13,7 @@
     "parse": "ts-node -r tsconfig-paths/register src/utils/try.ts"
   },
   "dependencies": {
+    "@ant-design/colors": "^7.2.1",
     "@ant-design/icons": "^6.0.0",
     "@ant-design/nextjs-registry": "^1.0.2",
     "antd": "^5.25.4",

@@ -27,19 +27,22 @@ export function MainProgressiveOverloadPage() {
           {
             key: 'active',
             label: `Active Lifts (${data.activeCount})`,
-            children: <ActiveLiftsList/>
+            children: <ActiveLiftsList/>,
+            disabled: data.activeCount === 0
           },
           {
             key: 'new',
             label: `New Lifts (${data.newCount})`,
             children: <InactiveLiftsList title={'New Lifts'}
-                                         activityStatus={LiftActivityStatus.New}/>
+                                         activityStatus={LiftActivityStatus.New}/>,
+            disabled: data.newCount === 0
           },
           {
             key: 'history',
             label: `History Lifts (${data.historyCount})`,
             children: <InactiveLiftsList title={'History Lifts'}
-                                         activityStatus={LiftActivityStatus.History}/>
+                                         activityStatus={LiftActivityStatus.History}/>,
+            disabled: data.historyCount === 0
           },
         ]}
       />

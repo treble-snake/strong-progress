@@ -1,4 +1,4 @@
-import {useProgressiveOverloadHistory} from "@/app/components/api/hooks";
+import {useProgressByActivity} from "@/app/components/api/hooks";
 import {Flex, Select} from "antd";
 import React, {useMemo, useState} from "react";
 import {LiftCard} from "@/app/components/progressive-overload/LiftCard";
@@ -10,7 +10,7 @@ const getSessionsOptions = (data: LiftHistory[] | undefined) => {
   if (!data) {
     return [];
   }
-  const uniqueSessions = Array.from(new Set(data.flatMap(exercise => exercise.sessions)));
+  const uniqueSessions = Array.from(new Set(data.flatMap(exercise => exercise.sessionNames)));
   return uniqueSessions.map(session => ({
     label: session,
     value: session
@@ -30,7 +30,7 @@ const getLiftOptions = (data: LiftHistory[] | undefined) => {
 
 export function ActiveLiftsList() {
   const {data, error, isLoading} =
-    useProgressiveOverloadHistory({activityStatus: LiftActivityStatus.Active});
+    useProgressByActivity({activityStatus: LiftActivityStatus.Active});
   const [selectedLifts, setSelectedLifts] = useState<string[]>([]);
   const [selectedSessions, setSelectedSessions] = useState<string[]>([]);
 
@@ -50,7 +50,7 @@ export function ActiveLiftsList() {
         result = result && selectedLifts.includes(lift.name);
       }
       if (selectedSessions.length > 0) {
-        result = result && lift.sessions.some(session => selectedSessions.includes(session));
+        result = result && lift.sessionNames.some(session => selectedSessions.includes(session));
       }
       return result;
     });

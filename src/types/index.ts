@@ -15,7 +15,7 @@ export enum LiftProgressStatus {
 export interface LiftHistory {
   name: string;
   /** Names of the sessions this lift was a part of */
-  sessions: string[];
+  sessionNames: string[];
   activityStatus?: LiftActivityStatus;
   progressStatus?: LiftProgressStatus;
   workouts: LiftDayData[];
@@ -24,6 +24,8 @@ export interface LiftHistory {
 export interface LiftDayData {
   date: string;
   note?: string;
+  sessionNotes?: string;
+  liftNotes?: string;
   performanceChange?: PerformanceChange;
   sets: LiftSetData[];
 }
@@ -33,7 +35,6 @@ export interface LiftSetData {
   setMark: string;
   weight: number; // float
   reps: number; // integer
-  notes?: string;
   rpe?: number;
   // distance: number; // float
   // seconds: number; // float

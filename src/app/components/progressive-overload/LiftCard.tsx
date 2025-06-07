@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
-import {Button, Card, Popover, Tag, Timeline, Tooltip, Typography} from 'antd';
+import {Button, Card, Tag, Timeline, Typography} from 'antd';
 import {
   ArrowDownOutlined,
   ArrowUpOutlined,
   CheckCircleOutlined,
   CloseCircleOutlined,
   EyeOutlined,
-  InfoCircleOutlined,
   MinusCircleOutlined,
   QuestionCircleOutlined,
   WarningOutlined
 } from '@ant-design/icons';
 import {LiftHistory, LiftProgressStatus, PerformanceChange} from '@/types';
 import {format, parseISO} from 'date-fns';
+import {NotesPopover} from './NotesPopover'; // Import the extracted component
 
-const {Text, Paragraph} = Typography;
+const {Text} = Typography;
 
 interface LiftCardProps {
   lift: LiftHistory;
@@ -33,8 +33,7 @@ const formatDate = (dateString: string) => {
 const getProgressStatusIcon = (status?: LiftProgressStatus) => {
   switch (status) {
     case LiftProgressStatus.Progressing:
-      return <Tooltip title={LiftProgressStatus.Progressing}><ArrowUpOutlined
-        style={{color: 'green', marginRight: 8}}/></Tooltip>;
+      return <ArrowUpOutlined style={{color: 'green', marginRight: 8}}/>;
     case LiftProgressStatus.NeedsAttention:
       return <EyeOutlined style={{color: 'orange', marginRight: 8}}/>;
     case LiftProgressStatus.Plateaued:
@@ -81,59 +80,10 @@ export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
     setIsExpanded(!isExpanded);
   };
 
-  const workouts = lift.workouts
-
+  const workouts = lift.workouts;
   // Limit to 5 most recent entries if not expanded
   const visibleEntries = isExpanded ? workouts : workouts.slice(-5);
   const hasMoreEntries = workouts.length > 5;
-
-  // Helper to render popover content
-  const renderNotesPopover = (currentLift: LiftHistory) => {
-    // Collect all unique notes and workout notes
-    const uniqueNotes = new Set<string>();
-    const uniqueWorkoutNotes = new Set<string>();
-
-    currentLift.workouts.forEach(workout => {
-      if (workout.note) {
-        uniqueNotes.add(workout.note.trim());
-      }
-      workout.sets.forEach((it) => {
-        if (it.notes) {
-          uniqueNotes.add(it.notes.trim());
-        }
-      })
-    });
-
-    if (uniqueNotes.size === 0 && uniqueWorkoutNotes.size === 0) {
-      return null; // No notes to show
-    }
-
-    return (
-      <div style={{maxWidth: 300}}>
-        {uniqueNotes.size > 0 && (
-          <>
-            <Text strong>Notes:</Text>
-            {[...uniqueNotes].map((note, index) => (
-              <Paragraph key={index} style={{margin: '4px 0'}}>
-                {note}
-              </Paragraph>
-            ))}
-          </>
-        )}
-
-        {uniqueWorkoutNotes.size > 0 && (
-          <>
-            <Text strong>Workout Notes:</Text>
-            {[...uniqueWorkoutNotes].map((note, index) => (
-              <Paragraph key={index} style={{margin: '4px 0'}}>
-                {note}
-              </Paragraph>
-            ))}
-          </>
-        )}
-      </div>
-    );
-  };
 
   return (
     <Card
@@ -150,10 +100,6 @@ export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
         reverse
         items={visibleEntries
           .map((liftingDay) => {
-            // Check if there are any notes to show
-            const notesContent = renderNotesPopover(lift);
-            const hasNotes = notesContent !== null;
-
             return {
               color: getPerformanceColor(liftingDay.performanceChange),
               label: <Tag>{formatDate(liftingDay.date)}</Tag>,
@@ -163,17 +109,7 @@ export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
                     color: getPerformanceColor(liftingDay.performanceChange),
                   }}>
                     {liftingDay.performanceChange}
-                    {hasNotes && (
-                      <Popover
-                        content={notesContent}
-                        title="Notes"
-                        placement="right"
-                        trigger="hover"
-                      >
-                        <InfoCircleOutlined
-                          style={{marginLeft: 8, color: 'rgba(0,0,0,0.45)'}}/>
-                      </Popover>
-                    )}
+                    <NotesPopover session={liftingDay} />
                   </Text>
                   <div>
                     {liftingDay.sets.map((exercise, i) => (
