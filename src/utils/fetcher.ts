@@ -1,3 +1,4 @@
+// TODO: will be useful if and wehn we have an API server
 export class ApiError extends Error {
     info: unknown;
     status: number;

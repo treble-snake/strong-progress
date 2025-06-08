@@ -3,13 +3,23 @@ import {LiftHistory, RawSetData} from "@/types";
 import {atomWithStorage} from 'jotai/utils'
 import {analyzeProgressiveOverload} from "@/engine/progression";
 
-export const rawLiftHistoryAtom = atomWithStorage<RawSetData[]>('rawStrongData', [])
+export const rawLiftHistoryLoadingAtom = atom<{
+  isLoading: boolean,
+  error?: string
+}>({
+  isLoading: false,
+  error: undefined
+});
+
+export const rawLiftHistoryAtom = atomWithStorage<RawSetData[]>(
+  'rawStrongData', [], undefined, {getOnInit: true}
+)
 
 export const liftsProgressAtom = atom<LiftHistory[]>((get) => {
   const sets = get(rawLiftHistoryAtom);
-  console.warn('Processing lifts from raw data:', sets.length, 'sets found');
+  console.debug('Processing lifts from raw data:', sets.length, 'sets found');
   const liftHistories = analyzeProgressiveOverload(sets);
-  console.warn('Processed lifts:', liftHistories.length, 'lifts found');
+  console.debug('Processed lifts:', liftHistories.length, 'lifts found');
   return liftHistories
 })
 

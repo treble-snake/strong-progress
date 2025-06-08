@@ -4,6 +4,7 @@ import React from 'react';
 import {Alert, ConfigProvider, Layout} from 'antd';
 import "./globals.css";
 import {MainMenu} from "@/components/navigation/MainMenu";
+import {Provider as JotaiProvider} from "jotai";
 
 const {Header, Content, Footer} = Layout;
 
@@ -43,10 +44,12 @@ export default function RootLayout({
             <MainMenu/>
           </Header>
           <Alert banner showIcon type={'warning'} message={
-            'This is an early alpha and work is ongoing'
+            'This is an early alpha and work is ongoing - please bear with me as I work on it and don\'t hesitate to get in touch! 😊'
           }/>
           <Content style={{padding: '0px 48px'}}>
-            {children}
+            <JotaiProvider>
+              {children}
+            </JotaiProvider>
           </Content>
           <Footer style={{textAlign: 'center'}}>
             Strong Progress Tracker ©{new Date().getFullYear()} by Cap

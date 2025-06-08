@@ -3,7 +3,6 @@ import {Empty, Flex, Select} from 'antd';
 import React, {useMemo, useState} from 'react';
 import {MemoizedLiftCard} from '@/components/progressive-overload/LiftCard';
 import {LiftActivityStatus, LiftHistory, LiftProgressStatus} from '@/types';
-import {NoDataLoaded} from '@/components/common/Loading';
 import {
   ProgressStatusFilter
 } from '@/components/progressive-overload/ProgressStatusFilter';
@@ -40,7 +39,6 @@ const getLiftOptions = (
 }
 
 export function ActiveLiftsList() {
-  // const {data, error, isLoading} =
   const data = useProgressByActivity({activityStatus: LiftActivityStatus.Active});
   const [selectedLifts, setSelectedLifts] = useState<string[]>([]);
   const [selectedSessions, setSelectedSessions] = useState<string[]>([]);
@@ -68,11 +66,6 @@ export function ActiveLiftsList() {
       return result;
     });
   }, [selectedSessions, selectedLifts, selectedProgress, data]);
-
-  // if (isLoading || error || !data) {
-  //   return <NoDataLoaded error={error} isLoading={isLoading}/>
-  // }
-
 
   return (
     <>
@@ -107,9 +100,11 @@ export function ActiveLiftsList() {
               'No lifts match the selected filters'
           }/> :
           <Flex style={{width: '100%'}} wrap='wrap' justify='start'>
-            {liftsToShow.map((exercise, index) => (
-              <MemoizedLiftCard key={`active-${index}`} lift={exercise}/>
-            ))}
+            {liftsToShow.map((exercise) => {
+                const key = `active-${exercise.name.replaceAll(' ', '-')}`;
+                return <MemoizedLiftCard key={key} lift={exercise}/>
+              }
+            )}
           </Flex>
       }
     </>

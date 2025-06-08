@@ -15,6 +15,8 @@ export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
     setIsExpanded(!isExpanded);
   };
 
+  console.debug('Rendering LiftCard for:', lift.name);
+
   const workouts = lift.workouts;
   const firstWorkouts = workouts.slice(-5);
   const otherWorkouts = workouts.slice(0, -5);

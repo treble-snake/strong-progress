@@ -1,4 +1,5 @@
-import {Menu} from "antd";
+'use client';
+import {Menu, Tooltip} from "antd";
 import React from "react";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
@@ -18,7 +19,7 @@ export function MainMenu() {
       items={[
         {
           key: 'upload', label: (
-            <SourceFileUpload/>
+            <SourceFileUpload text={'New File'}/>
           )
         },
         {
@@ -35,9 +36,12 @@ export function MainMenu() {
         },
         {
           key: 'workout-builder', label: (
-            <Link href={'https://icebreaker-bicep.srms.club/'} target={'_blank'} rel={'noopener noreferrer'}>
-              Workout Builder <ExportOutlined />
-            </Link>
+            <Tooltip title={'Another half-done/half-dead pet project of mine 😅️️️️️ Will probably try to combine these if I ever have time.'}>
+              <Link href={'https://icebreaker-bicep.srms.club/'}
+                    target={'_blank'} rel={'noopener noreferrer'}>
+                Workout Builder <ExportOutlined/>
+              </Link>
+            </Tooltip>
           )
         }
       ]}

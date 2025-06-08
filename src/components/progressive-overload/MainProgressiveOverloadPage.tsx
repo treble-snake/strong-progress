@@ -1,5 +1,5 @@
 import {LiftActivityStatus} from "@/types";
-import {Tabs, Typography} from "antd";
+import {Tabs} from "antd";
 import React from "react";
 import {
   ActiveLiftsList
@@ -8,20 +8,12 @@ import {
   InactiveLiftsList
 } from "@/components/progressive-overload/InactiveLiftsList";
 import {useProgressiveOverloadCounts} from "@/components/api/hooks";
-import {NoDataLoaded} from "@/components/common/Loading";
 
-const {Title} = Typography;
 
 export function MainProgressiveOverloadPage() {
   const data = useProgressiveOverloadCounts()
-  // const {data, error, isLoading} = useProgressiveOverloadCounts()
-  // if (isLoading || error || !data) {
-  //   return <NoDataLoaded error={error} isLoading={isLoading}/>
-  // }
-
   return (
     <>
-      <Title level={2}>Progressive Overload Analysis</Title>
       <Tabs
         defaultActiveKey={'active'}
         items={[
