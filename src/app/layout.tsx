@@ -29,10 +29,14 @@ export default function RootLayout({
           <Header style={{display: 'flex', alignItems: 'center'}}>
             <div
               style={{
-                color: 'white',
+                color: '#f6f2eb',
                 fontSize: '1.5rem',
                 fontWeight: 'bold',
-                paddingRight: 48
+                paddingRight: 48,
+                paddingLeft: 64,
+                background: 'url(/img/logo.png) no-repeat left center',
+                width: 200,
+                lineHeight: 1
               }}>
               Strong Progress
             </div>

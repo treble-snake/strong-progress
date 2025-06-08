@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import {parseStrongAppData} from "../engine/parsing";
+import {mapStrongAppData} from "../engine/parsing";
 import {analyzeProgressiveOverload} from "../engine/progression";
+import {parseStrongCsv} from "@/engine/file-reader/server-file-reader";
 
 
 // Path to the CSV file
@@ -13,10 +14,10 @@ const outputFiles = [
 ]
 
 // Main function
-function main() {
+async function main() {
   try {
     const result = analyzeProgressiveOverload(
-      parseStrongAppData(csvFilePath)
+      mapStrongAppData(await parseStrongCsv(csvFilePath))
     )
     console.log('Parsed workout data:', result.length);
 
@@ -30,5 +31,9 @@ function main() {
   }
 }
 
-// Execute the main function
-main();
+const start = Date.now();
+main()
+  .then(() => {
+    console.log('Processing completed successfully in', (Date.now() - start), 'ms');
+  })
+  .catch(error => console.error(error));

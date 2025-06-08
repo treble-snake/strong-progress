@@ -13,14 +13,15 @@ type InactiveLiftsListProps = {
 export function InactiveLiftsList(
   {activityStatus}: InactiveLiftsListProps
 ) {
-  const {
-    data,
-    error,
-    isLoading
-  } = useProgressByActivity({activityStatus});
-  if (isLoading || error || !data) {
-    return <NoDataLoaded error={error} isLoading={isLoading}/>
-  }
+  // const {
+  //   data,
+  //   error,
+  //   isLoading
+  // } = useProgressByActivity({activityStatus});
+  const data = useProgressByActivity({activityStatus});
+  // if (isLoading || error || !data) {
+  //   return <NoDataLoaded error={error} isLoading={isLoading}/>
+  // }
 
   const liftsToShow = data.slice(0, 50)
 

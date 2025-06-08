@@ -2,6 +2,8 @@ import {Menu} from "antd";
 import React from "react";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
+import {ExportOutlined} from "@ant-design/icons";
+import {SourceFileUpload} from "@/components/source-file/SourceFileUpload";
 
 export function MainMenu() {
   const pathname = usePathname()
@@ -15,6 +17,11 @@ export function MainMenu() {
       style={{flex: 1, minWidth: 0}}
       items={[
         {
+          key: 'upload', label: (
+            <SourceFileUpload/>
+          )
+        },
+        {
           key: 'progressive-overload', label:
             <Link href={'/'}>
               Progressive Overload
@@ -26,6 +33,13 @@ export function MainMenu() {
           key: 'about', label:
             <Link href={'/about'}>About</Link>
         },
+        {
+          key: 'workout-builder', label: (
+            <Link href={'https://icebreaker-bicep.srms.club/'} target={'_blank'} rel={'noopener noreferrer'}>
+              Workout Builder <ExportOutlined />
+            </Link>
+          )
+        }
       ]}
     />
   )

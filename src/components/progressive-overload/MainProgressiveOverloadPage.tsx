@@ -13,10 +13,11 @@ import {NoDataLoaded} from "@/components/common/Loading";
 const {Title} = Typography;
 
 export function MainProgressiveOverloadPage() {
-  const {data, error, isLoading} = useProgressiveOverloadCounts()
-  if (isLoading || error || !data) {
-    return <NoDataLoaded error={error} isLoading={isLoading}/>
-  }
+  const data = useProgressiveOverloadCounts()
+  // const {data, error, isLoading} = useProgressiveOverloadCounts()
+  // if (isLoading || error || !data) {
+  //   return <NoDataLoaded error={error} isLoading={isLoading}/>
+  // }
 
   return (
     <>

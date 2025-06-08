@@ -1,7 +1,8 @@
-import useSWR from "swr";
-import {ApiError, simpleFetcher} from "@/components/api/fetcher";
+import {ApiError} from "@/components/api/fetcher";
 import {LiftActivityStatus, LiftHistory} from "@/types";
 import {isBefore, subMonths} from "date-fns";
+import {useAtomValue} from "jotai";
+import {liftHistoryStatsAtom, liftsProgressAtom} from "@/components/data/atoms";
 
 type DataResponse<Data> = {
   data: Data | undefined;
@@ -18,34 +19,43 @@ const mapDataWhenAvailable = <I, O>(
 
 
 const useLiftingHistory = () => {
-  return useSWR<LiftHistory[], ApiError>(`/parsed-workout-data.json`, simpleFetcher)
+  return useAtomValue<LiftHistory[]>(liftsProgressAtom)
+  // return useSWR<LiftHistory[], ApiError>(`/parsed-workout-data.json`, simpleFetcher)
 }
 
 const useProgressiveOverloadHistory = (
   monthsToConsider: number = 6
 ) => {
-  return mapDataWhenAvailable(
-    useLiftingHistory(),
-    (data) => {
-      const cutoffDate = subMonths(new Date(), monthsToConsider);
-      return data.filter(flit =>
-        // sessions are in ascending order, so if there's one session before the cutoff, we can disregard the lift
-        flit.workouts.findLastIndex(({date}) => isBefore(date, cutoffDate)) === -1
-      )
-    }
-  )
+  const cutoffDate = subMonths(new Date(), monthsToConsider);
+  return useLiftingHistory()
+    .filter(lift =>
+      // sessions are in ascending order, so if there's one session before the cutoff, we can disregard the lift
+      lift.workouts.findLastIndex(({date}) => isBefore(date, cutoffDate)) === -1
+    )
+
+  // return mapDataWhenAvailable(
+  //   useLiftingHistory(),
+  //   (data) => {
+  //     const cutoffDate = subMonths(new Date(), monthsToConsider);
+  //     return data.filter(flit =>
+  //       // sessions are in ascending order, so if there's one session before the cutoff, we can disregard the lift
+  //       flit.workouts.findLastIndex(({date}) => isBefore(date, cutoffDate)) === -1
+  //     )
+  //   }
+  // )
 }
 
 export const useProgressiveOverloadCounts = () => {
-  return mapDataWhenAvailable(
-    useProgressiveOverloadHistory(),
-    (data) => {
-      const activeCount = data.filter(lift => lift.activityStatus === 'Active').length;
-      const historyCount = data.filter(lift => lift.activityStatus === 'History').length;
-      const newCount = data.filter(lift => lift.activityStatus === 'New').length;
-      return {activeCount, historyCount, newCount}
-    }
-  )
+  return useAtomValue(liftHistoryStatsAtom)
+  // return mapDataWhenAvailable(
+  //   useProgressiveOverloadHistory(),
+  //   (data) => {
+  //     const activeCount = data.filter(lift => lift.activityStatus === 'Active').length;
+  //     const historyCount = data.filter(lift => lift.activityStatus === 'History').length;
+  //     const newCount = data.filter(lift => lift.activityStatus === 'New').length;
+  //     return {activeCount, historyCount, newCount}
+  //   }
+  // )
 }
 
 type LiftHistoryProps = {
@@ -55,10 +65,13 @@ type LiftHistoryProps = {
 export const useProgressByActivity = (
   props: LiftHistoryProps,
 ) => {
-  return mapDataWhenAvailable(
-    useProgressiveOverloadHistory(),
-    (data) => {
-      return data.filter(lift => lift.activityStatus === props.activityStatus);
-    }
+  return useProgressiveOverloadHistory().filter(
+    lift => lift.activityStatus === props.activityStatus
   )
+  // return mapDataWhenAvailable(
+  //   useProgressiveOverloadHistory(),
+  //   (data) => {
+  //     return data.filter(lift => lift.activityStatus === props.activityStatus);
+  //   }
+  // )
 }

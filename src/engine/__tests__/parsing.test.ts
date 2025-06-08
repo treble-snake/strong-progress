@@ -1,4 +1,4 @@
-import { parseStrongAppData } from '../parsing';
+import { mapStrongAppData } from '../parsing';
 import path from "path";
 
 const BASIC_FIXTURES_FILE = path.join(__dirname, 'fixtures', 'strong-data-example.csv');
@@ -7,7 +7,7 @@ const INVALID_RPE_FIXTURES_FILE = path.join(__dirname, 'fixtures', 'strong-data-
 
 describe('parseStrongAppData', () => {
   it('should parse basic Strong app data correctly', () => {
-    const result = parseStrongAppData(BASIC_FIXTURES_FILE);
+    const result = mapStrongAppData(BASIC_FIXTURES_FILE);
 
     // Check that we get the expected number of records
     expect(result).toHaveLength(4);
@@ -42,7 +42,7 @@ describe('parseStrongAppData', () => {
   });
 
   it('should handle comprehensive data with various edge cases', () => {
-    const result = parseStrongAppData(COMPREHENSIVE_FIXTURES_FILE);
+    const result = mapStrongAppData(COMPREHENSIVE_FIXTURES_FILE);
 
     // The comprehensive fixture has 13 lines, but after filtering:
     // - 1 "Rest Timer" record should be removed
@@ -80,13 +80,13 @@ describe('parseStrongAppData', () => {
 
   it('should handle non-existent files gracefully', () => {
     const nonExistentFile = path.join(__dirname, 'fixtures', 'non-existent-file.csv');
-    const result = parseStrongAppData(nonExistentFile);
+    const result = mapStrongAppData(nonExistentFile);
 
     expect(result).toEqual([]);
   });
 
   it('should handle non-numeric RPE values correctly', () => {
-    const result = parseStrongAppData(INVALID_RPE_FIXTURES_FILE);
+    const result = mapStrongAppData(INVALID_RPE_FIXTURES_FILE);
 
     // Check that we get the expected number of records
     expect(result).toHaveLength(1);

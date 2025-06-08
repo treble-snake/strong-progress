@@ -40,8 +40,8 @@ const getLiftOptions = (
 }
 
 export function ActiveLiftsList() {
-  const {data, error, isLoading} =
-    useProgressByActivity({activityStatus: LiftActivityStatus.Active});
+  // const {data, error, isLoading} =
+  const data = useProgressByActivity({activityStatus: LiftActivityStatus.Active});
   const [selectedLifts, setSelectedLifts] = useState<string[]>([]);
   const [selectedSessions, setSelectedSessions] = useState<string[]>([]);
   const [selectedProgress, setSelectedProgress] = useState<LiftProgressStatus[]>([]);
@@ -69,9 +69,9 @@ export function ActiveLiftsList() {
     });
   }, [selectedSessions, selectedLifts, selectedProgress, data]);
 
-  if (isLoading || error || !data) {
-    return <NoDataLoaded error={error} isLoading={isLoading}/>
-  }
+  // if (isLoading || error || !data) {
+  //   return <NoDataLoaded error={error} isLoading={isLoading}/>
+  // }
 
 
   return (

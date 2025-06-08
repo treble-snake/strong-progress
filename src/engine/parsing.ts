@@ -1,5 +1,3 @@
-import fs from 'fs';
-import csvToJson from 'convert-csv-to-json';
 import {
   LiftDayData,
   LiftHistory,
@@ -57,16 +55,8 @@ const ensureDayEntry = (lift: ParsingLiftHistory, set: RawSetData): LiftDayData 
   return lift.workouts[set.date];
 }
 
-export const parseStrongAppData = (filePath: string): RawSetData[] => {
-  if (!fs.existsSync(filePath)) {
-    console.error(`File not found: ${filePath}`);
-    return [];
-  }
-
-  return csvToJson
-    .fieldDelimiter(',')
-    .supportQuotedField(true)
-    .getJsonFromCsv(filePath)
+export const mapStrongAppData = (data: StrongAppRawDataPoint[]): RawSetData[] => {
+  return data
     .map((it: StrongAppRawDataPoint) => ({
       date: it.Date.split(' ')[0], // Extract YYYY-MM-DD from "YYYY-MM-DD HH:MM:SS",
       workoutName: it['Workout Name'],
