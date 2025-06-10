@@ -1,5 +1,6 @@
 'use client';
 import {AntdRegistry} from '@ant-design/nextjs-registry';
+import '@ant-design/v5-patch-for-react-19';
 import React from 'react';
 import {Alert, ConfigProvider, Layout} from 'antd';
 import "./globals.css";
@@ -19,10 +20,23 @@ export default function RootLayout({
     <AntdRegistry>
       <ConfigProvider
         theme={{
+          token: {
+            fontSizeHeading1: 24,
+            lineHeightHeading1: 1,
+            fontSizeHeading2: 20,
+            lineHeightHeading2: 1,
+            fontSizeHeading3: 16,
+            lineHeightHeading3: 1,
+          },
           components: {
             Timeline: {
               itemPaddingBottom: 6
             },
+            Typography: {
+              titleMarginBottom: 6,
+              // TODO: titleMarginTop is not working, nor typography settings
+              titleMarginTop: 6,
+            }
           },
         }}
       >

@@ -8,7 +8,7 @@ import {SourceFileUpload} from "@/components/source-file/SourceFileUpload";
 
 export function MainMenu() {
   const pathname = usePathname()
-  const selectedKeys = pathname === '/' ? ['progressive-overload'] : [pathname.replace('/', '')];
+  const selectedKeys = pathname === '/' ? ['progress-analysis'] : [pathname.replace('/', '')];
   return (
     <Menu
       theme="dark"
@@ -23,9 +23,9 @@ export function MainMenu() {
           )
         },
         {
-          key: 'progressive-overload', label:
+          key: 'progress-analysis', label:
             <Link href={'/'}>
-              Progressive Overload
+              Progress Analysis
             </Link>
         },
         {key: 'top-set', label: 'Top Set Performance', disabled: true},

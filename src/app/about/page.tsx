@@ -7,7 +7,7 @@ const {Title, Paragraph} = Typography;
 export default function AboutPage() {
   return (
     <div>
-      <Title level={2}>About Us</Title>
+      <Title level={1}>About Us</Title>
       <Paragraph>
         Under Construction.
       </Paragraph>

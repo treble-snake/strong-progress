@@ -9,8 +9,8 @@ import {
 } from "@/components/data/atoms";
 import {useAtomValue} from "jotai";
 import {
-  SourceFileSelectPage
-} from "@/components/source-file/SourceFileSelectPage";
+  EmptySourceFileBlock
+} from "@/components/source-file/EmptySourceFileBlock";
 import {NoDataLoaded} from "@/components/common/Loading";
 import {Typography} from "antd";
 
@@ -22,10 +22,10 @@ export default function Home() {
   }
   return (
     <>
-      <Typography.Title level={2}>Progressive Overload Analysis</Typography.Title>
+      <Typography.Title level={1}>Progress Analysis</Typography.Title>
       {
         liftHistory.length === 0 ?
-          <SourceFileSelectPage/> :
+          <EmptySourceFileBlock/> :
           <MainProgressiveOverloadPage/>
       }
     </>
