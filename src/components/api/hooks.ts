@@ -1,14 +1,16 @@
 import {ApiError} from "@/utils/fetcher";
 import {LiftActivityStatus, LiftHistory} from "@/types";
-import {useAtom, useAtomValue, useSetAtom} from "jotai";
+import {useAtomValue, useSetAtom} from "jotai";
 import {
   liftHistoryStatsAtom,
-  liftsProgressAtom, UiSettings,
+  liftsProgressAtom,
+  UiSettings,
   uiSettingsAtom
 } from "@/components/data/atoms";
 import {useMemo} from "react";
 
 // TODO: let's mimic swr's data response structure for the future?
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type DataResponse<Data> = {
   data: Data | undefined;
   error: ApiError | undefined;

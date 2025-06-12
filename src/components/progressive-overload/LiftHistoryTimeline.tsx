@@ -1,10 +1,15 @@
 import React from 'react';
-import { Timeline, Tag, Typography } from 'antd';
-import { format, parseISO } from 'date-fns';
-import { LiftDayData, PerformanceChange } from '@/types';
-import { NotesPopover } from './NotesPopover';
-import { CheckCircleOutlined, CloseCircleOutlined, MinusCircleOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import { green, grey, orange, red } from '@ant-design/colors';
+import {Tag, Timeline, Typography} from 'antd';
+import {format, parseISO} from 'date-fns';
+import {LiftDayData, PerformanceChange} from '@/types';
+import {NotesPopover} from './NotesPopover';
+import {
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  MinusCircleOutlined,
+  QuestionCircleOutlined
+} from '@ant-design/icons';
+import {green, grey, orange, red} from '@ant-design/colors';
 
 const { Text } = Typography;
 

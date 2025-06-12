@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag } from 'antd';
+import {Tag} from 'antd';
 import {
   AlertOutlined,
   FallOutlined,
@@ -8,8 +8,8 @@ import {
   SearchOutlined,
   WarningOutlined
 } from '@ant-design/icons';
-import { red, volcano, orange, grey, green } from '@ant-design/colors';
-import { LiftProgressStatus } from '@/types';
+import {green, grey, orange, red, volcano} from '@ant-design/colors';
+import {LiftProgressStatus} from '@/types';
 
 interface ProgressStatusIconProps {
   status?: LiftProgressStatus;

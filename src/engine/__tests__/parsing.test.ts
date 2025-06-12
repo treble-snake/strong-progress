@@ -1,4 +1,4 @@
-import { mapStrongAppData } from '../parsing';
+import {mapStrongAppData} from '../parsing';
 import path from "path";
 
 const BASIC_FIXTURES_FILE = path.join(__dirname, 'fixtures', 'strong-data-example.csv');
