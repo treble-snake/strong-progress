@@ -38,11 +38,15 @@ const getLiftOptions = (
     })).sort((a, b) => a.label.localeCompare(b.label));
 }
 
+const DEFAULT_LIFT_PROGRESS_STATUS = [
+  LiftProgressStatus.Regressing, LiftProgressStatus.Plateaued, LiftProgressStatus.AtRisk
+];
+
 export function ActiveLiftsList() {
   const data = useProgressByActivity({activityStatus: LiftActivityStatus.Active});
   const [selectedLifts, setSelectedLifts] = useState<string[]>([]);
   const [selectedSessions, setSelectedSessions] = useState<string[]>([]);
-  const [selectedProgress, setSelectedProgress] = useState<LiftProgressStatus[]>([]);
+  const [selectedProgress, setSelectedProgress] = useState<LiftProgressStatus[]>(DEFAULT_LIFT_PROGRESS_STATUS);
 
   const sessionsOptions = useMemo(() => getSessionsOptions(data), [data]);
   const liftOptions = useMemo(() => getLiftOptions(data, selectedSessions), [data, selectedSessions]);

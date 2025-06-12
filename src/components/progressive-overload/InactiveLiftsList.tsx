@@ -9,7 +9,7 @@ type InactiveLiftsListProps = {
   title: string;
 }
 
-export function InactiveLiftsList(
+export default function InactiveLiftsList(
   {activityStatus}: InactiveLiftsListProps
 ) {
   const data = useProgressByActivity({activityStatus});
@@ -17,15 +17,16 @@ export function InactiveLiftsList(
 
   return (
     <>
-      {
-        liftsToShow.length < data.length && (
-          <Alert
-            type="warning"
-            message={`Showing only ${liftsToShow.length} of ${data.length} lifts as an example. This section will be improved in the future.`}
-            style={{marginBottom: 16}}
-          />
-        )
-      }
+      <Alert
+        type="warning"
+        message={
+          (liftsToShow.length < data.length ?
+          `Showing only ${liftsToShow.length} of ${data.length} lifts as an example.` :
+          'The page is work in progress.') +
+          ' This section will be improved in the future.'
+        }
+        style={{marginBottom: 16}}
+      />
       <Flex style={{width: '100%'}} wrap="wrap" justify="start">
         {liftsToShow.map((exercise) => {
           const key = `${activityStatus}-${exercise.name.replaceAll(' ', '-')}`;

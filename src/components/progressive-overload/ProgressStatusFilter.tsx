@@ -21,6 +21,15 @@ const PROGRESS_STATUS_TOOLTIPS: Record<LiftProgressStatus, string> = {
   [LiftProgressStatus.NotSure]: 'Not enough data or unclear trend to determine progress status.',
 };
 
+const FILTER_ORDER = {
+  [LiftProgressStatus.Regressing]: 1,
+  [LiftProgressStatus.Plateaued]: 2,
+  [LiftProgressStatus.AtRisk]: 3,
+  [LiftProgressStatus.Struggling]: 4,
+  [LiftProgressStatus.Progressing]: 5,
+  [LiftProgressStatus.NotSure]: 6,
+}
+
 export function ProgressStatusFilter({
                                        selectedProgress,
                                        setSelectedProgress
@@ -43,7 +52,9 @@ export function ProgressStatusFilter({
         onChange={handleChange}
       >
         <Space wrap>
-          {(Object.values(LiftProgressStatus) as LiftProgressStatus[]).map((status) => (
+          {(Object.values(LiftProgressStatus) as LiftProgressStatus[])
+            .sort((a, b) => (a in FILTER_ORDER ? FILTER_ORDER[a] : 100) - (b in FILTER_ORDER ? FILTER_ORDER[b] : 100))
+            .map((status) => (
             <Tooltip key={status} title={PROGRESS_STATUS_TOOLTIPS[status]}
                      placement='top'>
               <Checkbox value={status}>

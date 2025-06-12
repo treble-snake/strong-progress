@@ -1,7 +1,11 @@
 import {ApiError} from "@/utils/fetcher";
 import {LiftActivityStatus, LiftHistory} from "@/types";
-import {useAtomValue} from "jotai";
-import {liftHistoryStatsAtom, liftsProgressAtom} from "@/components/data/atoms";
+import {useAtom, useAtomValue, useSetAtom} from "jotai";
+import {
+  liftHistoryStatsAtom,
+  liftsProgressAtom, UiSettings,
+  uiSettingsAtom
+} from "@/components/data/atoms";
 import {useMemo} from "react";
 
 // TODO: let's mimic swr's data response structure for the future?
@@ -32,4 +36,18 @@ export const useProgressByActivity = (
       lift => lift.activityStatus === props.activityStatus
     )
   }, [props.activityStatus, liftingHistory])
+}
+
+export const useUiSettings = () => {
+  return useAtomValue(uiSettingsAtom);
+}
+
+export const useUpdateUiSettings = () => {
+  const setUiSettings = useSetAtom(uiSettingsAtom);
+  return (newSettings: Partial<UiSettings>) => {
+    setUiSettings((prevSettings) => ({
+      ...prevSettings,
+      ...newSettings
+    }));
+  };
 }

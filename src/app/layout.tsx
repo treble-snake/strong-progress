@@ -1,13 +1,15 @@
 'use client';
-import {AntdRegistry} from '@ant-design/nextjs-registry';
 import '@ant-design/v5-patch-for-react-19';
 import React from 'react';
-import {Alert, ConfigProvider, Layout} from 'antd';
 import "./globals.css";
-import {MainMenu} from "@/components/navigation/MainMenu";
-import {Provider as JotaiProvider} from "jotai";
+import dynamic from "next/dynamic";
+import {Loader} from "@/components/common/Loading";
 
-const {Header, Content, Footer} = Layout;
+// disable SSR for the app
+const MainLayout = dynamic(() => import('../components/layout/MainLayout'), {
+  ssr: false,
+  loading: () => <Loader fullscreen tip={'Finishing the warm-up set...'}/>
+})
 
 export default function RootLayout({
                                      children,
@@ -17,60 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
     <body style={{margin: 0, padding: 0}}>
-    <AntdRegistry>
-      <ConfigProvider
-        theme={{
-          token: {
-            fontSizeHeading1: 24,
-            lineHeightHeading1: 1,
-            fontSizeHeading2: 20,
-            lineHeightHeading2: 1,
-            fontSizeHeading3: 16,
-            lineHeightHeading3: 1,
-          },
-          components: {
-            Timeline: {
-              itemPaddingBottom: 6
-            },
-            Typography: {
-              titleMarginBottom: 6,
-              // TODO: titleMarginTop is not working, nor typography settings
-              titleMarginTop: 6,
-            }
-          },
-        }}
-      >
-        <Layout style={{minHeight: '100vh'}}>
-          <Header style={{display: 'flex', alignItems: 'center'}}>
-            <div
-              style={{
-                color: '#f6f2eb',
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                paddingRight: 48,
-                paddingLeft: 64,
-                background: 'url(/img/logo.png) no-repeat left center',
-                width: 200,
-                lineHeight: 1
-              }}>
-              Strong Progress
-            </div>
-            <MainMenu/>
-          </Header>
-          <Alert banner showIcon type={'warning'} message={
-            'This is an early alpha and work is ongoing - please bear with me as I work on it and don\'t hesitate to get in touch! 😊'
-          }/>
-          <Content style={{padding: '0px 48px'}}>
-            <JotaiProvider>
-              {children}
-            </JotaiProvider>
-          </Content>
-          <Footer style={{textAlign: 'center'}}>
-            Strong Progress Tracker ©{new Date().getFullYear()} by Cap
-          </Footer>
-        </Layout>
-      </ConfigProvider>
-    </AntdRegistry>
+    <MainLayout>
+      {children}
+    </MainLayout>
     </body>
     </html>
   );

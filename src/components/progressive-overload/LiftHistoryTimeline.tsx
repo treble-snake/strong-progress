@@ -48,7 +48,7 @@ const getPerformanceIcon = (performance?: PerformanceChange) => {
   }
 };
 
-export const LiftHistoryTimeline: React.FC<LiftHistoryTimelineProps> = ({ visibleWorkouts }) => {
+export default function LiftHistoryTimeline({ visibleWorkouts }: LiftHistoryTimelineProps) {
   if (!visibleWorkouts || visibleWorkouts.length === 0) {
     return <Text>No workout entries to display.</Text>;
   }

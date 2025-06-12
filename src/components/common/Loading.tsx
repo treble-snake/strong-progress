@@ -8,9 +8,16 @@ type LoadingProps = {
 }
 
 
-export function Loader({fullscreen}: { fullscreen?: boolean }) {
+export function Loader({fullscreen, tip}: {
+  fullscreen?: boolean,
+  tip?: string
+}) {
   return <Spin size={'large'} fullscreen={Boolean(fullscreen)}
-               tip={fullscreen ? 'Loading data, please wait...' : undefined}/>
+               tip={fullscreen ?
+                 (tip || 'Loading data, please wait...')
+                 : undefined}
+               style={{margin: fullscreen ? undefined : '0 auto'}}
+  />
 }
 
 export function LoadingError({error}: { error?: Error | string }) {
@@ -27,7 +34,11 @@ export function LoadingError({error}: { error?: Error | string }) {
   }/>
 }
 
-export function NoDataLoaded({fullscreen = true, isLoading, error}: LoadingProps) {
+export function NoDataLoaded({
+                               fullscreen = true,
+                               isLoading,
+                               error
+                             }: LoadingProps) {
   if (isLoading) {
     return <Loader fullscreen={fullscreen}/>;
   }

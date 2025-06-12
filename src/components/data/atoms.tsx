@@ -30,3 +30,12 @@ export const liftHistoryStatsAtom = atom((get) => {
   const newCount = data.filter(lift => lift.activityStatus === 'New').length;
   return {activeCount, historyCount, newCount}
 })
+
+export type UiSettings = {
+  progressAnalysisTipHidden: boolean;
+}
+
+export const uiSettingsAtom = atomWithStorage<UiSettings>(
+  'uiSettings', {
+    progressAnalysisTipHidden: false,
+  }, undefined, {getOnInit: true});

@@ -2,8 +2,15 @@ import React, {useState} from 'react';
 import {Button, Card, Space} from 'antd';
 import {LiftHistory} from '@/types';
 import {ProgressStatusIcon} from "./ProgressStatusIcon";
-import {LiftHistoryTimeline} from './LiftHistoryTimeline';
+import LiftHistoryTimeline from './LiftHistoryTimeline';
 import {DownOutlined, UpOutlined} from "@ant-design/icons";
+import {Loader} from "@/components/common/Loading";
+import dynamic from "next/dynamic";
+
+const LazyLiftHistoryTimeline = dynamic(() => import('./LiftHistoryTimeline'), {
+  // ssr: false,
+  loading: () => <Loader/>
+})
 
 interface LiftCardProps {
   lift: LiftHistory;
@@ -34,6 +41,7 @@ export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
 
   return (
     <Card
+      hoverable
       title={
         <Space>
           <ProgressStatusIcon status={lift.progressStatus}/>
@@ -47,7 +55,7 @@ export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
       {
         isExpanded && otherWorkouts.length > 0 && (
           <div style={{marginTop: 32}}>
-            <LiftHistoryTimeline
+            <LazyLiftHistoryTimeline
               visibleWorkouts={otherWorkouts}
             />
             {expansionButton}
