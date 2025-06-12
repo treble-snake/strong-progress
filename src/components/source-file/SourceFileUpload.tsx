@@ -4,6 +4,7 @@ import React from "react";
 import {parseStrongCsv} from "@/engine/file-reader/client-file-reader";
 import {useAtom, useSetAtom} from "jotai";
 import {
+  lastUploadedDateAtom,
   rawLiftHistoryAtom,
   rawLiftHistoryLoadingAtom
 } from "@/components/data/atoms";
@@ -16,6 +17,7 @@ type SourceFileUploadProps = {
 
 export function SourceFileUpload({text}: SourceFileUploadProps) {
   const setRawData = useSetAtom(rawLiftHistoryAtom)
+  const setLastUploadDate = useSetAtom(lastUploadedDateAtom);
   const [{
     isLoading,
     error
@@ -61,6 +63,7 @@ export function SourceFileUpload({text}: SourceFileUploadProps) {
             setTimeout(() => {
               setLoadingStatus({isLoading: false, error: undefined})
               setRawData(parsed);
+              setLastUploadDate(Date.now().toString())
             }, 1500);
           };
           return false

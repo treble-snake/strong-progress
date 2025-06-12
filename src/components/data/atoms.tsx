@@ -11,6 +11,10 @@ export const rawLiftHistoryLoadingAtom = atom<{
   error: undefined
 });
 
+export const lastUploadedDateAtom = atomWithStorage<string | undefined>(
+  'lastUploadedDate', undefined, undefined, {getOnInit: true}
+)
+
 export const rawLiftHistoryAtom = atomWithStorage<RawSetData[]>(
   'rawStrongData', [], undefined, {getOnInit: true}
 )

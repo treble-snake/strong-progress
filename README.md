@@ -1,4 +1,9 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# String Progress
+
+**WORK IN PROGRESS**
+
+This application is designed for weightlifting enthusiasts who track their workouts using the Strong app.
+Its main goal is to help you analyze your workout logs to assess various aspects of your training progress. 
 
 ## Getting Started
 
@@ -57,3 +62,9 @@ npm run test:coverage
 ### Test Structure
 
 Tests are organized in `__tests__` directories next to the code they're testing.
+
+## License
+
+This project is licensed under the [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0/).
+
+You're free to use and modify this project for non-commercial purposes. Commercial use is not allowed without permission.
