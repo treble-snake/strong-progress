@@ -35,11 +35,18 @@ export const liftHistoryStatsAtom = atom((get) => {
   return {activeCount, historyCount, newCount}
 })
 
+export enum UnitSystem {
+  Metric = 'metric',
+  Imperial = 'imperial'
+}
+
 export type UiSettings = {
   progressAnalysisTipHidden: boolean;
+  units: UnitSystem;
 }
 
 export const uiSettingsAtom = atomWithStorage<UiSettings>(
   'uiSettings', {
     progressAnalysisTipHidden: false,
+    units: UnitSystem.Metric,
   }, undefined, {getOnInit: true});

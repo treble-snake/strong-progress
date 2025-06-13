@@ -1,3 +1,4 @@
+'use client';
 import {Flex, Typography} from "antd";
 import React from "react";
 import {SourceFileUpload} from "@/components/source-file/SourceFileUpload";

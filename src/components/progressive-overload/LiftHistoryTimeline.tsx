@@ -15,6 +15,7 @@ const { Text } = Typography;
 
 interface LiftHistoryTimelineProps {
   visibleWorkouts: LiftDayData[];
+  weightUnit?: 'kg' | 'lbs';
 }
 
 const formatDate = (dateString: string) => {
@@ -53,7 +54,7 @@ const getPerformanceIcon = (performance?: PerformanceChange) => {
   }
 };
 
-export default function LiftHistoryTimeline({ visibleWorkouts }: LiftHistoryTimelineProps) {
+export default function LiftHistoryTimeline({ visibleWorkouts, weightUnit = 'kg' }: LiftHistoryTimelineProps) {
   if (!visibleWorkouts || visibleWorkouts.length === 0) {
     return <Text>No workout entries to display.</Text>;
   }
@@ -75,7 +76,7 @@ export default function LiftHistoryTimeline({ visibleWorkouts }: LiftHistoryTime
               {liftingDay.sets.map((exercise, i) => (
                 <div key={i} style={{ marginBottom: i < liftingDay.sets.length - 1 ? 2 : 0 }}>
                   <Text>
-                    {exercise.setMark}: {exercise.weight}kg × {exercise.reps}
+                    {exercise.setMark}: {exercise.weight}{weightUnit} × {exercise.reps}
                   </Text>
                 </div>
               ))}

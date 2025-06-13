@@ -60,11 +60,11 @@ export function SourceFileUpload({text}: SourceFileUploadProps) {
             const content = reader.result as string;
             const parsed = mapStrongAppData(await parseStrongCsv(content))
             console.log('Parsed items:', parsed.length);
-            setTimeout(() => {
-              setLoadingStatus({isLoading: false, error: undefined})
-              setRawData(parsed);
-              setLastUploadDate(Date.now().toString())
-            }, 1500);
+            // setTimeout(() => {
+            setLoadingStatus({isLoading: false, error: undefined})
+            setRawData(parsed);
+            setLastUploadDate(Date.now().toString())
+            // }, 1500);
           };
           return false
         }}

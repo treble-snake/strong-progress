@@ -24,6 +24,7 @@ export default function Home() {
   const liftHistory = useAtomValue(rawLiftHistoryAtom)
   const {isLoading, error} = useAtomValue(rawLiftHistoryLoadingAtom)
   if (isLoading || error) {
+    console.warn('Progressive Overload page loading or error:', isLoading, error);
     return <NoDataLoaded error={error} isLoading={isLoading}/>
   }
 
@@ -39,6 +40,7 @@ export default function Home() {
     }
   }
 
+  console.warn('Progressive Overload page loaded with data:', liftHistory.length, 'lifts');
   return (
     <>
       <Typography.Title level={1}>

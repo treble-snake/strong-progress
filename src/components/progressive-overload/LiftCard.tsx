@@ -6,6 +6,8 @@ import LiftHistoryTimeline from './LiftHistoryTimeline';
 import {DownOutlined, UpOutlined} from "@ant-design/icons";
 import {Loader} from "@/components/common/Loading";
 import dynamic from "next/dynamic";
+import {useAtom, useAtomValue} from "jotai";
+import {uiSettingsAtom, UnitSystem} from "@/components/data/atoms";
 
 const LazyLiftHistoryTimeline = dynamic(() => import('./LiftHistoryTimeline'), {
   // ssr: false,
@@ -17,12 +19,14 @@ interface LiftCardProps {
 }
 
 export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
+  const {units} = useAtomValue(uiSettingsAtom);
   const [isExpanded, setIsExpanded] = useState(false);
   const toggleTimelineExpansion = () => {
     setIsExpanded(!isExpanded);
   };
 
   console.debug('Rendering LiftCard for:', lift.name);
+  const weightUnit = units === UnitSystem.Metric ? 'kg' : 'lbs';
 
   const workouts = lift.workouts;
   const firstWorkouts = workouts.slice(-5);
@@ -50,13 +54,13 @@ export const LiftCard: React.FC<LiftCardProps> = ({lift}) => {
       }
       style={{marginRight: 8, marginBottom: 8, flex: '1 1 300px'}}
     >
-      <LiftHistoryTimeline visibleWorkouts={firstWorkouts}/>
+      <LiftHistoryTimeline visibleWorkouts={firstWorkouts} weightUnit={weightUnit}/>
       {expansionButton}
       {
         isExpanded && otherWorkouts.length > 0 && (
           <div style={{marginTop: 32}}>
             <LazyLiftHistoryTimeline
-              visibleWorkouts={otherWorkouts}
+              visibleWorkouts={otherWorkouts} weightUnit={weightUnit}
             />
             {expansionButton}
           </div>
