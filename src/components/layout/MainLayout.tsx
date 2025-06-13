@@ -1,8 +1,10 @@
-import {Alert, ConfigProvider, Layout} from "antd";
+import {Alert, ConfigProvider, Layout, Space} from "antd";
 import {MainMenu} from "@/components/navigation/MainMenu";
 import {Provider as JotaiProvider} from "jotai";
 import {AntdRegistry} from "@ant-design/nextjs-registry";
 import React from "react";
+import Link from "next/link";
+import {GithubOutlined} from "@ant-design/icons";
 
 const {Header, Content, Footer} = Layout;
 
@@ -51,7 +53,14 @@ export default function MainLayout({children}: { children: React.ReactNode }) {
               {children}
             </Content>
             <Footer style={{textAlign: 'center'}}>
-              Strong Progress ©{new Date().getFullYear()} by Cap
+              <Space>
+                <span>Strong Progress ©{new Date().getFullYear()} by Cap</span>
+                <span>|</span>
+                <Link href={'https://github.com/treble-snake/strong-progress'}
+                      rel={'noopener noreferrer'}>
+                  <GithubOutlined/> GitHub
+                </Link>
+              </Space>
             </Footer>
           </Layout>
         </ConfigProvider>

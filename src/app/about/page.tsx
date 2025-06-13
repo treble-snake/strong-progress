@@ -150,7 +150,7 @@ export default function AboutPage() {
       <Footer style={{marginTop: 20, backgroundColor: 'transparent'}}>
         <Paragraph>
           In case of questions or suggestions, get in touch on{' '}
-          <a href={'https://github.com/treble-snake/strong-progress'}
+          <a href={'https://github.com/treble-snake/strong-progress/issues/new'}
              rel={'noopener noreferrer'} target={'_blank'}>GitHub</a>!
         </Paragraph>
       </Footer>
