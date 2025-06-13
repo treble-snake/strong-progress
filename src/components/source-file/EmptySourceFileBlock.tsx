@@ -4,6 +4,9 @@ import React from "react";
 import {SourceFileUpload} from "@/components/source-file/SourceFileUpload";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  DataParsingSettings
+} from "@/components/source-file/DataParsingSettings";
 
 const {Paragraph, Title} = Typography;
 
@@ -20,6 +23,9 @@ export function EmptySourceFileBlock() {
       </Paragraph>
       <Paragraph>
         <SourceFileUpload/>
+      </Paragraph>
+      <Paragraph>
+        <DataParsingSettings/>
       </Paragraph>
       <Paragraph>
         You can always upload a new version of the file using

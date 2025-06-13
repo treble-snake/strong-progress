@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   ProgressAnalysisPage
 } from "@/components/progressive-overload/ProgressAnalysisPage";
@@ -13,9 +13,12 @@ import {
   EmptySourceFileBlock
 } from "@/components/source-file/EmptySourceFileBlock";
 import {NoDataLoaded} from "@/components/common/Loading";
-import {Popover, Space, Tag, Typography} from "antd";
-import {QuestionCircleTwoTone} from "@ant-design/icons";
+import {Button, Popover, Space, Tag, Tooltip, Typography} from "antd";
+import {QuestionCircleTwoTone, SettingOutlined} from "@ant-design/icons";
 import {format} from 'date-fns';
+import {
+  ParsingSettingsModal
+} from "@/components/progressive-overload/ParsingSettingsModal";
 
 const {Text} = Typography;
 
@@ -23,6 +26,10 @@ export default function Home() {
   const lastUploadDate = useAtomValue(lastUploadedDateAtom);
   const liftHistory = useAtomValue(rawLiftHistoryAtom)
   const {isLoading, error} = useAtomValue(rawLiftHistoryLoadingAtom)
+  const [isParsingModalOpen, setIsParsingModalOpen] = useState(false);
+  const openParsingModal = () => setIsParsingModalOpen(true);
+  const closeParsingModal = () => setIsParsingModalOpen(false);
+
   if (isLoading || error) {
     console.warn('Progressive Overload page loading or error:', isLoading, error);
     return <NoDataLoaded error={error} isLoading={isLoading}/>
@@ -34,15 +41,16 @@ export default function Home() {
       lastUploadedTag = <Tag>
         Data Uploaded {format(parseInt(lastUploadDate), "PPpp")}
       </Tag>
-
     } catch (error) {
       console.warn(error);
     }
   }
 
-  console.warn('Progressive Overload page loaded with data:', liftHistory.length, 'lifts');
+  console.debug('Progressive Overload page loaded with data:', liftHistory.length, 'lifts');
   return (
     <>
+      <ParsingSettingsModal isOpen={isParsingModalOpen}
+                            onClose={closeParsingModal}/>
       <Typography.Title level={1}>
         <Space>
           <span>Progress Analysis</span>
@@ -73,6 +81,9 @@ export default function Home() {
           }>
             <QuestionCircleTwoTone/>
           </Popover>
+          <Tooltip title={'Parsing & UI settings'}>
+            <Button icon={<SettingOutlined/>} onClick={openParsingModal}/>
+          </Tooltip>
           {lastUploadedTag}
         </Space>
       </Typography.Title>
