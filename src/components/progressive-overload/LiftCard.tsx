@@ -6,7 +6,7 @@ import LiftHistoryTimeline from './LiftHistoryTimeline';
 import {DownOutlined, UpOutlined} from "@ant-design/icons";
 import {Loader} from "@/components/common/Loading";
 import dynamic from "next/dynamic";
-import {useAtom, useAtomValue} from "jotai";
+import {useAtomValue} from "jotai";
 import {uiSettingsAtom, UnitSystem} from "@/components/data/atoms";
 
 const LazyLiftHistoryTimeline = dynamic(() => import('./LiftHistoryTimeline'), {
