@@ -1,0 +1,1 @@
+- Replace date-fns with dayjs as it's required by Antd anyways

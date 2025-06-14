@@ -29,16 +29,16 @@ export function MainMenu() {
             </Link>
         },
         {
+          key: 'weekly-volume', label: (
+            <Link href={'/weekly-volume'}>
+              Weekly Volume
+            </Link>
+          )
+        },
+        {
           key: 'top-set', label: (
             <Tooltip title={'Coming soon... Hopefully :D'}>Top Set
               Performance</Tooltip>
-          ),
-          disabled: true
-        },
-        {
-          key: 'volume', label: (
-            <Tooltip title={'Coming soon... Hopefully :D'}>Weekly
-              Volume</Tooltip>
           ),
           disabled: true
         },

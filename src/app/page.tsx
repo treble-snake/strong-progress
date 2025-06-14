@@ -20,7 +20,7 @@ import {
   ParsingSettingsModal
 } from "@/components/progressive-overload/ParsingSettingsModal";
 
-const {Text} = Typography;
+const {Text, Title} = Typography;
 
 export default function Home() {
   const lastUploadDate = useAtomValue(lastUploadedDateAtom);
@@ -51,7 +51,7 @@ export default function Home() {
     <>
       <ParsingSettingsModal isOpen={isParsingModalOpen}
                             onClose={closeParsingModal}/>
-      <Typography.Title level={1}>
+      <Title level={1}>
         <Space>
           <span>Progress Analysis</span>
           <Popover
@@ -86,7 +86,7 @@ export default function Home() {
           </Tooltip>
           {lastUploadedTag}
         </Space>
-      </Typography.Title>
+      </Title>
       {
         liftHistory.length === 0 ?
           <EmptySourceFileBlock/> :

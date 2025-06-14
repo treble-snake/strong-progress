@@ -2,6 +2,11 @@ import {atom} from 'jotai';
 import {LiftHistory, RawSetData} from "@/types";
 import {atomWithStorage} from 'jotai/utils'
 import {analyzeProgressiveOverload} from "@/engine/progression";
+import dayjs from "dayjs";
+import {
+  calculateWeeklyVolume,
+  WeeklyVolumeResults
+} from "@/engine/volume/volume-calculation";
 
 export const rawLiftHistoryLoadingAtom = atom<{
   isLoading: boolean,
@@ -50,3 +55,19 @@ export const uiSettingsAtom = atomWithStorage<UiSettings>(
     progressAnalysisTipHidden: false,
     units: UnitSystem.Metric,
   }, undefined, {getOnInit: true});
+
+export const volumeDateRangeAtom = atomWithStorage<[string, string]>('volumeDateRange',
+  [
+    dayjs().subtract(4, 'weeks').startOf('day').toISOString(),
+    dayjs().endOf('day').toISOString()
+  ], undefined, {getOnInit: true});
+
+export const setsForWeeklyVolumeAtom = atom<WeeklyVolumeResults>((get) => {
+  const dateRange = get(volumeDateRangeAtom);
+  const sets = get(rawLiftHistoryAtom);
+  if (!dateRange) {
+    return calculateWeeklyVolume([], '', '');
+  }
+
+  return calculateWeeklyVolume(sets, dateRange[0], dateRange[1]);
+})
