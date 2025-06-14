@@ -4,7 +4,7 @@ import {Provider as JotaiProvider} from "jotai";
 import {AntdRegistry} from "@ant-design/nextjs-registry";
 import React from "react";
 import Link from "next/link";
-import {GithubOutlined} from "@ant-design/icons";
+import {GithubOutlined, RedditOutlined} from "@ant-design/icons";
 
 const {Header, Content, Footer} = Layout;
 
@@ -31,19 +31,21 @@ export default function MainLayout({children}: { children: React.ReactNode }) {
         >
           <Layout style={{minHeight: '100vh'}}>
             <Header style={{display: 'flex', alignItems: 'center'}}>
-              <div
-                style={{
-                  color: '#f6f2eb',
-                  fontSize: '1.5rem',
-                  fontWeight: 'bold',
-                  paddingRight: 48,
-                  paddingLeft: 64,
-                  background: 'url(/img/logo.png) no-repeat left center',
-                  width: 200,
-                  lineHeight: 1
-                }}>
-                Strong Progress
-              </div>
+              <Link href="/">
+                <div
+                  style={{
+                    color: '#f6f2eb',
+                    fontSize: '1.5rem',
+                    fontWeight: 'bold',
+                    paddingRight: 48,
+                    paddingLeft: 64,
+                    background: 'url(/img/logo.png) no-repeat left center',
+                    width: 200,
+                    lineHeight: 1
+                  }}>
+                  Strong Progress
+                </div>
+              </Link>
               <MainMenu/>
             </Header>
             <Alert banner showIcon type={'warning'} message={
@@ -56,7 +58,13 @@ export default function MainLayout({children}: { children: React.ReactNode }) {
               <Space>
                 <span>Strong Progress ©{new Date().getFullYear()} by Cap</span>
                 <span>|</span>
+                <Link href={'https://www.reddit.com/r/strongprogress'}
+                      target={'_blank'}
+                      rel={'noopener noreferrer'}>
+                  <RedditOutlined/> Reddit
+                </Link><span>|</span>
                 <Link href={'https://github.com/treble-snake/strong-progress'}
+                      target={'_blank'}
                       rel={'noopener noreferrer'}>
                   <GithubOutlined/> GitHub
                 </Link>

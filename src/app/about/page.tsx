@@ -1,9 +1,11 @@
 'use client';
 import React, {ReactNode} from 'react';
 import {Anchor, Layout, Typography} from 'antd';
+import Link from "next/link";
+import {GithubOutlined, RedditOutlined} from "@ant-design/icons";
 
 const {Paragraph, Title} = Typography;
-const {Sider, Content, Footer} = Layout;
+const {Sider, Content} = Layout;
 
 const Sections: {
   slug: string;
@@ -136,6 +138,17 @@ export default function AboutPage() {
         </Sider>
         <Content style={{maxWidth: 800}}>
           <Title level={1}>About the project</Title>
+          <Paragraph>
+            I would love to hear your thoughts on this project!
+            Get in touch on <Link href={'https://www.reddit.com/r/strongprogress'} target={'_blank'}
+                      rel={'noopener noreferrer'}>
+                  <RedditOutlined/> Reddit
+                </Link>{' '}or{' '}
+                <Link href={'https://github.com/treble-snake/strong-progress'} target={'_blank'}
+                      rel={'noopener noreferrer'}>
+                  <GithubOutlined/> GitHub
+                </Link>!
+          </Paragraph>
           {
             Sections.map(({slug, title, content}) => {
               return <div key={slug}
@@ -147,13 +160,6 @@ export default function AboutPage() {
           }
         </Content>
       </Layout>
-      <Footer style={{marginTop: 20, backgroundColor: 'transparent'}}>
-        <Paragraph>
-          In case of questions or suggestions, get in touch on{' '}
-          <a href={'https://github.com/treble-snake/strong-progress/issues/new'}
-             rel={'noopener noreferrer'} target={'_blank'}>GitHub</a>!
-        </Paragraph>
-      </Footer>
     </Layout>
   );
 };
