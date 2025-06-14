@@ -4,6 +4,7 @@ import React from 'react';
 import "./globals.css";
 import dynamic from "next/dynamic";
 import {Loader} from "@/components/common/Loading";
+import {Analytics} from "@vercel/analytics/next"
 
 // disable SSR for the app
 const MainLayout = dynamic(() => import('../components/layout/MainLayout'), {
@@ -21,6 +22,7 @@ export default function RootLayout({
     <body style={{margin: 0, padding: 0}}>
     <MainLayout>
       {children}
+      <Analytics/>
     </MainLayout>
     </body>
     </html>
