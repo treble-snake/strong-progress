@@ -38,7 +38,7 @@ describe('getAffectedMuscleGroups', () => {
     },
     {
       liftName: 'Flexion Row (Cable)',
-      expectedRuleName: 'None',
+      expectedRuleName: KeywordRuleLabels.LowerBack,
     },
     {
       liftName: 'JM Press In Smith',
@@ -84,12 +84,11 @@ describe('getAffectedMuscleGroups', () => {
 
   test.each(testCases)(
     'given lift name "$liftName", it should identify "$expectedRuleName" as the source rule',
-    ({ liftName, expectedRuleName }) => {
+    ({liftName, expectedRuleName}) => {
       const result = getAffectedMuscleGroups(liftName);
-      if (expectedRuleName === 'None') {
-        expect(result.sourceRule).toBeNull();
-      } else {
-        expect(result.sourceRule).toBe(expectedRuleName);
+      expect(result.sourceRule).toBe(expectedRuleName);
+      if (expectedRuleName !== 'None') {
+        expect(result.certainty).toBeGreaterThanOrEqual(0.9);
       }
     }
   );

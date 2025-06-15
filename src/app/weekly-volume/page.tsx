@@ -72,7 +72,10 @@ const WeeklyVolumePage: React.FC = () => {
               primary,
               secondary,
               matchedKeywords,
-              sourceRule
+              sourceRule,
+              resultScore,
+              comments,
+              certainty
             }]) => (
               <li key={lift}>
                 <b>{lift}</b> - {primary.join(', ')}
@@ -80,7 +83,8 @@ const WeeklyVolumePage: React.FC = () => {
                 <br/>
                 <i>Matched keywords: {matchedKeywords.join(', ')}</i>
                 <br/>
-                <i>Source rule: {sourceRule}</i>
+                <i>Source rule: {sourceRule} (score: {resultScore}, certainty: {certainty})</i>
+                {comments.length > 0 && <div style={{color: 'red'}}>{comments.join(' | ')}</div>}
               </li>
             ))
           }

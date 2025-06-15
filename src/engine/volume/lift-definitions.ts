@@ -1,4 +1,4 @@
-import { MuscleGroups } from "@/components/data/constants";
+import {MuscleGroups} from "@/components/data/constants";
 
 export enum KeywordRuleLabels {
   NeckIsolation = 'Neck Isolation',
@@ -13,7 +13,6 @@ export enum KeywordRuleLabels {
   SideDeltsCompounds = 'Side Delts Compounds',
   RearDeltsIsolation = 'Rear Delts Isolation',
   Biceps = 'Biceps',
-  HammerCurl = 'Hammer Curl',
   Triceps = 'Triceps',
   ForearmIsolation = 'Forearm Isolation',
   Abs = 'Abs',
@@ -27,323 +26,330 @@ export enum KeywordRuleLabels {
   OddLiftsDeadlift = 'Odd Lifts - Deadlift',
   OddLiftsCloseGripBench = 'Odd Lifts - Close Grip Bench',
   OddLiftsHyperextension = 'Odd Lifts - Hyperextension',
+  HammerCurl = 'Hammer Curl',
+  LowerBack = 'Lower Back',
+}
+
+type WeightedKeyword = {
+  weight: number;
+  keyword: string | RegExp;
 }
 
 type MuscleGroupKeywordRule = {
   label: KeywordRuleLabels;
-  keywords: (string | RegExp)[];
+  keywords: WeightedKeyword[];
   primary: MuscleGroups[];
   secondary: MuscleGroups[];
 }
 
 export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
-  // neck isolation
   {
     label: KeywordRuleLabels.NeckIsolation,
-    keywords: ['neck'],
+    keywords: [
+      {keyword: 'neck', weight: 3}
+    ],
     primary: [MuscleGroups.Neck],
     secondary: []
   },
-  // shrugs and traps
   {
     label: KeywordRuleLabels.ShrugsAndTraps,
     keywords: [
-      'shrug',
-      'rack pull',
-      'high pull',
-      'carry',
-      'carries'
+      {keyword: 'shrug', weight: 3},
+      {keyword: 'rack pull', weight: 2},
+      {keyword: 'high pull', weight: 2},
+      {keyword: 'carry', weight: 2},
+      {keyword: 'carries', weight: 2}
     ],
     primary: [MuscleGroups.UpperTraps],
     secondary: [MuscleGroups.UpperBack, MuscleGroups.Forearms]
   },
-  // upper back
   {
     label: KeywordRuleLabels.UpperBack,
     keywords: [
-      'wide',
-      /rows?/,
-      /face[\s-]?pull/
+      {keyword: 'wide', weight: 1},
+      {keyword: /rows?/, weight: 2.5},
+      {keyword: /face[\s-]?pull/, weight: 3}
     ],
     primary: [MuscleGroups.UpperBack],
     secondary: [MuscleGroups.Lats, MuscleGroups.RearDelts, MuscleGroups.Biceps]
   },
-  // lats
   {
     label: KeywordRuleLabels.Lats,
     keywords: [
-      'lat',
-      'row',
-      'narrow',
-      /pull[\s-]?overs?/,
-      /pull[\s-]?ups?/,
-      /chin[\s-]?ups?/,
-      /pull[\s-]?downs?/,
+      {keyword: /lats?[\s-]/, weight: 3},
+      {keyword: /rows?/, weight: 2},
+      {keyword: 'narrow', weight: 1},
+      {keyword: /pull[\s-]?overs?/, weight: 3},
+      {keyword: /pull[\s-]?ups?/, weight: 3},
+      {keyword: /chin[\s-]?ups?/, weight: 3},
+      {keyword: /pull[\s-]?downs?/, weight: 3}
     ],
     primary: [MuscleGroups.Lats],
-    secondary: [
-      MuscleGroups.UpperBack,
-      MuscleGroups.Biceps,
-      MuscleGroups.RearDelts
-    ]
+    secondary: [MuscleGroups.UpperBack, MuscleGroups.Biceps, MuscleGroups.RearDelts]
   },
-  // chest compounds
   {
     label: KeywordRuleLabels.ChestCompounds,
     keywords: [
-      'bench',
-      'chest',
-      'dips',
-      'press',
-      /push[\s-]?up/,
+      {keyword: 'bench', weight: 2},
+      {keyword: 'chest', weight: 2},
+      {keyword: 'dips', weight: 2},
+      {keyword: 'press', weight: 1},
+      {keyword: /push[\s-]?up/, weight: 3}
     ],
     primary: [MuscleGroups.Chest],
     secondary: [MuscleGroups.FrontDelts, MuscleGroups.Triceps]
   },
-  // chest isolation
   {
     label: KeywordRuleLabels.ChestIsolation,
     keywords: [
-      'chest',
-      /cross-?over/,
-      /fly[es]?/,
-      /pec\s?deck?/,
+      {keyword: 'chest', weight: 2},
+      {keyword: /cross-?over/, weight: 3},
+      {keyword: /fly[es]?/, weight: 3},
+      {keyword: /pec\s?deck?/, weight: 3}
     ],
     primary: [MuscleGroups.Chest],
     secondary: []
   },
-  // OHPs
   {
     label: KeywordRuleLabels.OverheadPresses,
     keywords: [
-      'press',
-      'ohp',
-      'shoulder',
-      'overhead',
-      'arnold',
-      'military',
-      'landmine',
-      'viking',
-      'log'
+      {keyword: 'press', weight: 1},
+      {keyword: 'ohp', weight: 3},
+      {keyword: 'shoulder', weight: 2},
+      {keyword: 'overhead', weight: 3},
+      {keyword: 'arnold', weight: 3},
+      {keyword: 'military', weight: 3},
+      {keyword: 'landmine', weight: 3},
+      {keyword: 'viking', weight: 3},
+      {keyword: 'log', weight: 2}
     ],
     primary: [MuscleGroups.FrontDelts],
     secondary: [MuscleGroups.Triceps, MuscleGroups.SideDelts]
   },
-  // front delts isolation
   {
     label: KeywordRuleLabels.FrontDeltsIsolation,
-    keywords: ['raise', 'front'],
+    keywords: [
+      {keyword: 'raise', weight: 1},
+      {keyword: 'front', weight: 2}
+    ],
     primary: [MuscleGroups.FrontDelts],
     secondary: []
   },
-  // side delt isolation
   {
     label: KeywordRuleLabels.SideDeltsIsolation,
-    keywords: ['lateral', 'raise'],
+    keywords: [
+      {keyword: 'lateral', weight: 2},
+      {keyword: /lu[\s-]/, weight: 2},
+      {keyword: 'raise', weight: 1}
+    ],
     primary: [MuscleGroups.SideDelts],
-    secondary: [MuscleGroups.FrontDelts, MuscleGroups.RearDelts],
+    secondary: [MuscleGroups.FrontDelts, MuscleGroups.RearDelts]
   },
-  // side delt compounds
   {
     label: KeywordRuleLabels.SideDeltsCompounds,
     keywords: [
-      'upright', 'upright row',
+      {keyword: /upright.*row/, weight: 3}
     ],
     primary: [MuscleGroups.SideDelts],
     secondary: [MuscleGroups.UpperTraps, MuscleGroups.Biceps]
   },
-  // rear delts isolation
   {
     label: KeywordRuleLabels.RearDeltsIsolation,
     keywords: [
-      'rear', 'reverse', 'fly',
-      /pec\s?dec/,
+      {keyword: /rear.*delt/, weight: 3},
+      {keyword: 'reverse', weight: 2},
+      {keyword: 'fly', weight: 1},
+      {keyword: /pec\s?dec/, weight: 1},
     ],
     primary: [MuscleGroups.RearDelts],
     secondary: [MuscleGroups.UpperBack]
   },
-  // biceps
   {
     label: KeywordRuleLabels.Biceps,
     keywords: [
-      'curl',
-      'bicep',
-      'preacher',
-      'concentration',
-      'spider',
-      'drag',
-      'zottman',
-      'incline',
-      'bayesian'
+      {keyword: 'curl', weight: 2},
+      {keyword: 'bicep', weight: 3},
+      {keyword: 'preacher', weight: 2},
+      {keyword: 'concentration', weight: 2},
+      {keyword: 'spider', weight: 2},
+      {keyword: 'drag', weight: 2},
+      {keyword: 'incline', weight: 2},
+      {keyword: 'bayesian', weight: 3}
     ],
     primary: [MuscleGroups.Biceps],
     secondary: []
   },
   {
     label: KeywordRuleLabels.HammerCurl,
-    keywords: ['hammer', 'curl'],
+    keywords: [
+      {keyword: 'hammer', weight: 4},
+      {keyword: 'pinwheel', weight: 4},
+      {keyword: 'reverse', weight: 4},
+      {keyword: 'curl', weight: 2}
+    ],
     primary: [MuscleGroups.Forearms],
     secondary: [MuscleGroups.Biceps]
   },
-  // triceps
   {
     label: KeywordRuleLabels.Triceps,
     keywords: [
-      'tricep',
-      'pushdown',
-      'extension',
-      'kickback',
-      /skull\s?crusher/,
-      'jm',
+      {keyword: 'tricep', weight: 3},
+      {keyword: 'pushdown', weight: 3},
+      {keyword: 'extension', weight: 2},
+      {keyword: 'kickback', weight: 2},
+      {keyword: /skull\s?crusher/, weight: 3},
+      {keyword: 'jm', weight: 3}
     ],
     primary: [MuscleGroups.Triceps],
     secondary: []
   },
-  // forearm isolation
   {
     label: KeywordRuleLabels.ForearmIsolation,
     keywords: [
-      'wrist',
-      'forearm',
+      {keyword: 'wrist', weight: 3},
+      {keyword: 'forearm', weight: 3}
     ],
     primary: [MuscleGroups.Forearms],
     secondary: []
   },
-  // abs
   {
     label: KeywordRuleLabels.Abs,
     keywords: [
-      'crunch',
-      'plank',
-      'raise',
-      'leg',
-      'knee',
-      'hanging',
-      'rollout',
-      'wheel',
-      'roller',
-      /sit[\s-]?ups?/,
-      /abs?\s/
+      {keyword: 'dragon', weight: 3},
+      {keyword: 'crunch', weight: 3},
+      {keyword: 'plank', weight: 3},
+      {keyword: /(knee|leg)s?[\s-]?raise/, weight: 3},
+      {keyword: 'rollout', weight: 2},
+      {keyword: 'wheel', weight: 2},
+      {keyword: 'roller', weight: 2},
+      {keyword: /sit[\s-]?ups?/, weight: 3},
+      {keyword: /abs?[\s-]/, weight: 2}
     ],
     primary: [MuscleGroups.Abs],
     secondary: []
   },
-  // obliques
   {
     label: KeywordRuleLabels.Obliques,
     keywords: [
-      'oblique',
-      'twist',
-      'chopper',
-      'bend',
-      'side',
-      'windshield',
-      'lateral'
+      {keyword: 'oblique', weight: 3},
+      {keyword: 'twist', weight: 3},
+      {keyword: 'chopper', weight: 3},
+      {keyword: 'bend', weight: 2},
+      {keyword: 'side', weight: 2},
+      {keyword: 'windshield', weight: 3},
+      {keyword: 'lateral', weight: 1}
     ],
     primary: [MuscleGroups.Obliques],
     secondary: [MuscleGroups.Abs]
   },
-  // quads
   {
     label: KeywordRuleLabels.QuadCompounds,
     keywords: [
-      'squat',
-      'lunge',
-      'split',
-      'press',
-      'leg',
-      /step[\s-]?ups?/
+      {keyword: 'squat', weight: 3},
+      {keyword: 'lunge', weight: 3},
+      {keyword: /legs? press/, weight: 3},
+      {keyword: /step[\s-]?ups?/, weight: 3}
     ],
     primary: [MuscleGroups.Quads],
     secondary: [MuscleGroups.Glutes]
   },
-  // quads isolation
   {
     label: KeywordRuleLabels.QuadsIsolation,
     keywords: [
-      'leg',
-      'extension',
-      'sissy',
+      {keyword: 'leg', weight: 1},
+      {keyword: 'extension', weight: 2},
+      {keyword: 'sissy', weight: 3}
     ],
     primary: [MuscleGroups.Quads],
     secondary: []
   },
-  // Glutes
   {
     label: KeywordRuleLabels.Glutes,
     keywords: [
-      'glute',
-      'hip',
-      'thrust',
-      'kickback',
-      'frog',
-      'sumo',
+      {keyword: 'glute', weight: 2},
+      {keyword: 'thrust', weight: 3},
+      {keyword: 'kickback', weight: 1},
+      {keyword: 'frog', weight: 3},
+      {keyword: 'sumo', weight: 2}
     ],
     primary: [MuscleGroups.Glutes],
     secondary: [MuscleGroups.Hamstrings]
   },
-  // hamstrings compounds
   {
     label: KeywordRuleLabels.HamstringsCompounds,
     keywords: [
-      'hamstring',
-      'rdl',
-      'romanian',
-      'ghr',
-      'ham raise',
-      'morning'
+      {keyword: 'hamstring', weight: 2},
+      {keyword: 'rdl', weight: 4},
+      {keyword: 'romanian', weight: 4},
+      {keyword: 'ghr', weight: 4},
+      {keyword: 'ham raise', weight: 4},
+      {keyword: 'morning', weight: 3},
     ],
     primary: [MuscleGroups.Hamstrings],
     secondary: [MuscleGroups.Glutes, MuscleGroups.LowerBack]
   },
-  // hamstrings isolation
   {
     label: KeywordRuleLabels.HamstringsIsolation,
     keywords: [
-      'leg',
-      'hamstring',
-      'curl',
-      'nordic'
+      {keyword: 'leg', weight: 2},
+      {keyword: 'hamstring', weight: 2},
+      {keyword: 'curl', weight: 2},
+      {keyword: 'nordic', weight: 3}
     ],
     primary: [MuscleGroups.Hamstrings],
     secondary: []
   },
-  // calves isolation
   {
     label: KeywordRuleLabels.CalvesIsolation,
     keywords: [
-      'calf',
-      'calves',
+      {keyword: 'calf', weight: 5},
+      {keyword: 'calves', weight: 5}
     ],
     primary: [MuscleGroups.Calves],
     secondary: []
   },
-  // odd lifts
   {
     label: KeywordRuleLabels.OddLiftsDeadlift,
     keywords: [
-      'conventional',
-      'deadlift',
+      {keyword: 'conventional', weight: 2},
+      {keyword: 'deadlift', weight: 3}
     ],
     primary: [],
     secondary: [
       MuscleGroups.LowerBack, MuscleGroups.Glutes,
-      MuscleGroups.Hamstrings, MuscleGroups.Quads, MuscleGroups.UpperTraps]
+      MuscleGroups.Hamstrings, MuscleGroups.Quads, MuscleGroups.UpperTraps
+    ]
   },
   {
     label: KeywordRuleLabels.OddLiftsCloseGripBench,
     keywords: [
-      'press',
-      'close',
-      'grip',
+      {keyword: 'press', weight: 1},
+      {keyword: 'close', weight: 2},
+      {keyword: 'grip', weight: 2}
     ],
     primary: [MuscleGroups.Chest, MuscleGroups.Triceps],
     secondary: [MuscleGroups.FrontDelts]
   },
   {
     label: KeywordRuleLabels.OddLiftsHyperextension,
-    keywords: ['back', 'extension', 'hyper', /hyper[\s-]?extension/],
+    keywords: [
+      {keyword: 'back', weight: 2},
+      {keyword: 'extension', weight: 2},
+      {keyword: 'hyper', weight: 2},
+      {keyword: /hyper[\s-]?extension/, weight: 3}
+    ],
     primary: [MuscleGroups.LowerBack],
     secondary: [MuscleGroups.Glutes, MuscleGroups.Hamstrings]
+  },
+  {
+    label: KeywordRuleLabels.LowerBack,
+    keywords: [
+      {keyword: 'jefferson', weight: 3},
+      {keyword: 'flexion', weight: 3},
+      {keyword: 'row', weight: 1},
+      {keyword: 'curl', weight: 1},
+    ],
+    primary: [MuscleGroups.LowerBack],
+    secondary: [MuscleGroups.UpperBack],
   }
-]
+];
