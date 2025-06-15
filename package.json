@@ -10,7 +10,8 @@
     "test": "jest",
     "test:watch": "jest --watch --coverage",
     "test:coverage": "jest --coverage",
-    "parse": "ts-node -r tsconfig-paths/register src/utils/try.ts"
+    "parse": "ts-node -r tsconfig-paths/register src/utils/try.ts",
+    "prepare": "husky || true"
   },
   "dependencies": {
     "@ant-design/colors": "^7.2.1",
@@ -35,6 +36,7 @@
     "@types/react-dom": "^18",
     "eslint": "^9",
     "eslint-config-next": "^15.3.3",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^29.1.2",
