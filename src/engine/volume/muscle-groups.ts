@@ -1,67 +1,50 @@
-import {StandardMuscleGroups} from "@/components/data/constants";
+import {MUSCLE_GROUP_KEYWORD_RULES} from "@/engine/volume/lift-definitions";
 
 const UnknownMuscleGroup = 'Unknown';
 
 export type AffectedMuscleGroups = {
   primary: string[]
   secondary: string[]
+  matchedKeywords: string[]
+  sourceRule: string
 }
 
-const LIFT_MUSCLE_GROUPS = [
-  {
-    regexp: /pec\s?deck?/,
-    primary: [StandardMuscleGroups.chest],
-    secondary: []
-  }
-]
-
-const MUSCLE_GROUP_KEYWORDS = [
-  {
-    keywords: ['chest', 'press', 'bench'],
-    primary: [StandardMuscleGroups.chest],
-    secondary: [StandardMuscleGroups.frontDelts, StandardMuscleGroups.triceps]
-  },
-  {
-    keywords: [/pull\s?down/],
-    primary: [StandardMuscleGroups.lats],
-    secondary: [StandardMuscleGroups.upperBack, StandardMuscleGroups.biceps, StandardMuscleGroups.rearDelts]
-  }
-]
-
 export const getAffectedMuscleGroups = (liftName: string): AffectedMuscleGroups => {
-  // first check if the lift matches any specific muscle group by regexp
-  for (const liftGroup of LIFT_MUSCLE_GROUPS) {
-    if (liftGroup.regexp.test(liftName)) {
-      return {
-        primary: liftGroup.primary,
-        secondary: liftGroup.secondary
-      };
-    }
-  }
+  // TODO: look at https://www.fusejs.io/
 
   // then go through all keywords and return the one with most matches
   let currentBest: AffectedMuscleGroups = {
     primary: [UnknownMuscleGroup],
-    secondary: []
+    secondary: [],
+    matchedKeywords: [],
+    sourceRule: 'None'
   }
   let maxMatches = 0;
-  for (const group of MUSCLE_GROUP_KEYWORDS) {
-    let currentMatches = 0;
+  // normalize the lift name
+  liftName = liftName.toLowerCase().trim();
+
+  for (const rule of MUSCLE_GROUP_KEYWORD_RULES) {
+    let groupMatches = 0;
+    const groupMatchedKeywords: string[] = [];
+
     // check all the keywords in the item
-    for (const keyword of group.keywords) {
+    for (const keyword of rule.keywords) {
       const matches = typeof keyword === 'string' ?
-        liftName.toLowerCase().includes(keyword.toLowerCase()) :
+        liftName.includes(keyword.toLowerCase()) :
         keyword.test(liftName);
       if (matches) {
-        currentMatches++
+        groupMatches++
+        groupMatchedKeywords.push(keyword.toString());
       }
     }
 
-    if (currentMatches > maxMatches) {
-      maxMatches = currentMatches;
+    if (groupMatches > maxMatches) {
+      maxMatches = groupMatches;
       currentBest = {
-        primary: group.primary,
-        secondary: group.secondary
+        primary: rule.primary,
+        secondary: rule.secondary,
+        matchedKeywords: groupMatchedKeywords,
+        sourceRule: rule.label
       };
     }
   }

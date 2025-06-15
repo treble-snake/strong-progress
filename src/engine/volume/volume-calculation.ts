@@ -2,7 +2,10 @@ import {RawSetData} from "@/types";
 import dayjs from "dayjs";
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import isoWeek from 'dayjs/plugin/isoWeek'
-import {getAffectedMuscleGroups} from "@/engine/volume/muscle-groups";
+import {
+  AffectedMuscleGroups,
+  getAffectedMuscleGroups
+} from "@/engine/volume/muscle-groups";
 
 type LiftVolume = {
   straightSets: number;
@@ -19,7 +22,7 @@ type WeekVolume = {
 
 export type WeeklyVolumeResults = {
   totalSets: number
-  lifts: Set<string>
+  liftMuscleGroups: Record<string, AffectedMuscleGroups>
   weeks: Record<string, WeekVolume>
 };
 
@@ -32,7 +35,7 @@ export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: stri
   const result: WeeklyVolumeResults = {
     totalSets: 0,
     weeks: {},
-    lifts: new Set<string>(),
+    liftMuscleGroups: {}
   };
 
   if (!sets || sets.length === 0 || !from || !to) {
@@ -73,7 +76,7 @@ export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: stri
     }
 
     result.totalSets = result.totalSets + 1;
-    result.lifts.add(set.exerciseName);
+    // TODO: redo this algorithm, clac weeks sunday to sunday, not iso week
     const weekName = `Week ${setDate.isoWeek()}`;
     if (!result.weeks[weekName]) {
       result.weeks[weekName] = {
@@ -95,7 +98,15 @@ export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: stri
     } else {
       week.lifts[lift].straightSets += 1;
     }
-    const {primary, secondary} = getAffectedMuscleGroups(lift)
+
+    let muscleGroups = result.liftMuscleGroups[lift];
+    if (!muscleGroups) {
+      muscleGroups = getAffectedMuscleGroups(lift);
+      result.liftMuscleGroups[lift] = muscleGroups;
+    }
+
+
+    const {primary, secondary} = muscleGroups;
     for (const muscle of primary) {
       if (!week.muscleGroups[muscle]) {
         week.muscleGroups[muscle] = {primary: 0, secondary: 0};

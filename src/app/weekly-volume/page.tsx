@@ -8,6 +8,7 @@ import {
   setsForWeeklyVolumeAtom,
   volumeDateRangeAtom
 } from "@/components/data/atoms";
+import {AffectedMuscleGroups} from "@/engine/volume/muscle-groups";
 
 const {Title} = Typography;
 const {RangePicker} = DatePicker;
@@ -37,6 +38,7 @@ const WeeklyVolumePage: React.FC = () => {
   ];
 
   const [startDate, endDate] = selectedRange;
+  const allLifts: [name: string, stats: AffectedMuscleGroups][] = Object.entries(weekVolume.liftMuscleGroups)
 
   return (
     <div>
@@ -62,11 +64,26 @@ const WeeklyVolumePage: React.FC = () => {
       </div>
 
       <div style={{marginTop: 16}}>
-       <Title level={3}>Lifts you have performed ({weekVolume.lifts.size})</Title>
+        <Title level={3}>Lifts you have performed ({allLifts.length})
+        </Title>
         <ul>
-          {Array.from(weekVolume.lifts).map((lift) => (
-            <li key={lift}>{lift}</li>
-          ))}
+          {
+            allLifts.map(([lift, {
+              primary,
+              secondary,
+              matchedKeywords,
+              sourceRule
+            }]) => (
+              <li key={lift}>
+                <b>{lift}</b> - {primary.join(', ')}
+                {secondary.length > 0 && (<i>(+{secondary.join(', ')})</i>)}
+                <br/>
+                <i>Matched keywords: {matchedKeywords.join(', ')}</i>
+                <br/>
+                <i>Source rule: {sourceRule}</i>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
@@ -79,7 +96,10 @@ const WeeklyVolumePage: React.FC = () => {
                 <div>
                   Muscle Groups:
                   <ul>
-                    {Object.entries(lifts.muscleGroups).map(([muscle, {primary, secondary}]) => (
+                    {Object.entries(lifts.muscleGroups).map(([muscle, {
+                      primary,
+                      secondary
+                    }]) => (
                       <li key={muscle}>
                         {muscle}: <b>{primary} primary sets</b>,
                         <i>{secondary} secondary sets</i>
