@@ -2,10 +2,11 @@ import {LiftDayData, LiftSetData, PerformanceChange} from "@/types";
 import {
   compareSetPerformance,
   computePerformanceChange
-} from "@/app/engine/progression";
+} from "@/engine/progression";
+
 
 const liftSet = (weight: number, reps: number): LiftSetData =>
-  ({setMark: "", weight, reps, notes: ""});
+  ({setMark: "", weight, reps });
 
 const liftDay = (exercises: LiftSetData[]): LiftDayData =>
   ({date: '2023-01-01', note: '', sets: exercises});
@@ -43,7 +44,7 @@ describe('compareSetPerformance', () => {
   });
 });
 
-describe('computePerformanceChane', () => {
+describe('computePerformanceChange', () => {
   it('should return not sure if there are no sets on any day', () => {
     expect(computePerformanceChange(liftDay([]), liftDay([])))
       .toBe(PerformanceChange.NotSure);
