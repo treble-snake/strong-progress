@@ -1,60 +1,55 @@
 import {RawSetData} from "@/types";
-import dayjs from "dayjs";
-import advancedFormat from 'dayjs/plugin/advancedFormat'
-import isoWeek from 'dayjs/plugin/isoWeek'
+import dayjs, {Dayjs} from "dayjs";
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 import {
   AffectedMuscleGroups,
   getAffectedMuscleGroups
 } from "@/engine/volume/muscle-groups";
+import {getWeeks} from "@/engine/volume/week-intervals";
 
 type LiftVolume = {
   straightSets: number;
   dropSets: number;
 }
 
+type MuscleInvolvement = {
+  primary: number;
+  secondary: number;
+}
+
 type WeekVolume = {
   lifts: Record<string, LiftVolume>;
-  muscleGroups: Record<string, {
-    primary: number
-    secondary: number
-  }>
+  muscleGroups: Record<string, MuscleInvolvement>
 }
 
 export type WeeklyVolumeResults = {
-  totalSets: number
+  // TODO: maybe we don't need it here
   liftMuscleGroups: Record<string, AffectedMuscleGroups>
   weeks: Record<string, WeekVolume>
+  weeklyAverageByMuscleGroup: Record<string, MuscleInvolvement>
 };
+
 
 const DROP_SET_MARK = 'D';
 
-dayjs.extend(advancedFormat)
-dayjs.extend(isoWeek)
+dayjs.extend(localizedFormat)
 
-export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: string): WeeklyVolumeResults => {
-  const result: WeeklyVolumeResults = {
-    totalSets: 0,
-    weeks: {},
-    liftMuscleGroups: {}
-  };
+export const limitSets = (sets: RawSetData[], fromDate: Dayjs, toDate: Dayjs): RawSetData[] => {
+  const result: RawSetData[] = []
 
-  if (!sets || sets.length === 0 || !from || !to) {
+  // Handle empty array case
+  if (!sets || sets.length === 0) {
     return result;
   }
-
-  // in case if the date is provided with time, we only need the date part
-  const fromDate = dayjs(from).startOf('day');
-  const toDate = dayjs(to).endOf('day');
 
   // we know that sets are sorted by date in ascending order, so
   // we can optimize by finding if our range is closer to the beginning or the end of the sets array
   const firstSetDate = dayjs(sets[0].date).startOf('day');
   const lastSetDate = dayjs(sets[sets.length - 1].date).startOf('day');
   const mode: 'forward' | 'backward' = firstSetDate.diff(fromDate, 'day') < toDate.diff(lastSetDate, 'day') ? 'forward' : 'backward';
-
+  const step = mode === 'forward' ? 1 : -1;
   const startIndex = mode === 'forward' ? 0 : sets.length - 1;
   const endIndex = mode === 'forward' ? sets.length : -1;
-  const step = mode === 'forward' ? 1 : -1;
 
   for (let i = startIndex; i !== endIndex; i += step) {
     const set = sets[i];
@@ -75,9 +70,55 @@ export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: stri
       continue; // Skip sets outside the date range
     }
 
-    result.totalSets = result.totalSets + 1;
+    result.push(set);
+  }
+
+  // ensure ascending order by date
+  if (mode === 'backward') {
+    result.reverse();
+  }
+
+  return result;
+}
+
+export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: string): WeeklyVolumeResults => {
+  const result: WeeklyVolumeResults = {
+    weeks: {},
+    liftMuscleGroups: {},
+    weeklyAverageByMuscleGroup: {}
+  };
+
+  if (!sets || sets.length === 0 || !from || !to) {
+    return result;
+  }
+
+  const filteredSets = limitSets(sets, dayjs(from).startOf('day'), dayjs(to).endOf('day'));
+  if (filteredSets.length === 0) {
+    return result;
+  }
+
+  const weeks = getWeeks(from, to)
+  if (weeks.length === 0) {
+    throw new Error('No weeks found for the given date range');
+  }
+
+  let currentWeekIndex = 0;
+  let currentWeek = weeks[currentWeekIndex];
+  const totalVolumeByMuscleGroup: Record<string, MuscleInvolvement> = {}
+
+  for (const set of filteredSets) {
+    const setDate = dayjs(set.date).startOf('day');
+    if (setDate.isAfter(dayjs(currentWeek.end))) {
+      // Move to the next week if the current set date is after the current week end
+      currentWeekIndex += 1;
+      if (currentWeekIndex >= weeks.length) {
+        break; // No more weeks to process
+      }
+      currentWeek = weeks[currentWeekIndex];
+    }
+
     // TODO: redo this algorithm, clac weeks sunday to sunday, not iso week
-    const weekName = `Week ${setDate.isoWeek()}`;
+    const weekName = currentWeek.label;
     if (!result.weeks[weekName]) {
       result.weeks[weekName] = {
         lifts: {},
@@ -105,20 +146,36 @@ export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: stri
       result.liftMuscleGroups[lift] = muscleGroups;
     }
 
-
     const {primary, secondary} = muscleGroups;
     for (const muscle of primary) {
       if (!week.muscleGroups[muscle]) {
         week.muscleGroups[muscle] = {primary: 0, secondary: 0};
       }
+      if (!totalVolumeByMuscleGroup[muscle]) {
+        totalVolumeByMuscleGroup[muscle] = {primary: 0, secondary: 0};
+      }
       week.muscleGroups[muscle].primary += muscleCoefficient;
+      totalVolumeByMuscleGroup[muscle].primary += muscleCoefficient;
     }
     for (const muscle of secondary) {
       if (!week.muscleGroups[muscle]) {
         week.muscleGroups[muscle] = {primary: 0, secondary: 0};
       }
+      if (!totalVolumeByMuscleGroup[muscle]) {
+        totalVolumeByMuscleGroup[muscle] = {primary: 0, secondary: 0};
+      }
       week.muscleGroups[muscle].secondary += muscleCoefficient;
+      totalVolumeByMuscleGroup[muscle].secondary += muscleCoefficient;
     }
+  }
+
+  const weeksCount = Object.keys(result.weeks).length;
+  for (const muscle in totalVolumeByMuscleGroup) {
+    const {primary, secondary} = totalVolumeByMuscleGroup[muscle];
+    result.weeklyAverageByMuscleGroup[muscle] = {
+      primary: Math.round(10 * primary / weeksCount) / 10,
+      secondary: Math.round(10 * secondary / weeksCount) / 10
+    };
   }
 
   return result
