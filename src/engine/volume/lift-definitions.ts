@@ -184,7 +184,7 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
     keywords: [
       {keyword: 'hammer', weight: 4},
       {keyword: 'pinwheel', weight: 4},
-      {keyword: 'reverse', weight: 4},
+      {keyword: 'reverse', weight: 1},
       {keyword: 'curl', weight: 2}
     ],
     primary: [MuscleGroups.Forearms],
