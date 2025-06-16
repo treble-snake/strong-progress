@@ -28,7 +28,18 @@ export enum KeywordRuleLabels {
   OddLiftsHyperextension = 'Odd Lifts - Hyperextension',
   HammerCurl = 'Hammer Curl',
   LowerBack = 'Lower Back',
+  OddLiftsTricepsDips = 'Odd Lifts - Triceps Dips',
+  OddLiftsPullovers = 'Odd Lifts - Pullovers',
 }
+
+/*
+Lean Back Leg Extension
+High certainty (1.00)
+Primary muscles: Lower Back
+Secondary muscles: Glutes, Hamstrings
+Matched keywords: back, extension
+Source rule: Odd Lifts - Hyperextension (score: 4)
+ */
 
 type WeightedKeyword = {
   weight: number;
@@ -55,8 +66,8 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
     label: KeywordRuleLabels.ShrugsAndTraps,
     keywords: [
       {keyword: 'shrug', weight: 3},
-      {keyword: 'rack pull', weight: 2},
-      {keyword: 'high pull', weight: 2},
+      {keyword: 'rack pull', weight: 3},
+      {keyword: 'high pull', weight: 3},
       {keyword: 'carry', weight: 2},
       {keyword: 'carries', weight: 2}
     ],
@@ -76,10 +87,9 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
   {
     label: KeywordRuleLabels.Lats,
     keywords: [
-      {keyword: /lats?[\s-]/, weight: 3},
+      {keyword: /lats?[\s-)]/, weight: 4},
       {keyword: /rows?/, weight: 2},
       {keyword: 'narrow', weight: 1},
-      {keyword: /pull[\s-]?overs?/, weight: 3},
       {keyword: /pull[\s-]?ups?/, weight: 3},
       {keyword: /chin[\s-]?ups?/, weight: 3},
       {keyword: /pull[\s-]?downs?/, weight: 3}
@@ -88,11 +98,19 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
     secondary: [MuscleGroups.UpperBack, MuscleGroups.Biceps, MuscleGroups.RearDelts]
   },
   {
+    label: KeywordRuleLabels.OddLiftsPullovers,
+    keywords: [
+      {keyword: /pull[\s-]?overs?/, weight: 3},
+    ],
+    primary: [MuscleGroups.Lats],
+    secondary: [MuscleGroups.Triceps, MuscleGroups.RearDelts]
+  },
+  {
     label: KeywordRuleLabels.ChestCompounds,
     keywords: [
       {keyword: 'bench', weight: 2},
       {keyword: 'chest', weight: 2},
-      {keyword: 'dips', weight: 2},
+      {keyword: /dips?/, weight: 3},
       {keyword: 'press', weight: 1},
       {keyword: /push[\s-]?up/, weight: 3}
     ],
@@ -143,7 +161,7 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
       {keyword: 'raise', weight: 1}
     ],
     primary: [MuscleGroups.SideDelts],
-    secondary: [MuscleGroups.FrontDelts, MuscleGroups.RearDelts]
+    secondary: []
   },
   {
     label: KeywordRuleLabels.SideDeltsCompounds,
@@ -204,6 +222,15 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
     secondary: []
   },
   {
+    label: KeywordRuleLabels.OddLiftsTricepsDips,
+    keywords: [
+      {keyword: /dips?/, weight: 2},
+      {keyword: /triceps?/, weight: 2},
+    ],
+    primary: [MuscleGroups.Triceps],
+    secondary: [MuscleGroups.Chest]
+  },
+  {
     label: KeywordRuleLabels.ForearmIsolation,
     keywords: [
       {keyword: 'wrist', weight: 3},
@@ -257,7 +284,8 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
     label: KeywordRuleLabels.QuadsIsolation,
     keywords: [
       {keyword: 'leg', weight: 1},
-      {keyword: 'extension', weight: 2},
+      {keyword: 'extension', weight: 1},
+      {keyword: /legs? extension/, weight: 3},
       {keyword: 'sissy', weight: 3}
     ],
     primary: [MuscleGroups.Quads],

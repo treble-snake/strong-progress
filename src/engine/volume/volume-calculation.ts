@@ -15,6 +15,7 @@ type LiftVolume = {
 type MuscleInvolvement = {
   primary: number;
   secondary: number;
+  fractional?: number; // primary + secondary/2
 }
 
 type WeekVolume = {
@@ -149,32 +150,46 @@ export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: stri
     const {primary, secondary} = muscleGroups;
     for (const muscle of primary) {
       if (!week.muscleGroups[muscle]) {
-        week.muscleGroups[muscle] = {primary: 0, secondary: 0};
+        week.muscleGroups[muscle] = {primary: 0, secondary: 0, fractional: 0};
       }
       if (!totalVolumeByMuscleGroup[muscle]) {
-        totalVolumeByMuscleGroup[muscle] = {primary: 0, secondary: 0};
+        totalVolumeByMuscleGroup[muscle] = {primary: 0, secondary: 0, fractional: 0};
       }
       week.muscleGroups[muscle].primary += muscleCoefficient;
       totalVolumeByMuscleGroup[muscle].primary += muscleCoefficient;
     }
     for (const muscle of secondary) {
       if (!week.muscleGroups[muscle]) {
-        week.muscleGroups[muscle] = {primary: 0, secondary: 0};
+        week.muscleGroups[muscle] = {primary: 0, secondary: 0, fractional: 0};
       }
       if (!totalVolumeByMuscleGroup[muscle]) {
-        totalVolumeByMuscleGroup[muscle] = {primary: 0, secondary: 0};
+        totalVolumeByMuscleGroup[muscle] = {primary: 0, secondary: 0, fractional: 0};
       }
       week.muscleGroups[muscle].secondary += muscleCoefficient;
       totalVolumeByMuscleGroup[muscle].secondary += muscleCoefficient;
     }
   }
 
+  // Calculate fractional volume for each muscle group in each week
+  for (const weekName in result.weeks) {
+    const week = result.weeks[weekName];
+    for (const muscle in week.muscleGroups) {
+      const { primary, secondary } = week.muscleGroups[muscle];
+      week.muscleGroups[muscle].fractional = Math.round(10 * (primary + secondary / 2)) / 10;
+    }
+  }
+
   const weeksCount = Object.keys(result.weeks).length;
   for (const muscle in totalVolumeByMuscleGroup) {
     const {primary, secondary} = totalVolumeByMuscleGroup[muscle];
+    const avgPrimary = Math.round(10 * primary / weeksCount) / 10;
+    const avgSecondary = Math.round(10 * secondary / weeksCount) / 10;
+    const fractional = Math.round(10 * (avgPrimary + avgSecondary / 2)) / 10;
+
     result.weeklyAverageByMuscleGroup[muscle] = {
-      primary: Math.round(10 * primary / weeksCount) / 10,
-      secondary: Math.round(10 * secondary / weeksCount) / 10
+      primary: avgPrimary,
+      secondary: avgSecondary,
+      fractional: fractional
     };
   }
 

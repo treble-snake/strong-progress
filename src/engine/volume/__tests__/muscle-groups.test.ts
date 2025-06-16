@@ -49,7 +49,7 @@ describe('getAffectedMuscleGroups', () => {
       expectedRuleName: KeywordRuleLabels.CalvesIsolation,
     },
     {
-      liftName: 'Pullover (Dumbbell)',
+      liftName: 'Cable Pull-down',
       expectedRuleName: KeywordRuleLabels.Lats,
     },
     {
@@ -66,7 +66,7 @@ describe('getAffectedMuscleGroups', () => {
     },
     {
       liftName: 'Kneeling Pullover (Cable, V bar)',
-      expectedRuleName: KeywordRuleLabels.Lats,
+      expectedRuleName: KeywordRuleLabels.OddLiftsPullovers,
     },
     {
       liftName: 'Dragon Flag',
@@ -79,6 +79,14 @@ describe('getAffectedMuscleGroups', () => {
     {
       liftName: 'Lu Raises',
       expectedRuleName: KeywordRuleLabels.SideDeltsIsolation,
+    },
+    {
+      liftName: 'Seated Row Machine (Lats) (Plate loaded)',
+      expectedRuleName: KeywordRuleLabels.Lats,
+    },
+    {
+      liftName: 'Lean Back Leg Extension',
+      expectedRuleName: KeywordRuleLabels.QuadsIsolation,
     },
   ];
 
