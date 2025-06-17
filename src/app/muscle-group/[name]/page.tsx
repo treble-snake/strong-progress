@@ -19,10 +19,15 @@ import {setsForWeeklyVolumeAtom} from '@/components/data/atoms';
 
 const { Title, Text } = Typography;
 
+type TmpStats = {
+  primary: string[];
+  secondary: string[];
+}
+
 // Helper function to find exercises contributing to a muscle group
 const getExercisesForMuscleGroup = (
   muscleGroup: string,
-  liftMuscleGroups: Record<string, unknown>
+  liftMuscleGroups: Record<string, TmpStats>
 ): { primary: string[], secondary: string[] } => {
   const result = { primary: [] as string[], secondary: [] as string[] };
 

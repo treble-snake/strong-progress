@@ -1,0 +1,13 @@
+# Allow all crawlers
+User-agent: *
+# Allow crawling of static, informational pages
+Allow: /$
+Allow: /about$
+
+# Disallow crawling of dynamic, user-specific pages
+Disallow: /muscle-group/
+Disallow: /api/
+Disallow: /weekly-volume/
+
+# Sitemap location
+Sitemap: http://strong-progress.srms.club/sitemap.xml
