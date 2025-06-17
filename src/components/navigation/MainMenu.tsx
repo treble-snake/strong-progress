@@ -8,7 +8,8 @@ import {SourceFileUpload} from "@/components/source-file/SourceFileUpload";
 
 export function MainMenu() {
   const pathname = usePathname()
-  const isLocal = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+  // might be useful for future development
+  // const isLocal = typeof window !== 'undefined' && window.location.hostname === 'localhost';
 
   const selectedKeys = pathname === '/' ? ['progress-analysis'] : [pathname.replace('/', '')];
   return (
@@ -32,12 +33,10 @@ export function MainMenu() {
         },
         {
           key: 'weekly-volume', label: (
-            <Tooltip title={'Coming soon!'}>
-              <Link href={'/weekly-volume'}>
-                Weekly Volume
-              </Link>
-            </Tooltip>
-          ), disabled: !isLocal
+            <Link href={'/weekly-volume'}>
+              Weekly Volume
+            </Link>
+          )
         },
         {
           key: 'top-set', label: (
