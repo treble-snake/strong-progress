@@ -12,7 +12,7 @@ type LiftVolume = {
   dropSets: number;
 }
 
-type MuscleInvolvement = {
+export type MuscleInvolvement = {
   primary: number;
   secondary: number;
   fractional?: number; // primary + secondary/2

@@ -5,7 +5,6 @@ Allow: /$
 Allow: /about$
 
 # Disallow crawling of dynamic, user-specific pages
-Disallow: /muscle-group/
 Disallow: /api/
 Disallow: /weekly-volume/
 

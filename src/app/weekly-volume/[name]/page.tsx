@@ -115,7 +115,7 @@ const MuscleGroupPage: React.FC = () => {
       <Alert type={'error'} showIcon icon={<WarningOutlined/>} message={<>
         This page is super-duper early stage 🤣️️️️️️
         Basically a preview draft - I&apos;ll be working on it soon.
-        Stay tuned for updates on <Link target={'_blank'}
+        Stay tuned for updates and get in touch on <Link target={'_blank'}
                                         href="https://www.reddit.com/r/strongprogress/">
         <RedditOutlined/> Reddit
       </Link>!
