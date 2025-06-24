@@ -1,10 +1,14 @@
 'use client';
-import {Divider, Menu, Tooltip} from "antd";
+import {Divider, Menu, Space, Tooltip} from "antd";
 import React from "react";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {ExportOutlined, RedditOutlined} from "@ant-design/icons";
 import {SourceFileUpload} from "@/components/source-file/SourceFileUpload";
+import {GlobalSettings} from "@/components/navigation/GlobalSettings";
+import {RedditUrl} from "@/constants";
+
+const {Compact} = Space;
 
 export function MainMenu() {
   const pathname = usePathname()
@@ -22,7 +26,10 @@ export function MainMenu() {
       items={[
         {
           key: 'upload', label: (
-            <SourceFileUpload text={'New File'}/>
+            <Compact>
+              <SourceFileUpload text={'New File'}/>
+              <GlobalSettings/>
+            </Compact>
           )
         },
         {
@@ -68,8 +75,8 @@ export function MainMenu() {
         {
           key: 'reddit', icon: <RedditOutlined/>, label: (
             <Tooltip title={'Get in touch and let me know what you think ^_^'}>
-              <Link href={'https://www.reddit.com/r/strongprogress/'}
-                    target={'_blank'} rel={'noopener noreferrer'}>
+              <Link href={RedditUrl} target={'_blank'}
+                    rel={'noopener noreferrer'}>
                 Reddit
               </Link>
             </Tooltip>

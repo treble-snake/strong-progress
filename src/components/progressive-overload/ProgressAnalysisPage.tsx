@@ -1,5 +1,5 @@
 import {LiftActivityStatus} from "@/types";
-import {Alert, Tabs, Tooltip, Typography} from "antd";
+import {Alert, Popover, Space, Tabs, Tag, Tooltip, Typography} from "antd";
 import React, {Suspense} from "react";
 import {
   ActiveLiftsList
@@ -11,19 +11,70 @@ import {
 } from "@/components/api/hooks";
 import dynamic from "next/dynamic";
 import {Loader} from "@/components/common/Loading";
+import {QuestionCircleTwoTone} from "@ant-design/icons";
+import {useAtomValue} from "jotai/index";
+import {lastUploadedDateAtom} from "@/components/data/atoms/root";
+import {format} from "date-fns";
 
-const {Text} = Typography;
+const {Text, Title} = Typography;
 
 const LazyInactiveLiftsList = dynamic(() => import('@/components/progressive-overload/InactiveLiftsList'),
   {ssr: false, loading: () => <Loader/>});
+
 
 export function ProgressAnalysisPage() {
   const data = useProgressiveOverloadCounts()
   const {progressAnalysisTipHidden} = useUiSettings()
   const updateUiSettings = useUpdateUiSettings()
+  const lastUploadDate = useAtomValue(lastUploadedDateAtom);
+
+  let lastUploadedTag = null;
+  if (lastUploadDate) {
+    try {
+      lastUploadedTag = <Tag>
+        Data Uploaded {format(parseInt(lastUploadDate), "PPpp")}
+      </Tag>
+    } catch (error) {
+      console.warn(error);
+    }
+  }
 
   return (
     <>
+      <Title level={1}>
+        <Space>
+          <span>Progress Analysis</span>
+          <Popover
+            style={{maxWidth: 600}}
+            title={<>
+              This page shows an overview of your lifts and
+              how they’re performing - spot any potential issues right
+              away
+            </>} content={
+            <Text>
+              Same lifts from different sessions are tracked separately, as
+              the exercise order may affect performance.
+              <br/>
+              The <b>Active</b> tab highlights lifts you’ve done recently,
+              helping you
+              gauge what’s progressing well and what isn’t,
+              <br/>
+              spot potential or actual issues in your
+              current training, so you can correct the course.
+              <br/>
+              The <b>New</b> tab is just lifts without enough data yet, and<
+              br/>
+              the <b>History</b> includes lifts you haven’t done in a while —
+              could be useful for
+              retrospective review.
+            </Text>
+          }>
+            <QuestionCircleTwoTone/>
+          </Popover>
+          {lastUploadedTag}
+        </Space>
+      </Title>
+
       {!progressAnalysisTipHidden &&
         <Alert type={'info'} style={{maxWidth: 900}}
                closable

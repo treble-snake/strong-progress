@@ -9,22 +9,23 @@ import {AffectedMuscleGroups} from "@/engine/volume/muscle-groups";
 import {PeriodPicker} from "@/components/volume/PeriodPicker";
 import Link from "next/link";
 import {MuscleVolumeCard} from "@/components/volume/MuscleVolumeCard";
+import {WithLiftHistory} from "@/components/layout/WithLiftHistory";
+import {RedditUrl} from "@/constants";
 
 const {Title, Text} = Typography;
 
 const WeeklyVolumePage: React.FC = () => {
   const weekVolume = useAtomValue(setsForWeeklyVolumeAtom);
   const allLifts: [name: string, stats: AffectedMuscleGroups][] = Object.entries(weekVolume.liftMuscleGroups)
-    .sort((a, b) => b[1].certainty - a[1].certainty); // Sort by certainty in descending order
+    .sort((a, b) => a[1].certainty - b[1].certainty); // Sort by certainty in descending order
 
   const averageVolume = weekVolume.weeklyAverageByMuscleGroup
   return (
-    <>
+    <WithLiftHistory>
       <Title level={1}>Weekly Volume</Title>
       <Alert type={'error'} showIcon icon={<WarningOutlined/>} message={<>
         This page is super early stage and may not work correctly. Stay tuned
-        for updates and get in touch on <Link target={'_blank'}
-                                              href="https://www.reddit.com/r/strongprogress/">
+        for updates and get in touch on <Link target={'_blank'} href={RedditUrl}>
         <RedditOutlined/> Reddit
       </Link>!
       </>}/>
@@ -70,14 +71,14 @@ const WeeklyVolumePage: React.FC = () => {
                     }]) => {
                       // Determine certainty level tag
                       let tagColor = 'green';
-                      let tagText = 'High certainty';
+                      let tagText = 'Likely';
 
                       if (certainty < 0.5) {
                         tagColor = 'red';
-                        tagText = 'Low certainty';
+                        tagText = 'Unsure';
                       } else if (certainty < 0.8) {
                         tagColor = 'orange';
-                        tagText = 'Medium certainty';
+                        tagText = 'Probably';
                       }
 
                       return (
@@ -111,9 +112,9 @@ const WeeklyVolumePage: React.FC = () => {
                               rule:</strong> {sourceRule} (score: {resultScore})
                             </div>
                             {comments.length > 0 && (
-                              <div style={{color: 'red', marginTop: 8}}>
+                              <Text type={'warning'}>
                                 <strong>Comments:</strong> {comments.join(' | ')}
-                              </div>
+                              </Text>
                             )}
                           </div>
                         </Card>
@@ -126,7 +127,7 @@ const WeeklyVolumePage: React.FC = () => {
           ]}
         />
       </div>
-    </>
+    </WithLiftHistory>
   );
 };
 

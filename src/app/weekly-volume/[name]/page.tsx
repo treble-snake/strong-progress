@@ -23,6 +23,7 @@ import {
 import {useAtomValue} from 'jotai';
 import {setsForWeeklyVolumeAtom} from '@/components/data/atoms';
 import Link from "next/link";
+import {RedditUrl} from "@/constants";
 
 const {Title, Text} = Typography;
 
@@ -116,7 +117,7 @@ const MuscleGroupPage: React.FC = () => {
         This page is super-duper early stage 🤣️️️️️️
         Basically a preview draft - I&apos;ll be working on it soon.
         Stay tuned for updates and get in touch on <Link target={'_blank'}
-                                        href="https://www.reddit.com/r/strongprogress/">
+                                        href={RedditUrl}>
         <RedditOutlined/> Reddit
       </Link>!
       </>}/>

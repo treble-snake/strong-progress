@@ -1,6 +1,6 @@
-import { mapStrongAppData } from '../parsing';
 import path from 'path';
-import { parseStrongCsv } from '../file-reader/server-file-reader'; // Added import
+import {parseCsv} from '../file-reader/server-file-reader';
+import {mapStrongAppData} from "@/engine/parsing/strong-app"; // Added import
 
 const BASIC_FIXTURES_FILE = path.join(__dirname, 'fixtures', 'strong-data-example.csv');
 const COMPREHENSIVE_FIXTURES_FILE = path.join(__dirname, 'fixtures', 'strong-data-comprehensive.csv');
@@ -8,7 +8,7 @@ const INVALID_RPE_FIXTURES_FILE = path.join(__dirname, 'fixtures', 'strong-data-
 
 describe('mapStrongAppData', () => { // Changed describe to match function name
   it('should parse basic Strong app data correctly', async () => { // Made test async
-    const rawData = await parseStrongCsv(BASIC_FIXTURES_FILE); // Parse CSV
+    const rawData = await parseCsv(BASIC_FIXTURES_FILE); // Parse CSV
     const result = mapStrongAppData(rawData); // Use parsed data
 
     // Check that we get the expected number of records
@@ -37,7 +37,7 @@ describe('mapStrongAppData', () => { // Changed describe to match function name
   });
 
   it('should parse comprehensive Strong app data correctly', async () => {
-    const rawData = await parseStrongCsv(COMPREHENSIVE_FIXTURES_FILE);
+    const rawData = await parseCsv(COMPREHENSIVE_FIXTURES_FILE);
     const result = mapStrongAppData(rawData);
 
     // Check the total number of records (should be 10 after filtering out Rest Timer)
@@ -84,7 +84,7 @@ describe('mapStrongAppData', () => { // Changed describe to match function name
   });
 
   it('should handle invalid RPE values correctly', async () => {
-    const rawData = await parseStrongCsv(INVALID_RPE_FIXTURES_FILE);
+    const rawData = await parseCsv(INVALID_RPE_FIXTURES_FILE);
     const result = mapStrongAppData(rawData);
 
     // Check that we get the expected number of records

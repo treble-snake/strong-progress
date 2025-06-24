@@ -3,6 +3,7 @@ import React, {ReactNode} from 'react';
 import {Anchor, Layout, Typography} from 'antd';
 import Link from "next/link";
 import {GithubOutlined, RedditOutlined} from "@ant-design/icons";
+import {GithubUrl, RedditUrl} from "@/constants";
 
 const {Paragraph, Title} = Typography;
 const {Sider, Content} = Layout;
@@ -140,11 +141,11 @@ export default function AboutPage() {
           <Title level={1}>About the project</Title>
           <Paragraph>
             I would love to hear your thoughts on this project!
-            Get in touch on <Link href={'https://www.reddit.com/r/strongprogress'} target={'_blank'}
+            Get in touch on <Link href={RedditUrl} target={'_blank'}
                       rel={'noopener noreferrer'}>
                   <RedditOutlined/> Reddit
                 </Link>{' '}or{' '}
-                <Link href={'https://github.com/treble-snake/strong-progress'} target={'_blank'}
+                <Link href={GithubUrl} target={'_blank'}
                       rel={'noopener noreferrer'}>
                   <GithubOutlined/> GitHub
                 </Link>!

@@ -1,6 +1,6 @@
 import csv from "csvtojson";
 
-export const parseStrongCsv = async (filePath: string) => {
+export const parseCsv = async (filePath: string) => {
   return csv({})
     .fromFile(filePath)
 }

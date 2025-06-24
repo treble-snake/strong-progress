@@ -1,6 +1,6 @@
-import { limitSets } from '../volume-calculation';
+import {limitSets} from '../volume-calculation';
 import dayjs from 'dayjs';
-import { RawSetData } from '@/types';
+import {RawSetData} from '@/types';
 
 describe('limitSets', () => {
   // Helper function to create test sets with different dates

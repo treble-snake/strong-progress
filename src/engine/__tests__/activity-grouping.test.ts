@@ -1,5 +1,5 @@
-import { groupByLift } from '../parsing';
-import { LiftProgressStatus, RawSetData } from '@/types';
+import {groupByLift} from '../parsing/parsing';
+import {LiftProgressStatus, RawSetData} from '@/types';
 
 describe('groupByLift', () => {
   it('should return an empty array for empty input', () => {

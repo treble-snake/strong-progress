@@ -1,6 +1,8 @@
 import React from 'react';
-import { Modal } from 'antd';
-import { DataParsingSettings } from '@/components/source-file/DataParsingSettings';
+import {Modal} from 'antd';
+import {
+  DataParsingSettings
+} from '@/components/source-file/DataParsingSettings';
 
 interface ParsingSettingsModalProps {
   isOpen: boolean;

@@ -1,4 +1,4 @@
-import { getWeeks } from '../week-intervals';
+import {getWeeks} from '../week-intervals';
 
 describe('getWeeks', () => {
   // Basic functionality with spring months of 2025

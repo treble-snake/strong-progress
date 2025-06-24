@@ -1,5 +1,7 @@
-import {Alert, Empty, Spin} from "antd";
+import {Alert, Empty, Spin, Typography} from "antd";
 import React from "react";
+import {GithubUrl, RedditUrl} from "@/constants";
+import Link from "next/link";
 
 type LoadingProps = {
   fullscreen?: boolean;
@@ -7,6 +9,7 @@ type LoadingProps = {
   error?: Error | string;
 }
 
+const {Text} = Typography;
 
 export function Loader({fullscreen, tip}: {
   fullscreen?: boolean,
@@ -26,10 +29,22 @@ export function LoadingError({error}: { error?: Error | string }) {
   }
   return <Alert type={'error'} showIcon message={
     <>
-      Failed to load data, please use browser inspector to get the details
-      and report them through POPS using the `/pops-bot` Slack command.
+      Something went wrong 😓
       <br/>
-      {error ? <>{error.toString()}</> : null}
+      Please get in touch on{' '}
+      <Link href={RedditUrl} target={'_blank'}>Reddit</Link> or{' '}
+      <Link href={GithubUrl} target={'_blank'}>Github</Link> to let me know.
+      <br/>
+      Meanwhile, try refreshing the page or cleaning the browser cache?
+      Sorry for the inconvenience! 🙏
+      <br/>
+      Here are some details that might help me investigate, please copy them
+      over:
+      <br/>
+      <br/>
+      <Text copyable>
+        {error ? error.toString() : 'Unknown error'}
+      </Text>
     </>
   }/>
 }
@@ -46,5 +61,14 @@ export function NoDataLoaded({
     return <LoadingError error={error}/>;
   }
   return <Empty
-    description={'No data loaded - something must have gone wrong :('}/>;
+    description={<>
+      Something went wrong - not data was loaded 😓
+      <br/>
+      Please get in touch on{' '}
+      <Link href={RedditUrl} target={'_blank'}>Reddit</Link> or{' '}
+      <Link href={GithubUrl} target={'_blank'}>Github</Link> to let me know.
+      <br/>
+      Meanwhile, try refreshing the page or cleaning the browser cache?
+      Sorry for the inconvenience! 🙏
+    </>}/>;
 }
