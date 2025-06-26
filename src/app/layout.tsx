@@ -3,6 +3,7 @@ import React from 'react';
 import dynamic from "next/dynamic";
 import {Analytics} from "@vercel/analytics/next"
 import {Metadata} from "next";
+import {AntdRegistry} from "@ant-design/nextjs-registry";
 
 const MainLayoutLoader = dynamic(() => import('../components/layout/MainLayoutLoader'))
 
@@ -19,10 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
     <body style={{margin: 0, padding: 0}}>
-    <MainLayoutLoader>
-      {children}
+    <AntdRegistry>
+      <MainLayoutLoader>
+        {children}
+      </MainLayoutLoader>
       <Analytics/>
-    </MainLayoutLoader>
+    </AntdRegistry>
     </body>
     </html>
   );
