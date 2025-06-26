@@ -14,6 +14,10 @@ export type AffectedMuscleGroups = {
 
 const MIN_SCORE = 2
 
+export type AffectedMuscleOverrides = {
+  byLift?: Record<string, Pick<AffectedMuscleGroups, 'primary' | 'secondary' | 'comments'>>,
+}
+
 export const getAffectedMuscleGroups = (liftName: string): AffectedMuscleGroups => {
   // TODO: look at https://www.fusejs.io/
 

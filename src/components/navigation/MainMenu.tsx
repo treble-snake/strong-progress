@@ -62,12 +62,12 @@ export function MainMenu() {
                           style={{backgroundColor: '#f6f2eb'}}/>,
         },
         {
-          key: 'workout-builder', icon: <ExportOutlined/>, label: (
+          key: 'nordic-curls', icon: <ExportOutlined/>, label: (
             <Tooltip
-              title={'Another half-done/half-dead pet project of mine 😅️️️️️ Will probably try to combine these if I ever have time.'}>
-              <Link href={'https://icebreaker-bicep.srms.club/'}
+              title={'My other fitness-related pet projects 😅️️️️️ Will probably try to combine some of them if I ever have time.'}>
+              <Link href={'https://nerdic-curls.com/'}
                     target={'_blank'} rel={'noopener noreferrer'}>
-                Workout Builder
+                Other Projects
               </Link>
             </Tooltip>
           )

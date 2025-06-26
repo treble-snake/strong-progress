@@ -2,7 +2,7 @@ import {RawSetData} from "@/types";
 import dayjs, {Dayjs} from "dayjs";
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import {
-  AffectedMuscleGroups,
+  AffectedMuscleGroups, AffectedMuscleOverrides,
   getAffectedMuscleGroups
 } from "@/engine/volume/muscle-groups";
 import {getWeeks} from "@/engine/volume/week-intervals";
@@ -16,6 +16,8 @@ export type MuscleInvolvement = {
   primary: number;
   secondary: number;
   fractional?: number; // primary + secondary/2
+  combinedFrequency?: number; // days per week the muscle group was trained (combined)
+  directFrequency?: number; // days per week the muscle group was trained as primary
 }
 
 type WeekVolume = {
@@ -82,12 +84,22 @@ export const limitSets = (sets: RawSetData[], fromDate: Dayjs, toDate: Dayjs): R
   return result;
 }
 
-export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: string): WeeklyVolumeResults => {
+export const calculateWeeklyVolume = (
+  sets: RawSetData[],
+  from: string,
+  to: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  overrides?: AffectedMuscleOverrides
+): WeeklyVolumeResults => {
   const result: WeeklyVolumeResults = {
     weeks: {},
     liftMuscleGroups: {},
     weeklyAverageByMuscleGroup: {}
   };
+
+  // Track unique days for each muscle group
+  const muscleDaysMap: Record<string, Set<string>> = {};
+  const musclePrimaryDaysMap: Record<string, Set<string>> = {};
 
   if (!sets || sets.length === 0 || !from || !to) {
     return result;
@@ -148,6 +160,9 @@ export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: stri
     }
 
     const {primary, secondary} = muscleGroups;
+    // Track the date for frequency calculation
+    const dateStr = setDate.format('YYYY-MM-DD');
+
     for (const muscle of primary) {
       if (!week.muscleGroups[muscle]) {
         week.muscleGroups[muscle] = {primary: 0, secondary: 0, fractional: 0};
@@ -155,6 +170,15 @@ export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: stri
       if (!totalVolumeByMuscleGroup[muscle]) {
         totalVolumeByMuscleGroup[muscle] = {primary: 0, secondary: 0, fractional: 0};
       }
+      if (!muscleDaysMap[muscle]) {
+        muscleDaysMap[muscle] = new Set();
+      }
+      if (!musclePrimaryDaysMap[muscle]) {
+        musclePrimaryDaysMap[muscle] = new Set();
+      }
+      muscleDaysMap[muscle].add(dateStr);
+      musclePrimaryDaysMap[muscle].add(dateStr);
+
       week.muscleGroups[muscle].primary += muscleCoefficient;
       totalVolumeByMuscleGroup[muscle].primary += muscleCoefficient;
     }
@@ -165,6 +189,15 @@ export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: stri
       if (!totalVolumeByMuscleGroup[muscle]) {
         totalVolumeByMuscleGroup[muscle] = {primary: 0, secondary: 0, fractional: 0};
       }
+      if (!muscleDaysMap[muscle]) {
+        muscleDaysMap[muscle] = new Set();
+      }
+      // if (!muscleSecondaryDaysMap[muscle]) {
+      //   muscleSecondaryDaysMap[muscle] = new Set();
+      // }
+      muscleDaysMap[muscle].add(dateStr);
+      // muscleSecondaryDaysMap[muscle].add(dateStr);
+
       week.muscleGroups[muscle].secondary += muscleCoefficient;
       totalVolumeByMuscleGroup[muscle].secondary += muscleCoefficient;
     }
@@ -186,10 +219,23 @@ export const calculateWeeklyVolume = (sets: RawSetData[], from: string, to: stri
     const avgSecondary = Math.round(10 * secondary / weeksCount) / 10;
     const fractional = Math.round(10 * (avgPrimary + avgSecondary / 2)) / 10;
 
+    // Calculate frequency (days per week)
+    const uniqueDaysCount = muscleDaysMap[muscle] ? muscleDaysMap[muscle].size : 0;
+    const uniquePrimaryDaysCount = musclePrimaryDaysMap[muscle] ? musclePrimaryDaysMap[muscle].size : 0;
+    // const uniqueSecondaryDaysCount = muscleSecondaryDaysMap[muscle] ? muscleSecondaryDaysMap[muscle].size : 0;
+
+    const frequency = Math.round(10 * uniqueDaysCount / weeksCount) / 10;
+    const directFrequency = Math.round(10 * uniquePrimaryDaysCount / weeksCount) / 10;
+    // indirectFrequency now counts all days (both primary and secondary)
+    // const indirectFrequency = Math.round(10 * uniqueDaysCount / weeksCount) / 10;
+
     result.weeklyAverageByMuscleGroup[muscle] = {
       primary: avgPrimary,
       secondary: avgSecondary,
-      fractional: fractional
+      fractional: fractional,
+      combinedFrequency: frequency,
+      directFrequency: directFrequency,
+      // indirectFrequency: indirectFrequency
     };
   }
 

@@ -38,7 +38,7 @@ describe('getAffectedMuscleGroups', () => {
     },
     {
       liftName: 'Flexion Row (Cable)',
-      expectedRuleName: KeywordRuleLabels.LowerBack,
+      expectedRuleName: KeywordRuleLabels.SpinalFlexion,
     },
     {
       liftName: 'JM Press In Smith',

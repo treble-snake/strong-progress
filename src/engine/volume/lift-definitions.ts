@@ -27,19 +27,10 @@ export enum KeywordRuleLabels {
   OddLiftsCloseGripBench = 'Odd Lifts - Close Grip Bench',
   OddLiftsHyperextension = 'Odd Lifts - Hyperextension',
   HammerCurl = 'Hammer Curl',
-  LowerBack = 'Lower Back',
+  SpinalFlexion = 'Spinal Flexion',
   OddLiftsTricepsDips = 'Odd Lifts - Triceps Dips',
   OddLiftsPullovers = 'Odd Lifts - Pullovers',
 }
-
-/*
-Lean Back Leg Extension
-High certainty (1.00)
-Primary muscles: Lower Back
-Secondary muscles: Glutes, Hamstrings
-Matched keywords: back, extension
-Source rule: Odd Lifts - Hyperextension (score: 4)
- */
 
 type WeightedKeyword = {
   weight: number;
@@ -314,7 +305,7 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
       {keyword: 'morning', weight: 3},
     ],
     primary: [MuscleGroups.Hamstrings],
-    secondary: [MuscleGroups.Glutes, MuscleGroups.LowerBack]
+    secondary: [MuscleGroups.Glutes]
   },
   {
     label: KeywordRuleLabels.HamstringsIsolation,
@@ -344,7 +335,7 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
     ],
     primary: [],
     secondary: [
-      MuscleGroups.LowerBack, MuscleGroups.Glutes,
+      MuscleGroups.Glutes,
       MuscleGroups.Hamstrings, MuscleGroups.Quads, MuscleGroups.UpperTraps
     ]
   },
@@ -366,18 +357,18 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
       {keyword: 'hyper', weight: 2},
       {keyword: /hyper[\s-]?extension/, weight: 3}
     ],
-    primary: [MuscleGroups.LowerBack],
-    secondary: [MuscleGroups.Glutes, MuscleGroups.Hamstrings]
+    primary: [MuscleGroups.Hamstrings],
+    secondary: [MuscleGroups.Glutes]
   },
   {
-    label: KeywordRuleLabels.LowerBack,
+    label: KeywordRuleLabels.SpinalFlexion,
     keywords: [
       {keyword: 'jefferson', weight: 3},
       {keyword: 'flexion', weight: 3},
       {keyword: 'row', weight: 1},
       {keyword: 'curl', weight: 1},
     ],
-    primary: [MuscleGroups.LowerBack],
+    primary: [MuscleGroups.Other],
     secondary: [MuscleGroups.UpperBack],
   }
 ];
