@@ -152,7 +152,7 @@ export function SourceFileUpload({text}: SourceFileUploadProps) {
             }
 
             if (i !== 0) {
-              setWarning(`Data was trimmed to the last ${cutoffYears[i]} years`);
+              setWarning(`Due to the large file size, the data was trimmed to the last ${cutoffYears[i]} years. Sorry for the possible inconvenience, I'll be working on improving that.`);
             }
             setLoadingStatus({isLoading: false, error: undefined})
           }
