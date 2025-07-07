@@ -12,6 +12,7 @@ import {Loader} from "@/components/common/Loading";
 import {mapStrongAppData} from "@/engine/parsing/strong-app";
 import {mapHevyAppData} from "@/engine/parsing/heavy-app";
 import {RawSetData} from "@/types";
+import dayjs from "dayjs";
 
 type SourceFileUploadProps = {
   text?: string;
@@ -24,7 +25,20 @@ export function SourceFileUpload({text}: SourceFileUploadProps) {
     isLoading,
     error
   }, setLoadingStatus] = useAtom(rawLiftHistoryLoadingAtom)
+  const [warning, setWarning] = React.useState<string | undefined>(undefined);
   const {notification} = App.useApp()
+
+  const attemptSettingData = (parsed: RawSetData[], yearsToTrim: number) => {
+    if (yearsToTrim === 0) {
+      setRawData(parsed);
+    } else {
+      const cutoffDate = dayjs().subtract(yearsToTrim, 'year');
+      setRawData(parsed.filter(set => {
+        return dayjs(set.date).isAfter(cutoffDate);
+      }));
+    }
+    setLastUploadDate(Date.now().toString());
+  }
 
   React.useEffect(() => {
     if (error) {
@@ -34,6 +48,17 @@ export function SourceFileUpload({text}: SourceFileUploadProps) {
       });
     }
   }, [error, notification])
+
+  React.useEffect(() => {
+    if (warning) {
+      notification.warning({
+        message: 'Warning',
+        description: warning,
+        duration: 10,
+        onClose: () => setWarning(undefined)
+      });
+    }
+  }, [warning, notification])
 
   return (
     <>
@@ -64,12 +89,12 @@ export function SourceFileUpload({text}: SourceFileUploadProps) {
             })
           })
           reader.onload = async () => {
+            let parsed: RawSetData[] = [];
             try {
               const content = reader.result as string;
               const jsonData = await parseCsv(content);
 
               // Detect file type based on headers
-              let parsed: RawSetData[];
               if (jsonData.length > 0) {
                 const firstRow = jsonData[0];
                 // Check if it's a Hevy file by looking for Hevy-specific headers
@@ -80,22 +105,57 @@ export function SourceFileUpload({text}: SourceFileUploadProps) {
                   console.debug('Using Strong app format by default');
                   parsed = mapStrongAppData(jsonData);
                 }
+                console.debug('Parsed items count:', parsed.length);
               } else {
                 throw new Error('Unable to parse JSON - empty or invalid data');
               }
-
-              console.debug('Parsed items:', parsed.length);
-              setLoadingStatus({isLoading: false, error: undefined})
-              setRawData(parsed);
-              setLastUploadDate(Date.now().toString())
             } catch (error) {
               console.error('Error parsing file:', error);
-              setLoadingStatus({
+              return setLoadingStatus({
                 isLoading: false,
                 error: 'Failed to parse file: ' + (error instanceof Error ? error.message : String(error))
               });
             }
-          };
+
+            if (parsed.length === 0) {
+              setWarning('No data about performed sets was found in the file');
+              return setLoadingStatus({isLoading: false, error: undefined});
+            }
+
+            let i: number;
+            const cutoffYears = [0, 2, 1, 0.5, 0.25];
+            for (i = 0; i < cutoffYears.length; i++) {
+              const yearsToTrim = cutoffYears[i];
+              try {
+                console.debug('Attempting to set data with yearsToTrim:', yearsToTrim);
+                attemptSettingData(parsed, yearsToTrim);
+                break
+              } catch (error) {
+                // if this is an error related to storage quota
+                if (error instanceof Error && 'name' in error && error.name === 'QuotaExceededError') {
+                  // if we are at the last iteration, we will show the error
+                  // otherwise we will just trim the data and try again
+                  if (i === cutoffYears.length - 1) {
+                    return setLoadingStatus({
+                      isLoading: false,
+                      error: 'Failed to save data: too large file (wow you train A LOT!), please get in touch to resolve this issue'
+                    });
+                  }
+                } else {
+                  // any other error will be treated as a failure to save data
+                  return setLoadingStatus({
+                    isLoading: false,
+                    error: 'Failed to save data: ' + (error instanceof Error ? error.message : String(error))
+                  });
+                }
+              }
+            }
+
+            if (i !== 0) {
+              setWarning(`Data was trimmed to the last ${cutoffYears[i]} years`);
+            }
+            setLoadingStatus({isLoading: false, error: undefined})
+          }
           return false
         }}
 
