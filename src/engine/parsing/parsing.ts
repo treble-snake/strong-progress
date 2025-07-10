@@ -58,8 +58,7 @@ export const groupByLift = (sets: RawSetData[]): LiftHistory[] => {
     .map((it) => {
     return {
       ...it,
-      // Sort workouts by date to be compatible with the rest of the engine
-      workouts: Object.values(it.workouts).sort((a, b) => a.date.localeCompare(b.date)),
+      workouts: Object.values(it.workouts),
       sessionNames: Array.from(it.sessionNames),
     }
   });

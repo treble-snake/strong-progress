@@ -40,11 +40,14 @@ enum HeavySetType {
 }
 
 export const mapHevyAppData = (data: HevyAppRawDataPoint[]): RawSetData[] => {
-  return data
-    .filter((it: HevyAppRawDataPoint) =>
-      it.set_type !== HeavySetType.Warmup
-    )
-    .map((it: HevyAppRawDataPoint) => {
+  const result: RawSetData[] = [];
+  let currentDate: string | null = null;
+  let currentDateSets: RawSetData[] = [];
+
+  // Process data in a single pass
+  data
+    .filter(it => it.set_type !== HeavySetType.Warmup)
+    .forEach(it => {
       const weight = it.weight_kg !== undefined ? parseFloat(it.weight_kg) || 0 : parseFloat(it.weight_lbs || '0') || 0;
       const distance = it.distance_km !== undefined ? parseFloat(it.distance_km) || 0 : parseFloat(it.distance_miles || '0') || 0;
 
@@ -58,7 +61,7 @@ export const mapHevyAppData = (data: HevyAppRawDataPoint[]): RawSetData[] => {
           break;
       }
 
-      return {
+      const mappedItem: RawSetData = {
         date: dayjs(it.start_time).format('YYYY-MM-DD'),
         workoutName: it.title,
         exerciseName: it.exercise_title,
@@ -70,6 +73,24 @@ export const mapHevyAppData = (data: HevyAppRawDataPoint[]): RawSetData[] => {
         notes: it.exercise_notes === '' ? undefined : it.exercise_notes,
         workoutNotes: it.description === '' ? undefined : it.description,
         rpe: it.rpe === '' ? undefined : parseFloat(it.rpe) || undefined
-      } as RawSetData;
-    })
+      };
+
+      // If we encounter a new date, add the current date's sets to the result
+      if (currentDate !== null && currentDate !== it.start_time) {
+        // Add sets from the previous date to the beginning of the result array
+        // This effectively reverses the date order (from descending to ascending)
+        result.unshift(...currentDateSets);
+        currentDateSets = [];
+      }
+
+      currentDate = it.start_time;
+      currentDateSets.push(mappedItem);
+    });
+
+  // Don't forget to add the last date's sets
+  if (currentDateSets.length > 0) {
+    result.unshift(...currentDateSets);
+  }
+
+  return result;
 }
