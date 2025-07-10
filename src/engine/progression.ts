@@ -162,14 +162,6 @@ export const analyzeProgressiveOverload = (sets: RawSetData[]): LiftHistory[] =>
   return groupByLift(sets).map((lift) => {
     // Compute performance change for each day (days are already in ascending order)
     lift.workouts[0].performanceChange = PerformanceChange.NoChange;
-    // sort days in ascending order
-    // const sortedWorkouts = Object.values(lift.workouts).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-    // for (let i = 1; i < sortedWorkouts.length; i++) {
-    //   const previousDay = sortedWorkouts[i - 1];
-    //   const currentDay = sortedWorkouts[i];
-    //   currentDay.performanceChange = computePerformanceChange(previousDay, currentDay);
-    // }
-
     for (let i = 1; i < Object.keys(lift.workouts).length; i++) {
       const previousDay = Object.values(lift.workouts)[i - 1];
       const currentDay = Object.values(lift.workouts)[i];
