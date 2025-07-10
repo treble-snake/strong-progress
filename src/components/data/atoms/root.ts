@@ -40,13 +40,17 @@ export enum UnitSystem {
   Imperial = 'imperial'
 }
 
+export type FileType = 'auto' | 'strong' | 'hevy';
+
 export type UiSettings = {
   progressAnalysisTipHidden: boolean;
   units: UnitSystem;
+  fileType: FileType;
 }
 
 export const uiSettingsAtom = atomWithStorage<UiSettings>(
   'uiSettings', {
     progressAnalysisTipHidden: false,
     units: UnitSystem.Metric,
+    fileType: 'auto',
   }, undefined, {getOnInit: true});

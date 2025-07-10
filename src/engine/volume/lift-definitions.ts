@@ -147,6 +147,7 @@ export const MUSCLE_GROUP_KEYWORD_RULES: MuscleGroupKeywordRule[] = [
   {
     label: KeywordRuleLabels.SideDeltsIsolation,
     keywords: [
+      {keyword: 'powel', weight: 2},
       {keyword: 'lateral', weight: 2},
       {keyword: /lu[\s-]/, weight: 2},
       {keyword: 'raise', weight: 1}

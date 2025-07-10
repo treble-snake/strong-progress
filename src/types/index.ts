@@ -51,9 +51,9 @@ export interface RawSetData {
   reps: number; // integer
   distance: number; // float
   seconds: number; // float
-  notes: string;
-  workoutNotes: string;
-  rpe: number | null;
+  notes?: string;
+  workoutNotes?: string;
+  rpe?: number;
 }
 
 export enum PerformanceChange {

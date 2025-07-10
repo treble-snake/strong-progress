@@ -2,7 +2,16 @@
 import {RawSetData} from "@/types";
 import dayjs from "dayjs";
 
-interface HevyAppRawDataPoint {
+type HevyDistanceOptions = { distance_km: string; distance_miles?: never } | {
+  distance_miles: string;
+  distance_km?: never
+};
+type HevyWeightOptions = { weight_kg: string; weight_lbs?: never } | {
+  weight_lbs: string;
+  weight_kg?: never
+};
+
+type HevyAppRawDataPoint = HevyDistanceOptions & HevyWeightOptions & {
   title: string;
   start_time: string;
   end_time: string;
@@ -12,10 +21,7 @@ interface HevyAppRawDataPoint {
   exercise_notes: string;
   set_index: string;
   set_type: string;
-  weight_kg?: string;
-  weight_lbs?: string;
   reps: string;
-  distance_km: string;
   duration_seconds: string;
   rpe: string;
 }
@@ -26,32 +32,65 @@ interface HevyAppRawDataPoint {
 * "Full body","12 Jun 2025, 15:23","12 Jun 2025, 16:00","","Squat (Barbell)",,"",0,"normal",52.5,5,,,
  */
 
-export const mapHevyAppData = (data: HevyAppRawDataPoint[]): RawSetData[] => {
-  return data
-    .filter((it: HevyAppRawDataPoint) =>
-      // filter out warmups and empty sets
-      it.set_type !== 'warmup' && 
-      (parseInt(it.reps, 10) || 0) + (parseFloat(it.distance_km) || 0) + (parseFloat(it.duration_seconds) || 0) > 0
-    )
-    .map((it: HevyAppRawDataPoint) => {
-      // Handle the case where weight might be in kg or lbs based on app settings
-      const weight = it.weight_kg !== undefined ? parseFloat(it.weight_kg) || 0 : parseFloat(it.weight_lbs || '0') || 0;
+enum HeavySetType {
+  Normal = 'normal',
+  Warmup = 'warmup',
+  Dropset = 'dropset',
+  Failure = 'failure',
+}
 
-      return {
+export const mapHevyAppData = (data: HevyAppRawDataPoint[]): RawSetData[] => {
+  const result: RawSetData[] = [];
+  let currentDate: string | null = null;
+  let currentDateSets: RawSetData[] = [];
+
+  // Process data in a single pass
+  data
+    .filter(it => it.set_type !== HeavySetType.Warmup)
+    .forEach(it => {
+      const weight = it.weight_kg !== undefined ? parseFloat(it.weight_kg) || 0 : parseFloat(it.weight_lbs || '0') || 0;
+      const distance = it.distance_km !== undefined ? parseFloat(it.distance_km) || 0 : parseFloat(it.distance_miles || '0') || 0;
+
+      let setMark = it.set_index;
+      switch (it.set_type) {
+        case HeavySetType.Failure:
+          setMark = 'F';
+          break;
+        case HeavySetType.Dropset:
+          setMark = 'D';
+          break;
+      }
+
+      const mappedItem: RawSetData = {
         date: dayjs(it.start_time).format('YYYY-MM-DD'),
         workoutName: it.title,
         exerciseName: it.exercise_title,
-        setMark: it.set_type === 'warmup' ? 'W' : it.set_index,
-        weight: weight,
+        setMark,
+        weight,
         reps: parseInt(it.reps, 10) || 0,
-        distance: parseFloat(it.distance_km) || 0,
+        distance,
         seconds: parseFloat(it.duration_seconds) || 0,
         notes: it.exercise_notes === '' ? undefined : it.exercise_notes,
         workoutNotes: it.description === '' ? undefined : it.description,
         rpe: it.rpe === '' ? undefined : parseFloat(it.rpe) || undefined
-      } as RawSetData;
-    })
-    .filter((it) => {
-      return it.setMark !== "W" && (it.reps + it.distance + it.seconds) > 0
-    })
+      };
+
+      // If we encounter a new date, add the current date's sets to the result
+      if (currentDate !== null && currentDate !== it.start_time) {
+        // Add sets from the previous date to the beginning of the result array
+        // This effectively reverses the date order (from descending to ascending)
+        result.unshift(...currentDateSets);
+        currentDateSets = [];
+      }
+
+      currentDate = it.start_time;
+      currentDateSets.push(mappedItem);
+    });
+
+  // Don't forget to add the last date's sets
+  if (currentDateSets.length > 0) {
+    result.unshift(...currentDateSets);
+  }
+
+  return result;
 }

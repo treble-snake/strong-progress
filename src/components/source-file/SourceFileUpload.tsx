@@ -6,7 +6,9 @@ import {useAtom, useSetAtom} from "jotai";
 import {
   lastUploadedDateAtom,
   rawLiftHistoryAtom,
-  rawLiftHistoryLoadingAtom
+  rawLiftHistoryLoadingAtom,
+  uiSettingsAtom,
+  UnitSystem
 } from "@/components/data/atoms";
 import {Loader} from "@/components/common/Loading";
 import {mapStrongAppData} from "@/engine/parsing/strong-app";
@@ -25,6 +27,7 @@ export function SourceFileUpload({text}: SourceFileUploadProps) {
     isLoading,
     error
   }, setLoadingStatus] = useAtom(rawLiftHistoryLoadingAtom)
+  const [settings, setSettings] = useAtom(uiSettingsAtom);
   const [warning, setWarning] = React.useState<string | undefined>(undefined);
   const {notification} = App.useApp()
 
@@ -93,19 +96,36 @@ export function SourceFileUpload({text}: SourceFileUploadProps) {
             try {
               const content = reader.result as string;
               const jsonData = await parseCsv(content);
+              let units = settings.units
 
-              // Detect file type based on headers
+              // Parse based on user selection or auto-detection
               if (jsonData.length > 0) {
                 const firstRow = jsonData[0];
-                // Check if it's a Hevy file by looking for Hevy-specific headers
-                if ('superset_id' in firstRow && 'exercise_title' in firstRow) {
-                  console.debug('Probably it is Hevy file format');
+
+                if (settings.fileType === 'hevy') {
+                  console.debug('Using Hevy format (user selected)');
+                  units = 'weight_kg' in firstRow ? UnitSystem.Metric : UnitSystem.Imperial;
+
                   parsed = mapHevyAppData(jsonData);
-                } else {
-                  console.debug('Using Strong app format by default');
+                } else if (settings.fileType === 'strong') {
+                  console.debug('Using Strong format (user selected)');
                   parsed = mapStrongAppData(jsonData);
+                } else {
+                  // Auto-detect file type based on headers
+                  if ('superset_id' in firstRow && 'exercise_title' in firstRow) {
+                    console.debug('Auto-detected as Hevy file format');
+                    units = 'weight_kg' in firstRow ? UnitSystem.Metric : UnitSystem.Imperial;
+                    parsed = mapHevyAppData(jsonData);
+                  } else {
+                    console.debug('Auto-detected as Strong app format (default)');
+                    parsed = mapStrongAppData(jsonData);
+                  }
                 }
                 console.debug('Parsed items count:', parsed.length);
+                if (units !== settings.units) {
+                  console.debug('Updating settings according to detected unit system:', units);
+                  setSettings((prev) => ({...prev, units}));
+                }
               } else {
                 throw new Error('Unable to parse JSON - empty or invalid data');
               }

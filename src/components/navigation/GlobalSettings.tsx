@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {
   ParsingSettingsModal
-} from "@/components/progressive-overload/ParsingSettingsModal";
+} from "@/components/source-file/ParsingSettingsModal";
 import {Button, Tooltip} from "antd";
 import {SettingOutlined} from "@ant-design/icons";
 

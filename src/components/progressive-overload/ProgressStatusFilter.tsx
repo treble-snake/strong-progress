@@ -1,4 +1,4 @@
-import {Checkbox, Space, Tooltip} from 'antd';
+import {Checkbox, CheckboxChangeEvent, Divider, Space, Tooltip} from 'antd';
 import {LiftProgressStatus} from '@/types';
 import React from 'react';
 import {
@@ -35,7 +35,16 @@ export function ProgressStatusFilter({
                                        setSelectedProgress
                                      }: ProgressStatusFilterProps) {
 
-  const handleChange = (checkedValues: LiftProgressStatus[]) => {
+  const allProgressStatuses = Object.values(LiftProgressStatus);
+  const allChecked = allProgressStatuses.length === selectedProgress.length;
+  const someChecked = selectedProgress.length > 0 && !allChecked;
+
+  const onCheckAllChange = (e: CheckboxChangeEvent) => {
+    setSelectedProgress(e.target.checked ? allProgressStatuses : []);
+  };
+
+  // Handle individual checkbox changes
+  const onChange = (checkedValues: LiftProgressStatus[]) => {
     setSelectedProgress(checkedValues);
   };
 
@@ -47,22 +56,27 @@ export function ProgressStatusFilter({
       alignItems: 'center'
     }}>
       <span style={{marginRight: 8, fontWeight: 500}}>By Progress:</span>
+      <Checkbox indeterminate={someChecked} onChange={onCheckAllChange}
+                checked={allChecked}>
+        All
+      </Checkbox>
+      <Divider type="vertical"/>
       <CheckBoxGroup
         value={selectedProgress}
-        onChange={handleChange}
+        onChange={onChange}
       >
         <Space wrap>
           {(Object.values(LiftProgressStatus) as LiftProgressStatus[])
             .sort((a, b) => (a in FILTER_ORDER ? FILTER_ORDER[a] : 100) - (b in FILTER_ORDER ? FILTER_ORDER[b] : 100))
             .map((status) => (
-            <Tooltip key={status} title={PROGRESS_STATUS_TOOLTIPS[status]}
-                     placement='top'>
-              <Checkbox value={status}>
-                <ProgressStatusIcon status={status}/>
-                <span style={{marginLeft: 4}}>{status}</span>
-              </Checkbox>
-            </Tooltip>
-          ))}
+              <Tooltip key={status} title={PROGRESS_STATUS_TOOLTIPS[status]}
+                       placement='top'>
+                <Checkbox value={status}>
+                  <ProgressStatusIcon status={status}/>
+                  <span style={{marginLeft: 4}}>{status}</span>
+                </Checkbox>
+              </Tooltip>
+            ))}
         </Space>
       </CheckBoxGroup>
     </div>
