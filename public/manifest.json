@@ -1,7 +1,7 @@
 {
   "name": "Strong Progress",
   "short_name": "Strong Progress",
-  "description": "Analyze your lifting progress from the Strong app logs to make better gains.",
+  "description": "Analyze your lifting progress from the Strong or Hevy app logs to make better gains.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

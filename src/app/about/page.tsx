@@ -21,16 +21,20 @@ const Sections: {
         <Paragraph>
           Hello, Gym Rat, and Welcome to <b>Strong Progress</b>! This
           application is designed for weightlifting
-          enthusiasts who track their workouts using the Strong app.
+          enthusiasts who track their workouts using apps like Strong and Hevy.
           Its main goal is to help you analyze your workout logs to assess
           various aspects of your training progress.
         </Paragraph>
         <Paragraph>
-          Currently, the primary feature allows you to upload your Strong app
+          Currently, the primary feature allows you to upload your Strong or
+          Hevy app
           workout data (CSV) to visualize how well each of your lifts is
           progressing. This helps you spot potential plateaus, identify areas
           for improvement, and make more informed decisions about your training
           based on progressive overload principles.
+        </Paragraph>
+        <Paragraph>
+          Additionally, you can see your weekly volume per each muscle group.
         </Paragraph>
         <Paragraph>
           I&apos;ve starting building this initially for my own use, to dive
@@ -142,20 +146,19 @@ export default function AboutPage() {
           <Paragraph>
             I would love to hear your thoughts on this project!
             Get in touch on <Link href={RedditUrl} target={'_blank'}
-                      rel={'noopener noreferrer'}>
-                  <RedditOutlined/> Reddit
-                </Link>{' '}or{' '}
-                <Link href={GithubUrl} target={'_blank'}
-                      rel={'noopener noreferrer'}>
-                  <GithubOutlined/> GitHub
-                </Link>!
+                                  rel={'noopener noreferrer'}>
+            <RedditOutlined/> Reddit
+          </Link>{' '}or{' '}
+            <Link href={GithubUrl} target={'_blank'}
+                  rel={'noopener noreferrer'}>
+              <GithubOutlined/> GitHub
+            </Link>!
           </Paragraph>
           {
             Sections.map(({slug, title, content}) => {
-              return <div key={slug}
-                          style={{marginBottom: 24}}> {/* Added some bottom margin for spacing */}
+              return <div key={slug} style={{marginBottom: 24}}>
                 <Title level={2} id={slug}>{title}</Title>
-                {content} {/* Content is now rendered directly as it's JSX */}
+                {content}
               </div>;
             })
           }
